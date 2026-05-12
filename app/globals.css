@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --line-soft: rgba(10, 23, 51, 0.05);
+    --dark-line: rgba(255, 255, 255, 0.10);
+    --gold: #D4A84B;
+    --gold-2: #E8CA7A;
+    --navy: #0A1733;
+    --navy-2: #1E2D4A;
+  }
+
+  body {
+    @apply bg-bg text-ink antialiased font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: #0A1733;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .mask-radial {
+    mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%);
+  }
+
+  .mask-radial-center {
+    mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 75%);
+  }
+
+  .mask-radial-cta {
+    mask-image: radial-gradient(ellipse at 80% 20%, black 0%, transparent 60%);
+    -webkit-mask-image: radial-gradient(ellipse at 80% 20%, black 0%, transparent 60%);
+  }
+
+  .gold-text {
+    color: #E8CA7A;
+  }
+}
+
+/* ─── Eyebrow ─── */
+.eyebrow {
+  @apply font-mono text-[11px] tracking-[0.14em] uppercase text-muted inline-flex items-center gap-[10px];
+}
+.eyebrow::before {
+  content: "";
+  @apply w-[6px] h-[6px] bg-mustard rounded-none inline-block transform rotate-45;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 text-sm font-medium px-5 py-3 rounded-full transition-all duration-300 leading-none whitespace-nowrap cursor-pointer;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #0A1733 0%, #1E2D4A 100%);
+  @apply text-white hover:-translate-y-[2px] shadow-md hover:shadow-lg;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1E2D4A 0%, #2A3D5E 100%);
+}
+.btn-gold {
+  background: #E8CA7A;
+  @apply text-[#0A1733] font-semibold hover:-translate-y-[2px] shadow-md hover:shadow-xl;
+}
+.btn-gold:hover {
+  background: #F0D88A;
+}
+.btn-ghost {
+  @apply text-ink border border-line bg-transparent hover:border-ink hover:-translate-y-[1px];
+}
+.btn-mustard {
+  background: #E8CA7A;
+  @apply text-[#0A1733] font-semibold hover:-translate-y-[2px] shadow-md hover:shadow-xl;
+}
+.btn-mustard:hover {
+  background: #F0D88A;
+}
+.btn .arrow {
+  @apply transition-transform duration-300;
+}
+.btn:hover .arrow {
+  @apply translate-x-[4px];
+}
+
+/* ─── Animated gradient border ─── */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 30%, rgba(232, 202, 122, 0.5) 50%, transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ─── Scroll reveal animations ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─── Keyframes ─── */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 157, 69, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(197, 157, 69, 0); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -20; }
+}
+
+/* ─── Marquee ─── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Card hover glow ─── */
+.card-glow {
+  @apply transition-all duration-300;
+}
+.card-glow:hover {
+  box-shadow: 0 8px 30px -8px rgba(212, 168, 75, 0.25), 0 0 0 1px rgba(232, 202, 122, 0.2);
+  transform: translateY(-4px);
+}
+
+/* ─── Gold top-border on hover ─── */
+.card-gold-top {
+  position: relative;
+  overflow: hidden;
+}
+.card-gold-top::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #E8CA7A, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.card-gold-top:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─── Floating particles ─── */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(232, 202, 122, 0.4);
+  animation: float 6s ease-in-out infinite;
+}

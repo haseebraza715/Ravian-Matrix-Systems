@@ -1,0 +1,17 @@
+node_modules/
+node-v20.12.2-darwin-arm64/
+.next/
+out/
+dist/
+
+.DS_Store
+*.log
+
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+coverage/
+tsconfig.tsbuildinfo
