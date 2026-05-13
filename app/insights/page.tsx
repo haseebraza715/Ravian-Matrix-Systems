@@ -44,28 +44,30 @@ export default function InsightsPage() {
         description="Updates on GIS methods, remote sensing, and geospatial project insights."
       />
       
-      <section className="py-24 bg-bg border-b border-line">
+      <section className="py-24 bg-brand-black border-b border-white/5">
         <div className="max-w-[1000px] mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {placeholderPosts.map((post, index) => (
-              <Link href="#" key={index} className="group flex flex-col border border-line rounded-xl bg-paper p-8 transition-colors hover:border-mustard/40">
+              <Link href="#" key={index} className="group flex flex-col border border-white/5 rounded-xl bg-brand-dark p-8 transition-all hover:border-matrix/40 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)]">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="font-mono text-[10px] text-mustard-ink bg-mustard/10 px-2 py-1 rounded">
+                  <span className="font-mono text-[9px] tracking-wider text-matrix-muted bg-matrix/5 border border-matrix/20 px-2 py-1 rounded uppercase">
                     {post.category}
                   </span>
-                  <span className="font-mono text-[11px] text-muted">
+                  <span className="font-mono text-[10px] text-white/30">
                     {post.date}
                   </span>
                 </div>
-                <h3 className="text-xl font-medium tracking-tight mb-3 group-hover:text-mustard-ink transition-colors">
+                <h3 className="text-xl font-medium tracking-tight mb-3 text-brand-cream group-hover:text-matrix transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-[15px] text-ink-2 leading-relaxed">
+                <p className="text-[15px] text-white/50 leading-relaxed">
                   {post.excerpt}
                 </p>
-                <div className="mt-6 font-mono text-[11px] uppercase tracking-wider text-muted flex items-center gap-1 group-hover:text-mustard transition-colors">
+                <div className="mt-6 font-mono text-[11px] uppercase tracking-wider text-white/30 flex items-center gap-1 group-hover:text-matrix transition-colors">
                   Read article <span>→</span>
                 </div>
+                
+                <div className="absolute bottom-4 right-4 terminal-label opacity-0 group-hover:opacity-10 transition-opacity">DOC_REF_0x{index}</div>
               </Link>
             ))}
           </div>
