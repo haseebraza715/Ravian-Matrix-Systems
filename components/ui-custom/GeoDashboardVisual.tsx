@@ -99,7 +99,7 @@ export default function GeoDashboardVisual() {
             <span className="text-gold/80">SCAN_POS</span> 48.1351° N, 11.5820° E
           </div>
           
-          <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" className="w-full h-full block min-h-[520px] relative z-[1]" aria-hidden="true">
+          <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" width="600" height="520" className="w-full h-full block min-h-[520px] relative z-[1]" aria-hidden="true">
             <defs>
               <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
                 <stop offset="0%" stopColor="#8FBEDC" stopOpacity="0.05" />
@@ -206,7 +206,7 @@ export default function GeoDashboardVisual() {
           {/* Signal Indicator */}
           <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-black/40 px-2 py-1 rounded border border-white/5 backdrop-blur-sm">
              <span className="w-1.5 h-1.5 rounded-full bg-status-green animate-pulse"></span>
-             <span className="font-mono text-[8px] text-white/40 tracking-wider">SYNC_READY</span>
+             <span className="font-mono text-[8px] text-white/60 tracking-wider">SYNC_READY</span>
           </div>
         </div>
       </div>

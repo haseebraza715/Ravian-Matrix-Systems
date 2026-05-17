@@ -36,8 +36,8 @@ export default function ContactPage() {
                 </div>
                 <div className="border-b pb-4" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
                   <h4 className="font-mono text-[11px] tracking-[0.1em] uppercase mb-1.5 text-white/50">Contact</h4>
-                  <a href="mailto:info@raviannmatrixsystems.de" className="text-[16px] font-medium text-brand-cream hover:text-gold transition-colors">
-                    info@raviannmatrixsystems.de
+                  <a href="mailto:info@ravianmatrixsystems.de" className="text-[16px] font-medium text-brand-cream hover:text-gold transition-colors">
+                    info@ravianmatrixsystems.de
                   </a>
                 </div>
                 <div>

@@ -3,7 +3,6 @@ export const navLinks = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Solutions", href: "/solutions" },
-  { name: "Insights", href: "/insights" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -12,7 +11,6 @@ export const footerLinks = {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Insights", href: "/insights" },
     { name: "Contact", href: "/contact" },
   ],
   services: [
@@ -24,8 +22,6 @@ export const footerLinks = {
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms of Use", href: "#" },
-    { name: "Cookie Policy", href: "#" },
   ]
 };
 
