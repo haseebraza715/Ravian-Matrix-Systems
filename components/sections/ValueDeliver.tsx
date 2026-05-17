@@ -1,20 +1,20 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { FileText, Map, Monitor, Database, Satellite, Wrench } from "lucide-react";
+import { Monitor, FileText, Code, Database, Map, Wrench } from "lucide-react";
 
-const outputIcons = [FileText, Map, Monitor, Database, Satellite, Wrench];
+const outputIcons = [Monitor, FileText, Code, Database, Map, Wrench];
 
 export default function ValueDeliver() {
   const ref = useScrollReveal();
   
   const outputs = [
-    "Spatial analysis reports",
-    "Mapping products",
-    "WebGIS dashboards",
-    "Structured geospatial datasets",
-    "Remote sensing assessments",
-    "Decision-support tools"
+    "Company websites & web platforms",
+    "Admin dashboards & client portals",
+    "Custom business applications",
+    "Spatial analysis outputs & datasets",
+    "GIS dashboards & interactive maps",
+    "Workflow automation systems"
   ];
 
   return (
@@ -22,12 +22,12 @@ export default function ValueDeliver() {
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-20 items-start">
           <div>
-            <div className="reveal eyebrow text-gold/80 before:bg-gold">Outputs</div>
+            <div className="reveal eyebrow text-gold/80 before:bg-gold">Practical Delivery</div>
             <h2 className="reveal reveal-delay-1 text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.03em] font-medium mt-[18px] text-brand-cream">
-              Clear, structured, and reliable outputs.
+              Practical and scalable solutions.
             </h2>
             <p className="reveal reveal-delay-2 text-white/80 text-[16px] leading-[1.55] mt-6 max-w-[420px]">
-              We focus on delivering geospatial outputs that can be directly used in planning, reporting, and operational workflows.
+              Our focus is on solutions that can be used in real business environments, not just visually attractive designs or incomplete concepts.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function ValueDeliver() {
               return (
                 <div 
                   key={index} 
-                  className={`reveal reveal-delay-${Math.min(index + 1, 5)} group grid grid-cols-[48px_1fr_auto] gap-3 sm:gap-4 py-4 sm:py-5 px-4 sm:px-6 items-center border-l-[3px] border-l-transparent hover:border-l-gold hover:bg-gold/[0.03] transition-all duration-300 cursor-default ${index !== outputs.length - 1 ? 'border-b' : ''}`}
+                  className={`reveal reveal-delay-${Math.min(index + 1, 5)} group grid grid-cols-[48px_1fr_auto] gap-3 sm:gap-4 py-6 sm:py-8 px-5 sm:px-6 items-center border-l-[3px] border-l-transparent hover:border-l-gold hover:bg-gold/[0.03] transition-all duration-300 cursor-default ${index !== outputs.length - 1 ? 'border-b' : ''}`}
                   style={index !== outputs.length - 1 ? { borderBottomColor: 'rgba(255,255,255,0.08)' } : undefined}
                 >
                   <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gold group-hover:text-gold group-hover:bg-gold/10 transition-colors">

@@ -23,13 +23,13 @@ export default function ApplicationScope() {
           <div className="absolute -top-4 -right-4 terminal-label opacity-40">AREA_SCOPE_v2</div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {applicationScope.map((app, index) => {
             const Icon = scopeIcons[index] || Globe;
             return (
               <div 
                 key={index} 
-                className={`reveal reveal-delay-${Math.min(index % 3 + 1, 5)} group rounded-2xl p-6 sm:p-7 transition-all border hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:border-gold/20 hover:-translate-y-1`}
+                className={`reveal reveal-delay-${Math.min(index % 3 + 1, 5)} group rounded-2xl p-6 sm:p-7 border card-glow`}
                 style={{ background: '#050605', borderColor: 'rgba(255,255,255,0.08)' }}
               >
                 <div className="w-12 h-12 rounded-xl bg-brand-black flex items-center justify-center mb-5 group-hover:bg-brand-black group-hover:shadow-[0_0_15px_rgba(201,162,77,0.15)] transition-all border border-white/5">

@@ -99,7 +99,7 @@ export default function GeoDashboardVisual() {
             <span className="text-gold/80">SCAN_POS</span> 48.1351° N, 11.5820° E
           </div>
           
-          <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" className="w-full h-full block min-h-[520px] relative z-[1]">
+          <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" className="w-full h-full block min-h-[520px] relative z-[1]" aria-hidden="true">
             <defs>
               <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
                 <stop offset="0%" stopColor="#8FBEDC" stopOpacity="0.05" />
@@ -156,8 +156,8 @@ export default function GeoDashboardVisual() {
             <circle cx="320" cy="400" r="2" fill="#8FBEDC" />
 
             {/* Decorative Grid Labels */}
-            <text x="20" y="500" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.2)">EPSG:4326</text>
-            <text x="540" y="40" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.2)">UTM_Z32</text>
+            <text x="20" y="500" fontFamily="monospace" fontSize="8" fill="rgba(255,255,255,0.2)">EPSG:4326</text>
+            <text x="540" y="40" fontFamily="monospace" fontSize="8" fill="rgba(255,255,255,0.2)">UTM_Z32</text>
           </svg>
 
           {/* Floating HUD Elements */}

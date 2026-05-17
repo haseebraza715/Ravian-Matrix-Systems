@@ -5,7 +5,25 @@ import Footer from "@/components/site/Footer";
 
 export const metadata: Metadata = {
   title: "Ravian Matrix Systems",
-  description: "Advanced geospatial and IT systems for smarter decisions.",
+  description: "Geospatial Intelligence & Digital Solutions for Global Enterprises. Reliable GIS, web platforms, and custom software — from mapping to automation.",
+  metadataBase: new URL('https://ravianmatrixsystems.de'),
+  openGraph: {
+    title: 'Ravian Matrix Systems',
+    description: 'Geospatial Intelligence & Digital Solutions for Global Enterprises.',
+    url: 'https://ravianmatrixsystems.de',
+    siteName: 'Ravian Matrix Systems',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ravian Matrix Systems',
+    description: 'Geospatial Intelligence & Digital Solutions for Global Enterprises.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -22,7 +40,7 @@ export default function RootLayout({
       </head>
       <body className={`font-sans antialiased bg-bg text-ink min-h-screen flex flex-col`}>
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow pt-[72px]">{children}</main>
         <Footer />
       </body>
     </html>

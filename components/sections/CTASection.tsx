@@ -7,7 +7,7 @@ export default function CTASection() {
   const ref = useScrollReveal();
 
   return (
-    <section className="py-16 sm:py-[140px] relative overflow-hidden bg-brand-dark" ref={ref}>
+    <section className="py-24 sm:py-[140px] relative overflow-hidden bg-brand-dark" ref={ref}>
       {/* Matrix elements */}
       <div className="absolute inset-0 spatial-grid-overlay opacity-20 pointer-events-none"></div>
       <div className="absolute inset-0 bg-spatial-grid-dark bg-grid-lg pointer-events-none opacity-10"></div>
@@ -23,16 +23,16 @@ export default function CTASection() {
         <div className="flex flex-col items-center text-center">
           <div className="reveal eyebrow text-white/60 before:bg-gold mb-6">
              <span className="mr-2 terminal-label !opacity-100 text-gold/60">INIT_COLLAB</span> 
-             Let&apos;s build together
+             Let&apos;s Build Your Solution
           </div>
           <h2 className="reveal reveal-delay-1 text-[clamp(36px,4.6vw,56px)] leading-[1.05] tracking-[-0.03em] font-medium mb-6 text-balance text-white max-w-[700px]">
-            Ready to structure your <span className="text-gold">spatial data?</span>
+            You name IT, <span className="text-gold">We make IT.</span>
           </h2>
           <p className="reveal reveal-delay-2 text-[17.5px] text-white/90 leading-[1.6] mb-10 max-w-[500px]">
-            Share your project requirements and we will provide a structured approach and tailored quotation.
+            Tell us what you need, and we will help define the right approach. We respond within 24 hours with a non-binding quote.
           </p>
           <Link href="/contact" className="reveal reveal-delay-3 btn bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_30px_rgba(201,162,77,0.3)] text-base px-8 py-4 font-semibold transition-all">
-            Request a Quote <span className="arrow">→</span>
+            Request Non-Binding Quote <span className="arrow">→</span>
           </Link>
           
           <div className="reveal reveal-delay-4 mt-8 flex gap-4">

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import GeoDashboardVisual from "@/components/ui-custom/GeoDashboardVisual";
+import SpatialStreamVisual from "@/components/ui-custom/SpatialStreamVisual";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Hero() {
@@ -9,6 +10,9 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-brand-dark" ref={ref}>
+      {/* Premium Spatial Stream (Matrix-like) */}
+      <SpatialStreamVisual />
+      
       {/* Matrix Scanline */}
       <div className="scanline opacity-[0.05]"></div>
 
@@ -23,52 +27,50 @@ export default function Hero() {
         }}
       />
 
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 pt-[60px] sm:pt-[72px] pb-[80px] sm:pb-[96px]">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-stretch">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 pt-[clamp(60px,12vw,120px)] pb-[80px] sm:pb-[96px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-4 sm:gap-6 md:gap-8 lg:gap-14 items-stretch">
           <div>
             <div className="reveal eyebrow mb-6 sm:mb-7 text-white/80 flex items-center gap-3">
-              <span className="terminal-label !opacity-100 text-gold-soft">COORD_SYS_v2.1</span>
-              GIS · Remote Sensing · Geospatial Intelligence · IT
+              <span className="terminal-label !opacity-100 text-gold-soft">GEOSPATIAL · IT · AUTOMATION</span>
             </div>
             <h1 className="reveal reveal-delay-1 text-[clamp(36px,5.4vw,76px)] leading-[0.98] tracking-[-0.035em] font-medium mb-5 sm:mb-6 text-balance text-brand-cream">
-              Advanced geospatial and IT systems for{" "}
+              Geospatial Intelligence &amp; Digital Solutions for Global{" "}
               <em className="not-italic relative whitespace-nowrap text-gold">
-                smarter decisions
-                <span className="absolute left-0 right-0 bottom-[0.06em] h-[1px] -z-10" style={{ background: '#C9A24D', opacity: 0.5 }} />
+                Enterprises
+                <span className="absolute left-0 right-0 bottom-[0.06em] h-[1px] -z-10 shadow-[0_0_12px_rgba(201,162,77,0.8)]" style={{ background: '#C9A24D', opacity: 0.8 }} />
               </em>.
             </h1>
             <p className="reveal reveal-delay-2 text-[17px] sm:text-[18px] leading-[1.5] max-w-[560px] mb-8 sm:mb-9 text-white/80">
-              We build structured GIS, remote sensing, WebGIS, and data-driven solutions for planning, monitoring, analysis, and operational workflows.
+              Reliable GIS, web platforms, and custom software — from mapping to automation. Proven geospatial systems, not slideware.
             </p>
-            <div className="reveal reveal-delay-3 flex gap-3 items-center flex-wrap">
-              <Link href="/contact" className="btn bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(201,162,77,0.2)] transition-all">
-                Request a Quote <span className="arrow">→</span>
-              </Link>
-              <Link href="/services" className="btn border border-white/20 bg-transparent text-brand-cream hover:border-gold/50 hover:text-gold transition-all">
-                View Services
-              </Link>
+            <div className="reveal reveal-delay-3 flex flex-col items-start gap-2">
+              <div className="flex gap-3 items-center flex-wrap">
+                <Link href="/contact" className="btn bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(201,162,77,0.2)] transition-all">
+                  Get a Quote <span className="arrow">→</span>
+                </Link>
+                <Link href="/services" className="btn border border-white/20 bg-transparent text-brand-cream hover:border-gold/50 hover:text-gold transition-all">
+                  Explore Services
+                </Link>
+              </div>
+              <span className="text-[11px] text-white/50 ml-5">* Non-binding discussion</span>
             </div>
             
             {/* Stats bar */}
-            <div className="reveal reveal-delay-4 flex gap-6 sm:gap-10 mt-10 sm:mt-12 pt-6 sm:pt-7 border-t max-w-[520px]" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-              <div className="flex-1">
-                <div className="font-mono text-[11px] tracking-[0.12em] uppercase mb-1.5 flex justify-between text-white/60">
-                  Projects <span className="terminal-label">GEOSPATIAL_STAT</span>
+            <div className="reveal reveal-delay-4 flex flex-wrap gap-8 sm:gap-10 mt-10 sm:mt-12 pt-6 sm:pt-7 border-t max-w-[520px]" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+              <div>
+                <div className="font-mono text-[10px] tracking-[0.12em] uppercase mb-2 text-white/50">
+                  Trusted across <span className="text-gold">EU & MENA</span>
                 </div>
-                <div className="text-[15px] font-medium text-brand-cream">62 across 14 countries</div>
+                <div className="text-[20px] sm:text-[22px] font-semibold text-brand-cream tracking-tight">62 Projects in 14 Countries</div>
               </div>
-              <div className="flex-1">
-                <div className="font-mono text-[11px] tracking-[0.12em] uppercase mb-1.5 text-white/60">Disciplines</div>
-                <div className="text-[15px] font-medium text-brand-cream">GIS · RS · IT</div>
-              </div>
-              <div className="flex-1 hidden sm:block">
-                <div className="font-mono text-[11px] tracking-[0.12em] uppercase mb-1.5 text-white/60">Avg. delivery</div>
-                <div className="text-[15px] font-medium text-brand-cream">8 weeks</div>
+              <div>
+                <div className="font-mono text-[10px] tracking-[0.12em] uppercase mb-2 text-white/50">Core Disciplines</div>
+                <div className="text-[20px] sm:text-[22px] font-semibold text-brand-cream tracking-tight">GIS · RS · IT</div>
               </div>
             </div>
           </div>
 
-          <div className="reveal reveal-delay-2 w-full">
+          <div className="reveal reveal-delay-2 w-full hidden md:block">
             <div 
               className="rounded-[14px] overflow-hidden group" 
               style={{ 

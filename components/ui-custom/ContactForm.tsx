@@ -10,19 +10,23 @@ export default function ContactForm() {
       <div className="flex flex-col gap-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
-            <label className="font-mono text-[10px] tracking-widest uppercase text-gold/80">First Name</label>
+            <label htmlFor="firstName" className="font-mono text-[10px] tracking-widest uppercase text-gold/80">First Name</label>
             <input 
+              id="firstName"
               type="text" 
-              className="border rounded-lg px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all shadow-sm"
+              maxLength={100}
+              className="border rounded-lg px-3 sm:px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/50 transition-all shadow-sm"
               style={{ background: '#0E0E0C', borderColor: 'rgba(255,255,255,0.1)' }}
               required
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Last Name</label>
+            <label htmlFor="lastName" className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Last Name</label>
             <input 
+              id="lastName"
               type="text" 
-              className="border rounded-lg px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all shadow-sm"
+              maxLength={100}
+              className="border rounded-lg px-3 sm:px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/50 transition-all shadow-sm"
               style={{ background: '#0E0E0C', borderColor: 'rgba(255,255,255,0.1)' }}
               required
             />
@@ -30,20 +34,23 @@ export default function ContactForm() {
         </div>
         
         <div className="flex flex-col gap-2">
-          <label className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Email Address</label>
+          <label htmlFor="email" className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Email Address</label>
           <input 
+            id="email"
             type="email" 
-            className="border rounded-full px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all shadow-sm"
+            maxLength={100}
+            className="border rounded-full px-3 sm:px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/50 transition-all shadow-sm"
             style={{ background: '#0E0E0C', borderColor: 'rgba(255,255,255,0.1)' }}
             required
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Project Type</label>
+          <label htmlFor="projectType" className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Project Type</label>
           <div className="relative">
             <select 
-              className="w-full border rounded-full px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all shadow-sm appearance-none cursor-pointer"
+              id="projectType"
+              className="w-full border rounded-full px-3 sm:px-4 py-2.5 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/50 transition-all shadow-sm appearance-none cursor-pointer"
               style={{ background: '#0E0E0C', borderColor: 'rgba(255,255,255,0.1)' }}
             >
               <option className="bg-[#0E0E0C]">GIS Analysis</option>
@@ -62,17 +69,19 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Project Details</label>
+          <label htmlFor="projectDetails" className="font-mono text-[10px] tracking-widest uppercase text-gold/80">Project Details</label>
           <textarea 
+            id="projectDetails"
             rows={4}
-            className="border rounded-2xl px-4 py-3 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/10 transition-all shadow-sm resize-y"
+            maxLength={1000}
+            className="border rounded-2xl px-3 sm:px-4 py-3 text-[14px] text-brand-cream focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/50 transition-all shadow-sm resize-y"
             style={{ background: '#0E0E0C', borderColor: 'rgba(255,255,255,0.1)' }}
             placeholder="Tell us about your requirements..."
             required
           ></textarea>
         </div>
 
-        <button type="submit" className="btn bg-gold text-brand-black hover:bg-gold-soft mt-2 justify-center py-3.5 transition-all shadow-[0_0_20px_rgba(201,162,77,0.2)] hover:shadow-[0_0_30px_rgba(201,162,77,0.4)] font-semibold px-8 self-start">
+        <button type="submit" className="btn bg-gold text-brand-black hover:bg-gold-soft mt-2 justify-center py-3.5 transition-all shadow-[0_0_20px_rgba(201,162,77,0.2)] hover:shadow-[0_0_30px_rgba(201,162,77,0.4)] font-semibold px-8 self-start focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-[#050605]">
           Submit Request <span className="arrow">→</span>
         </button>
       </div>

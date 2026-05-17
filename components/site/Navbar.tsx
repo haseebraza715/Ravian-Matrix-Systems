@@ -9,7 +9,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-xl border-b shadow-sm" style={{ background: 'rgba(5,6,5,0.85)', borderColor: 'rgba(255,255,255,0.08)' }}>
+    <nav className="fixed w-full top-0 z-50 backdrop-blur-xl border-b shadow-sm" style={{ background: 'rgba(5,6,5,0.85)', borderColor: 'rgba(255,255,255,0.08)' }}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-4">
@@ -20,6 +20,7 @@ export default function Navbar() {
               height={70} 
               className="h-10 sm:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-500"
               priority
+              aria-hidden="true"
             />
             <div className="hidden lg:block">
                <span className="terminal-label !opacity-80 text-gold/80">RAVIAN_SYSTEMS_v2.1</span>
@@ -32,22 +33,22 @@ export default function Navbar() {
               <Link 
                 key={link.name} 
                 href={link.href} 
-                className="text-[13px] font-medium tracking-wide transition-colors relative group text-white/70 hover:text-white"
+                className="text-[13px] font-medium tracking-wide transition-all relative group text-white/70 hover:text-white px-3 py-1.5 rounded-md hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-gold/50"
               >
                 <span className="group-hover:text-gold transition-colors">{link.name}</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gold opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
               </Link>
             ))}
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/contact" className="btn hidden md:inline-flex text-[13px] bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(201,162,77,0.3)] transition-all">
-              Start a project <span className="arrow">→</span>
+            <Link href="/contact" className="btn max-md:!hidden md:inline-flex text-[13px] bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(201,162,77,0.3)] transition-all focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-brand-black">
+              Request Quote <span className="arrow">→</span>
             </Link>
             
             {/* Mobile menu button */}
             <button 
-              className="md:hidden flex flex-col gap-1.5 p-2"
+              className="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >

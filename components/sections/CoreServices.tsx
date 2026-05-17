@@ -2,18 +2,13 @@
 
 import { coreServices } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { MapPin, Satellite, Droplets, Leaf, Plane, Database, Globe, Code, Cog } from "lucide-react";
+import { MapPin, Globe, Code, TrendingUp } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
-  "GIS Analysis": <MapPin className="w-5 h-5" />,
-  "Remote Sensing": <Satellite className="w-5 h-5" />,
-  "Hydrological Modeling": <Droplets className="w-5 h-5" />,
-  "Environmental Monitoring": <Leaf className="w-5 h-5" />,
-  "Aviation Spatial Systems": <Plane className="w-5 h-5" />,
-  "Spatial Database Structuring": <Database className="w-5 h-5" />,
-  "WebGIS Solutions": <Globe className="w-5 h-5" />,
-  "IT & Web Development": <Code className="w-5 h-5" />,
-  "Data & Automation": <Cog className="w-5 h-5" />,
+  "Web Solutions": <Globe className="w-5 h-5" />,
+  "Software Development": <Code className="w-5 h-5" />,
+  "Geospatial Intelligence": <MapPin className="w-5 h-5" />,
+  "Digital Growth": <TrendingUp className="w-5 h-5" />,
 };
 
 export default function CoreServices() {
@@ -34,15 +29,15 @@ export default function CoreServices() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {coreServices.map((svc, index) => (
             <div 
               key={svc.id} 
-              className={`reveal reveal-delay-${Math.min(index % 3 + 1, 5)} group p-6 sm:p-8 min-h-[280px] flex flex-col relative border rounded-2xl transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)]`}
+              className={`reveal reveal-delay-${Math.min(index % 3 + 1, 5)} group p-6 sm:p-8 min-h-[280px] flex flex-col relative border rounded-2xl overflow-hidden card-glow`}
               style={{ background: '#050605', borderColor: 'rgba(255,255,255,0.08)' }}
             >
-              {/* Matrix Grid Overlay (visible on hover) */}
-              <div className="absolute inset-0 matrix-grid-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              {/* Spatial Grid Overlay (visible on hover) */}
+              <div className="absolute inset-0 spatial-grid-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               
               {/* Scanline effect on hover */}
               <div className="absolute inset-0 scanline opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500"></div>

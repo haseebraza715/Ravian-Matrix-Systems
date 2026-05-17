@@ -23,7 +23,7 @@ export const footerLinks = {
     { name: "Data & Automation", href: "/services" },
   ],
   legal: [
-    { name: "Privacy Policy", href: "#" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Terms of Use", href: "#" },
     { name: "Cookie Policy", href: "#" },
   ]
@@ -31,67 +31,32 @@ export const footerLinks = {
 
 export const coreServices = [
   {
-    id: "gis-analysis",
-    title: "GIS Analysis",
-    description: "Spatial data analysis grounded in geography, from site-suitability scoring to network and hotspot analysis.",
-    tags: ["GeoPandas", "Turf.js", "Spatial Joins", "Analysis"],
-    icon: "layers"
+    id: "web-solutions",
+    title: "Web Solutions",
+    description: "Professional business websites, responsive interfaces, and digital platforms that clearly present your services.",
+    tags: ["Business Websites", "Web Platforms", "Maintenance"],
+    icon: "globe"
   },
   {
-    id: "remote-sensing",
-    title: "Remote Sensing",
-    description: "Automated remote sensing workflows including NDVI, change detection, and drone orthomosaics.",
-    tags: ["Sentinel-2", "GEE", "Change Detection", "UAV"],
-    icon: "radar"
-  },
-  {
-    id: "hydro-modeling",
-    title: "Hydrological Modeling",
-    description: "Advanced modeling of watersheds, flood risks, and water resources using precise topographical data.",
-    tags: ["Watersheds", "Flood Risk", "HEC-RAS"],
-    icon: "water"
-  },
-  {
-    id: "env-monitoring",
-    title: "Environmental Monitoring",
-    description: "Tracking land use, vegetation health, and ecological changes through continuous geospatial analysis.",
-    tags: ["Land Use", "Ecology", "Time-series"],
-    icon: "leaf"
-  },
-  {
-    id: "aviation",
-    title: "Aviation Spatial Systems",
-    description: "Specialized mapping and spatial data infrastructure for airspace management and aviation planning.",
-    tags: ["Airspace", "Obstacles", "Aero Data"],
-    icon: "plane"
-  },
-  {
-    id: "spatial-db",
-    title: "Spatial Database Structuring",
-    description: "Design and deployment of robust, scalable databases tuned specifically for spatial data and queries.",
-    tags: ["PostGIS", "DuckDB", "Architecture"],
-    icon: "database"
-  },
-  {
-    id: "webgis",
-    title: "WebGIS Solutions",
-    description: "Map-first platforms with editable layers, custom basemaps, and secured roles.",
-    tags: ["Mapbox", "MapLibre", "Dashboards"],
-    icon: "map"
-  },
-  {
-    id: "it-web",
-    title: "IT & Web Development",
-    description: "Modern websites, web apps, and internal tools built for clarity and deployed to last.",
-    tags: ["Next.js", "React", "Node"],
+    id: "software-development",
+    title: "Software Development",
+    description: "Custom business applications, backend systems, and workflow automation tailored to your operational needs.",
+    tags: ["Custom Apps", "Dashboards", "API Integration"],
     icon: "code"
   },
   {
-    id: "automation",
-    title: "Data & Automation",
-    description: "Replacing manual tasks with pipelines that ingest, transform, alert, and report on schedule.",
-    tags: ["Pipelines", "ETL", "Airflow"],
-    icon: "workflow"
+    id: "geospatial-intelligence",
+    title: "Geospatial Intelligence",
+    description: "Spatial data analysis, GIS mapping, and remote sensing for location-based decision support.",
+    tags: ["GIS Analysis", "WebGIS", "Remote Sensing"],
+    icon: "map"
+  },
+  {
+    id: "digital-growth",
+    title: "Digital Growth",
+    description: "Improving online visibility through structured marketing, SEO, brand presentation, and creative communication.",
+    tags: ["SEO", "Digital Marketing", "Brand Presentation"],
+    icon: "trending"
   }
 ];
 

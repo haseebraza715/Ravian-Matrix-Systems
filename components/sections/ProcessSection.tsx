@@ -36,7 +36,7 @@ export default function ProcessSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-0 relative">
           {/* Connecting Data Stream Line (Desktop) */}
           <div className="hidden lg:block absolute top-[52px] left-[50px] right-[50px] h-[1px] bg-gradient-to-r from-gold/0 via-gold/20 to-gold/0">
              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold to-transparent w-20 animate-dash-flow opacity-30" style={{ animation: 'marquee 4s linear infinite' }}></div>
@@ -47,7 +47,7 @@ export default function ProcessSection() {
             return (
               <div 
                 key={index} 
-                className={`reveal reveal-delay-${Math.min(index + 1, 5)} group relative pt-8 pb-10 px-6 transition-all duration-500 hover:bg-gold/[0.02]`}
+                className={`reveal reveal-delay-${Math.min(index + 1, 5)} group relative py-6 sm:py-8 px-5 sm:px-6 transition-all duration-500 hover:bg-gold/[0.02]`}
               >
                 {/* Step number circle */}
                 <div className="w-12 h-12 rounded-lg bg-brand-black border border-white/10 flex items-center justify-center mb-8 relative z-10 group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(201,162,77,0.2)] transition-all">
