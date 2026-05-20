@@ -9,7 +9,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full top-0 z-50 backdrop-blur-xl border-b shadow-sm" style={{ background: 'rgba(5,6,5,0.85)', borderColor: 'rgba(255,255,255,0.08)' }}>
+    <nav className="fixed w-full top-0 z-50 backdrop-blur-xl border-b shadow-sm" style={{ background: 'rgba(3,16,38,0.85)', borderColor: 'rgba(94,111,130,0.15)' }}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-4">
@@ -18,7 +18,7 @@ export default function Navbar() {
               alt="Ravian Matrix Systems" 
               width={280} 
               height={70} 
-              className="h-10 sm:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-500"
+              className="h-10 sm:h-12 w-auto object-contain transition-all duration-500"
               priority
               aria-hidden="true"
             />
@@ -33,7 +33,7 @@ export default function Navbar() {
               <Link 
                 key={link.name} 
                 href={link.href} 
-                className="text-[13px] font-medium tracking-wide transition-all relative group text-white/70 hover:text-white px-3 py-1.5 rounded-md hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-gold/50"
+                className="text-[13.5px] font-medium tracking-wide transition-all relative group text-white/70 hover:text-white px-3 py-1.5 rounded-md hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-gold/50"
               >
                 <span className="group-hover:text-gold transition-colors">{link.name}</span>
                 <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-gold opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
@@ -42,7 +42,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link href="/contact" className="btn max-md:!hidden md:inline-flex text-[13px] bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(201,162,77,0.3)] transition-all focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-brand-black">
+            <Link href="/contact" className="btn max-md:!hidden md:inline-flex text-[13px] bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(212,166,47,0.3)] transition-all focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-brand-black">
               Request Quote <span className="arrow">→</span>
             </Link>
             
@@ -61,7 +61,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile drawer */}
-      <div className={`md:hidden overflow-hidden transition-all duration-500 border-t ${mobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'}`} style={{ borderColor: 'rgba(255,255,255,0.08)', background: '#050605' }}>
+      <div className={`md:hidden overflow-hidden transition-all duration-500 border-t ${mobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'}`} style={{ borderColor: 'rgba(94,111,130,0.15)', background: '#031026' }}>
         <div className="px-6 sm:px-8 py-6 flex flex-col gap-4">
           {navLinks.map((link) => (
             <Link 
