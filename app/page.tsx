@@ -1,25 +1,34 @@
+import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
+import KpiStrip from "@/components/sections/KpiStrip";
 import ServiceStrip from "@/components/sections/ServiceStrip";
+import IntroSection from "@/components/sections/IntroSection";
 import CoreServices from "@/components/sections/CoreServices";
-import ApplicationScope from "@/components/sections/ApplicationScope";
+import WhyWorkWithUs from "@/components/sections/WhyWorkWithUs";
 import ValueDeliver from "@/components/sections/ValueDeliver";
-import SolutionsPreview from "@/components/sections/SolutionsPreview";
+import ServiceHighlights from "@/components/sections/ServiceHighlights";
 import ProcessSection from "@/components/sections/ProcessSection";
 import CTASection from "@/components/sections/CTASection";
-import InsightsSignup from "@/components/sections/InsightsSignup";
+
+export const metadata: Metadata = {
+  title: "Ravian Matrix Systems | IT, Web, Geospatial & Digital Solutions",
+  description: "Reliable digital solutions for businesses that need professional web systems, custom software, geospatial intelligence, and digital growth support.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
+      <KpiStrip />
       <ServiceStrip />
+      <IntroSection />
       <CoreServices />
-      <ApplicationScope />
+      <WhyWorkWithUs />
       <ValueDeliver />
-      <SolutionsPreview />
+      <ServiceHighlights />
       <ProcessSection />
       <CTASection />
-      <InsightsSignup />
     </div>
   );
 }

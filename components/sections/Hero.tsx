@@ -1,95 +1,72 @@
 "use client";
 
 import Link from "next/link";
-import GeoDashboardVisual from "@/components/ui-custom/GeoDashboardVisual";
-import SpatialStreamVisual from "@/components/ui-custom/SpatialStreamVisual";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import dynamic from "next/dynamic";
+
+const InteractiveGlobe = dynamic(() => import("@/components/ui-custom/InteractiveGlobe"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-transparent" />,
+});
 
 export default function Hero() {
   const ref = useScrollReveal();
 
   return (
-    <section className="relative overflow-hidden bg-brand-dark" ref={ref}>
-      {/* Premium Spatial Stream (Matrix-like) */}
-      <SpatialStreamVisual />
-      
-      {/* Matrix Scanline */}
-      <div className="scanline opacity-[0.05]"></div>
+    <section className="relative overflow-hidden bg-bg-base min-h-[88vh] flex items-center justify-center pt-20 pb-16 sm:pb-20" ref={ref}>
+      {/* 3D Interactive Canvas Globe in Background - Centered, hidden on mobile */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none hidden lg:block mask-radial-center opacity-50">
+        <InteractiveGlobe />
+      </div>
 
-      {/* Grid background */}
+      {/* Ambient champagne radial glow top-left behind H1 */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[150px] pointer-events-none z-0" />
+
+      {/* Grid ambient overlay */}
       <div 
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-0"
         style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-          maskImage: 'radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at 50% 0%, black 0%, transparent 70%)',
+          backgroundImage: 'linear-gradient(rgba(30,42,64,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(30,42,64,0.04) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+          maskImage: 'radial-gradient(ellipse at 50% 50%, black 40%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at 50% 50%, black 40%, transparent 100%)',
         }}
       />
 
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 pt-[clamp(60px,12vw,120px)] pb-[80px] sm:pb-[96px]">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-4 sm:gap-6 md:gap-8 lg:gap-14 items-stretch">
-          <div>
-            <div className="reveal eyebrow mb-6 sm:mb-7 text-white/80 flex items-center gap-3">
-              <span className="terminal-label !opacity-100 text-gold-soft">GEOSPATIAL · IT · AUTOMATION</span>
-            </div>
-            <h1 className="reveal reveal-delay-1 text-[clamp(36px,5.4vw,76px)] leading-[0.98] tracking-[-0.035em] font-medium mb-5 sm:mb-6 text-balance text-brand-cream">
-              Geospatial Intelligence &amp; Digital Solutions for Global{" "}
-              <em className="not-italic relative whitespace-nowrap text-gold">
-                Enterprises
-                <span className="absolute left-0 right-0 bottom-[0.06em] h-[1px] -z-10 shadow-[0_0_12px_rgba(201,162,77,0.8)]" style={{ background: '#C9A24D', opacity: 0.8 }} />
-              </em>.
-            </h1>
-            <p className="reveal reveal-delay-2 text-[17px] sm:text-[18px] leading-[1.5] max-w-[560px] mb-8 sm:mb-9 text-white/80">
-              Reliable GIS, web platforms, and custom software — from mapping to automation. Proven geospatial systems, not slideware.
-            </p>
-            <div className="reveal reveal-delay-3 flex flex-col items-start gap-2">
-              <div className="flex gap-3 items-center flex-wrap">
-                <Link href="/contact" className="btn bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(201,162,77,0.2)] transition-all">
-                  Get a Quote <span className="arrow">→</span>
-                </Link>
-                <Link href="/services" className="btn border border-white/20 bg-transparent text-brand-cream hover:border-gold/50 hover:text-gold transition-all">
-                  Explore Services
-                </Link>
-              </div>
-              <span className="text-[11px] text-white/50 ml-5">* Non-binding discussion</span>
-            </div>
-            
-            {/* Stats bar */}
-            <div className="reveal reveal-delay-4 flex flex-wrap gap-8 sm:gap-10 mt-10 sm:mt-12 pt-6 sm:pt-7 border-t max-w-[520px]" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
-              <div>
-                <div className="font-mono text-[10px] tracking-[0.12em] uppercase mb-2 text-white/50">
-                  Trusted across <span className="text-gold">EU & MENA</span>
-                </div>
-                <div className="text-[20px] sm:text-[22px] font-semibold text-brand-cream tracking-tight">62 Projects in 14 Countries</div>
-              </div>
-              <div>
-                <div className="font-mono text-[10px] tracking-[0.12em] uppercase mb-2 text-white/50">Core Disciplines</div>
-                <div className="text-[20px] sm:text-[22px] font-semibold text-brand-cream tracking-tight">GIS · RS · IT</div>
-              </div>
-            </div>
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 relative z-10 w-full flex flex-col items-center justify-center text-center">
+        <div className="max-w-[860px] flex flex-col items-center">
+
+          <div className="reveal eyebrow mb-6">Ravian Matrix Systems</div>
+
+          {/* Punch headline — sized to feel confident but not eat the page */}
+          <h1 className="reveal reveal-delay-1 font-display font-semibold text-balance text-primary tracking-[-0.03em] leading-[1.0] mb-7 text-[clamp(44px,7vw,88px)]">
+            You name <span className="italic text-gold">IT.</span> <br className="sm:hidden" />
+            We make <span className="italic text-gold">IT.</span>
+          </h1>
+
+          <p className="reveal reveal-delay-2 text-[15px] sm:text-[17px] leading-[1.65] max-w-[700px] mb-8 text-muted">
+            We design and deliver reliable digital solutions for businesses that need professional web systems, custom software, geospatial intelligence, and digital growth support.
+            From websites and business applications to GIS-based analysis, automation, branding, and digital visibility, we help turn requirements into practical and scalable solutions.
+          </p>
+
+          <div className="reveal reveal-delay-3 flex flex-row items-center justify-center gap-6 flex-wrap">
+            <Link href="/contact" className="btn btn-primary">
+              Request Non-Binding Quote <span className="arrow">→</span>
+            </Link>
+            <Link href="/services" className="group text-[14px] font-semibold text-muted hover:text-primary transition-colors flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm">
+              Explore Services <span className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
           </div>
 
-          <div className="reveal reveal-delay-2 w-full hidden md:block">
-            <div 
-              className="rounded-[14px] overflow-hidden group" 
-              style={{ 
-                border: '1px solid rgba(255,255,255,0.1)', 
-                background: '#050605', 
-                boxShadow: '0 0 30px rgba(0,0,0,0.5)',
-                animation: 'float 8s ease-in-out infinite',
-              }}
-            >
-              <GeoDashboardVisual />
-            </div>
-            
-            {/* Floating terminal coordinates near the visual */}
-            <div className="mt-4 flex justify-between px-2">
-               <span className="terminal-label !opacity-30">SCAN_AREA: [48.13, 11.58]</span>
-               <span className="terminal-label !opacity-30">SPATIAL_LOCK: ACTIVE</span>
-            </div>
-          </div>
         </div>
+      </div>
+
+      {/* Scroll cue — separated from content stack so positioning is clean */}
+      <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 pointer-events-none select-none animate-bounce z-10">
+        <span className="font-mono text-[9px] tracking-[0.2em] text-muted/60 uppercase">Scroll</span>
+        <svg className="w-4 h-4 text-gold/60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
       </div>
     </section>
   );

@@ -91,8 +91,6 @@ export default function GeoDashboardVisual() {
 
         {/* Main Map Canvas */}
         <div className="relative overflow-hidden min-h-[400px] bg-[#050605]">
-          {/* Subtle Grid Overlay */}
-          <div className="absolute inset-0 spatial-grid-overlay opacity-20 pointer-events-none"></div>
 
           {/* Coordinate Readout */}
           <div className="absolute top-4 left-4 font-mono text-[9px] text-white/70 bg-black/60 px-2 py-1.5 border border-white/10 rounded backdrop-blur-md z-10 flex items-center gap-3">

@@ -1,56 +1,72 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Monitor, FileText, Code, Database, Map, Wrench } from "lucide-react";
+import { 
+  Globe, Laptop, AppWindow, Layout, UserCheck, Briefcase, 
+  MapPin, Compass, BarChart3, Shield, FileText, Settings
+} from "lucide-react";
+import { Card } from "@/components/ui-custom/Card";
 
-const outputIcons = [Monitor, FileText, Code, Database, Map, Wrench];
+const buildItems = [
+  { name: "Company Websites", icon: Globe },
+  { name: "Business Web Platforms", icon: Laptop },
+  { name: "Custom Applications", icon: AppWindow },
+  { name: "Admin Dashboards", icon: Layout },
+  { name: "Client Portals", icon: UserCheck },
+  { name: "Job Portal Systems", icon: Briefcase },
+  { name: "GIS Dashboards", icon: BarChart3 },
+  { name: "Interactive Maps", icon: Compass },
+  { name: "Spatial Analysis Outputs", icon: MapPin },
+  { name: "Digital Business Profiles", icon: Shield },
+  { name: "Marketing & Design Materials", icon: FileText },
+  { name: "Workflow Automation Systems", icon: Settings }
+];
 
 export default function ValueDeliver() {
   const ref = useScrollReveal();
-  
-  const outputs = [
-    "Company websites & web platforms",
-    "Admin dashboards & client portals",
-    "Custom business applications",
-    "Spatial analysis outputs & datasets",
-    "GIS dashboards & interactive maps",
-    "Workflow automation systems"
-  ];
 
   return (
-    <section className="py-16 sm:py-[120px] bg-brand-black" ref={ref} style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+    <section className="py-20 sm:py-32 bg-bg-base" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-center">
+          
+          {/* Left Block */}
           <div>
-            <div className="reveal eyebrow text-gold/80 before:bg-gold">Practical Delivery</div>
-            <h2 className="reveal reveal-delay-1 text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.03em] font-medium mt-[18px] text-brand-cream">
-              Practical and scalable solutions.
+            <div className="reveal eyebrow mb-4">What We Can Build</div>
+            <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[46px] leading-[1.08] font-bold text-primary">
+              What We Can <span className="text-gold">Build</span>
             </h2>
-            <p className="reveal reveal-delay-2 text-white/80 text-[16px] leading-[1.55] mt-6 max-w-[420px]">
-              Our focus is on solutions that can be used in real business environments, not just visually attractive designs or incomplete concepts.
+            <p className="reveal reveal-delay-2 text-muted text-[16px] leading-[1.6] mt-6 max-w-[420px]">
+              We support different types of digital and technical projects, including the categories listed in the home PDF.
             </p>
           </div>
 
-          <div className="flex flex-col rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] border" style={{ background: '#050605', borderColor: 'rgba(255,255,255,0.08)' }}>
-            {outputs.map((output, index) => {
-              const Icon = outputIcons[index] || FileText;
+          {/* Right Block - 2 Column Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {buildItems.map((item, index) => {
+              const Icon = item.icon;
               return (
                 <div 
                   key={index} 
-                  className={`reveal reveal-delay-${Math.min(index + 1, 5)} group grid grid-cols-[48px_1fr_auto] gap-3 sm:gap-4 py-6 sm:py-8 px-5 sm:px-6 items-center border-l-[3px] border-l-transparent hover:border-l-gold hover:bg-gold/[0.03] transition-all duration-300 cursor-default ${index !== outputs.length - 1 ? 'border-b' : ''}`}
-                  style={index !== outputs.length - 1 ? { borderBottomColor: 'rgba(255,255,255,0.08)' } : undefined}
+                  className={`reveal reveal-delay-${Math.min(Math.floor(index / 2) + 1, 5)}`}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gold group-hover:text-gold group-hover:bg-gold/10 transition-colors">
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <h4 className="text-[16px] font-medium tracking-[-0.01em] m-0 text-brand-cream group-hover:text-gold transition-colors">{output}</h4>
-                  <div className="font-mono text-[9px] tracking-wider text-gold/80 bg-gold/10 px-2.5 py-1 rounded-full whitespace-nowrap hidden sm:block border border-gold/20 uppercase">
-                    Deliverable
-                  </div>
+                  <Card 
+                    hoverEffect
+                    glow
+                    className="flex gap-4 p-5 items-center bg-bg-surface border-line"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-bg-base border border-line flex items-center justify-center text-gold group-hover:bg-gold/10 transition-all duration-300 flex-shrink-0">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-[15.5px] font-semibold tracking-tight text-primary transition-colors duration-300">
+                      {item.name}
+                    </h3>
+                  </Card>
                 </div>
               );
             })}
           </div>
+
         </div>
       </div>
     </section>
