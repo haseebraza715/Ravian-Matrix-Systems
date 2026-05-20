@@ -2,7 +2,7 @@ export const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Solutions", href: "/solutions" },
+  { name: "Case Studies", href: "/work" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -11,47 +11,49 @@ export const footerLinks = {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
+    { name: "Case Studies", href: "/work" },
     { name: "Contact", href: "/contact" },
+    { name: "Request a Quote", href: "/contact" },
   ],
   services: [
-    { name: "GIS Analysis", href: "/services" },
-    { name: "Remote Sensing", href: "/services" },
-    { name: "WebGIS Solutions", href: "/services" },
-    { name: "IT & Web Development", href: "/services" },
-    { name: "Data & Automation", href: "/services" },
+    { name: "Web Development", href: "/services/web-development" },
+    { name: "Software Development", href: "/services/software-development" },
+    { name: "Geospatial Intelligence", href: "/services/geospatial-intelligence" },
+    { name: "Digital Growth", href: "/services/digital-growth" },
   ],
   legal: [
+    { name: "Impressum", href: "/impressum" },
     { name: "Privacy Policy", href: "/privacy-policy" },
   ]
 };
 
 export const coreServices = [
   {
-    id: "web-solutions",
+    id: "web-development",
     title: "Web Solutions",
-    description: "Professional business websites, responsive interfaces, and digital platforms that clearly present your services.",
-    tags: ["Business Websites", "Web Platforms", "Maintenance"],
+    description: "We design and develop professional web solutions that help businesses present their services clearly, build trust, and create a smooth user experience.",
+    tags: ["Business websites", "Web platforms", "Responsive interfaces", "Website redesign", "Web system improvements", "Maintenance and support"],
     icon: "globe"
   },
   {
     id: "software-development",
     title: "Software Development",
-    description: "Custom business applications, backend systems, and workflow automation tailored to your operational needs.",
-    tags: ["Custom Apps", "Dashboards", "API Integration"],
+    description: "We develop custom software solutions that support business operations, data management, workflows, users, and digital processes.",
+    tags: ["Custom business applications", "Web-based applications", "Backend systems", "Dashboards and portals", "API and system integrations", "Workflow automation"],
     icon: "code"
   },
   {
     id: "geospatial-intelligence",
     title: "Geospatial Intelligence",
-    description: "Spatial data analysis, GIS mapping, and remote sensing for location-based decision support.",
-    tags: ["GIS Analysis", "WebGIS", "Remote Sensing"],
+    description: "We provide geospatial services for projects that require spatial analysis, GIS, remote sensing, mapping, environmental assessment, and location-based decision support.",
+    tags: ["GIS analysis", "Remote sensing", "Mapping and visualization", "WebGIS solutions", "Spatial data processing", "Hydrology and environmental analysis"],
     icon: "map"
   },
   {
     id: "digital-growth",
     title: "Digital Growth",
-    description: "Improving online visibility through structured marketing, SEO, brand presentation, and creative communication.",
-    tags: ["SEO", "Digital Marketing", "Brand Presentation"],
+    description: "We support businesses in improving their digital presence through marketing support, visual design, content structure, branding, and creative communication.",
+    tags: ["Digital marketing support", "SEO and content structure", "Graphic design", "Brand presentation", "Social media creatives", "Marketing material design"],
     icon: "trending"
   }
 ];
@@ -86,28 +88,28 @@ export const applicationScope = [
 export const processSteps = [
   {
     num: "01",
-    title: "Understand requirements",
-    desc: "We start by defining the operational problem, user needs, and exact output requirements before touching any data."
+    title: "Requirement Review",
+    desc: "You share your project idea, business need, existing system, or required service."
   },
   {
     num: "02",
-    title: "Structure data and scope",
-    desc: "Auditing available data sources, designing the schema, and establishing a clear pipeline architecture."
+    title: "Solution Planning",
+    desc: "We review your requirements and define the right structure, scope, and technical direction."
   },
   {
     num: "03",
-    title: "Analyze and design",
-    desc: "Developing the spatial models, processing algorithms, and designing the user interface or report format."
+    title: "Design & Development",
+    desc: "We design, develop, analyze, or create the required solution based on the agreed scope."
   },
   {
     num: "04",
-    title: "Build and validate",
-    desc: "Developing the application or pipeline, followed by rigorous QA against real-world scenarios and edge cases."
+    title: "Review & Refinement",
+    desc: "You review the work and we refine the solution where required."
   },
   {
     num: "05",
-    title: "Deliver and support",
-    desc: "Deploying to production, providing necessary training, and maintaining the system for long-term reliability."
+    title: "Delivery & Support",
+    desc: "We deliver the final output and provide further support for updates, improvements, or future extensions."
   }
 ];
 

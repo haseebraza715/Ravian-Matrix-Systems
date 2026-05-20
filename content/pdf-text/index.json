@@ -1,0 +1,42 @@
+{
+  "home.pdf": {
+    "extracted_file": "content/pdf-text/home.txt",
+    "method": "pdfplumber",
+    "route": "/"
+  },
+  "about us.pdf": {
+    "extracted_file": "content/pdf-text/about-us.txt",
+    "method": "pdfplumber",
+    "route": "/about"
+  },
+  "web development.pdf": {
+    "extracted_file": "content/pdf-text/web-development.txt",
+    "method": "pdfplumber",
+    "route": "/services/web-development"
+  },
+  "web application.pdf": {
+    "extracted_file": "content/pdf-text/software-development.txt",
+    "method": "pdfplumber",
+    "route": "/services/software-development"
+  },
+  "geosptial intelligence.pdf": {
+    "extracted_file": "content/pdf-text/geospatial-intelligence.txt",
+    "method": "pdfplumber",
+    "route": "/services/geospatial-intelligence"
+  },
+  "digital growth.pdf": {
+    "extracted_file": "content/pdf-text/digital-growth.txt",
+    "method": "pdfplumber",
+    "route": "/services/digital-growth"
+  },
+  "privacy policy.pdf": {
+    "extracted_file": "content/pdf-text/privacy-policy.txt",
+    "method": "pdfplumber",
+    "route": "/privacy-policy"
+  },
+  "impressum.pdf": {
+    "extracted_file": "content/pdf-text/impressum.txt",
+    "method": "pdfplumber",
+    "route": "/impressum"
+  }
+}

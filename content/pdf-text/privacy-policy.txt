@@ -1,0 +1,308 @@
+Privacy Policy / Datenschutzerklärung
+1. General Information
+We take the protection of personal data
+seriously. This Privacy Policy explains how
+personal data is processed when you visit this
+website, contact us, or request a non-binding
+quote.
+Personal data means any information that
+can identify a person directly or indirectly.
+This may include your name, email address,
+phone number, company name, IP address,
+project details, or documents submitted
+through a form.
+This website is operated in accordance with
+the General Data Protection Regulation
+(GDPR) and applicable German data
+protection requirements.
+--- PAGE BREAK ---
+2. Controller
+The controller responsible for data processing
+on this website is:
+Ravian Matrix Systems
+Arslan Saleem
+Pfeilschifterstraße 27
+c/o Amjad
+80997 Munich
+Germany
+Email: info@ravianmatrixsystems.de
+3. Website Hosting and Server Log Files
+When you visit this website, technical data
+may be processed automatically by the
+hosting provider.
+This may include:
+● IP address
+● date and time of access
+--- PAGE BREAK ---
+● browser type and version
+● operating system
+● requested pages or files
+● referrer URL
+● amount of data transferred
+● access status or error messages
+This data is processed to ensure the secure,
+stable, and reliable operation of the website,
+to identify technical issues, and to protect the
+website from misuse or attacks.
+Legal basis: Art. 6(1)(f) GDPR.
+The legitimate interest is the secure and
+functional operation of this website.
+Storage period: Server log files are stored
+only as long as necessary for technical and
+security purposes, unless longer retention is
+legally required.
+Hosting provider: [Insert hosting provider
+name]
+--- PAGE BREAK ---
+Hosting location: [Insert country / EU if
+applicable]
+4. Contact Form and Quote Requests
+If you contact us through the contact form or
+request a non-binding quote, we process the
+information you provide.
+This may include:
+● full name
+● email address
+● company or organization
+● selected service
+● project description
+● timeline
+● budget range, if provided
+● uploaded files, if provided
+● any additional information included in your
+message
+--- PAGE BREAK ---
+We use this data only to review your inquiry,
+communicate with you, prepare a non-binding
+quote, and discuss possible services.
+Legal basis:
+Art. 6(1)(b) GDPR, where processing is
+necessary for pre-contractual communication
+or preparing a quote.
+Art. 6(1)(f) GDPR, where processing is
+necessary for general business
+communication and handling inquiries.
+A quote request does not create a contract
+unless both parties expressly agree to
+proceed.
+5. File Uploads
+If the website provides a file upload option,
+you may upload project-related documents,
+briefs, sample data, or supporting material.
+--- PAGE BREAK ---
+Please do not upload sensitive personal data,
+confidential third-party data, government
+identification documents, health data,
+financial documents, or private personal
+documents unless this is necessary for your
+project and has been agreed in advance.
+Uploaded files are used only to review your
+inquiry or project requirements.
+6. Email Communication
+If you contact us by email, we process the
+personal data included in your message.
+This may include:
+● email address
+● name
+● company details
+● message content
+● project information
+● attachments
+--- PAGE BREAK ---
+We use this data to respond to your inquiry,
+communicate with you, and process your
+request.
+Legal basis: Art. 6(1)(b) GDPR and Art.
+6(1)(f) GDPR.
+Email provider: [Insert email provider name]
+7. Non-Binding Quotes
+If you request a quote, we process the
+information you provide in order to
+understand your requirements and prepare a
+non-binding proposal.
+Quote-related communication may be stored
+for business documentation, follow-up, and
+legal record-keeping where required.
+8. Data Sharing
+We do not sell personal data.
+--- PAGE BREAK ---
+Personal data may be shared only where
+necessary for:
+● website hosting
+● email communication
+● contact form processing
+● technical maintenance
+● legal or tax obligations
+● project communication
+● service delivery after agreement
+If external service providers are used, they
+are selected carefully and should process
+data only according to appropriate contractual
+arrangements.
+9. External Contractors and Project Support
+Some technical or project-related work may
+be supported by external contractors or
+service providers.
+--- PAGE BREAK ---
+If external support is required for a project,
+only the information necessary for the project
+will be shared. Where possible, data will be
+minimized, anonymized, or limited to
+technical project requirements.
+If personal data is transferred outside the
+European Union or European Economic Area,
+such transfer will only take place where
+legally permitted and with appropriate
+safeguards.
+For initial contact and quote requests, your
+inquiry will be handled for communication and
+project review purposes. Project data will not
+be shared with external contractors unless
+this becomes necessary for preparing or
+delivering the requested service.
+10. Cookies
+This website does not currently use cookies.
+--- PAGE BREAK ---
+We do not currently use:
+● analytics cookies
+● marketing cookies
+● advertising cookies
+● tracking pixels
+● retargeting technologies
+● social media tracking tools
+If cookies or similar technologies are
+introduced in the future, this Privacy Policy
+will be updated accordingly. Where legally
+required, a cookie consent mechanism will be
+implemented before such technologies are
+activated.
+11. Analytics and Tracking
+At launch, this website does not use analytics
+or marketing tracking tools.
+This means we currently do not use:
+--- PAGE BREAK ---
+● Google Analytics
+● Meta Pixel
+● LinkedIn Insight Tag
+● advertising tracking cookies
+● heatmaps
+● retargeting tools
+If analytics or tracking tools are added later,
+this Privacy Policy will be updated and, where
+required, a consent solution will be
+implemented.
+12. Embedded Third-Party Content
+At launch, this website does not intentionally
+use embedded third-party content such as
+Google Maps, YouTube videos, external
+booking tools, marketing pixels, or social
+media plugins.
+If such services are added in the future, this
+Privacy Policy will be updated. Depending on
+--- PAGE BREAK ---
+the service, personal data such as IP
+address, browser information, or usage data
+may be transferred to third-party providers.
+13. Social Media Links
+This website may include simple links to
+social media profiles.
+If you click such a link, you leave this website
+and visit the respective external platform. The
+operator of that platform is responsible for its
+own data processing.
+Please review the privacy policy of the
+respective platform before using it.
+14. Data Retention
+We store personal data only as long as
+necessary for the purpose for which it was
+collected.
+--- PAGE BREAK ---
+Typical retention periods:
+● contact inquiries: as long as needed to
+process and follow up on the inquiry
+● quote communication: as long as needed
+for business documentation
+● project-related communication: as long as
+needed for service delivery and legal
+documentation
+● server logs: only as long as necessary for
+technical and security purposes
+Where legal retention obligations apply, data
+may be stored for longer.
+15. Legal Bases for Processing
+Depending on the situation, personal data
+may be processed based on:
+● Art. 6(1)(a) GDPR: consent
+● Art. 6(1)(b) GDPR: pre-contractual or
+contractual communication
+--- PAGE BREAK ---
+● Art. 6(1)(c) GDPR: legal obligations
+● Art. 6(1)(f) GDPR: legitimate interests,
+such as secure website operation,
+business communication, and service
+improvement
+16. Your Rights
+Under the GDPR, you have rights regarding
+your personal data.
+These may include:
+● right of access
+● right to rectification
+● right to erasure
+● right to restriction of processing
+● right to data portability
+● right to object to processing
+● right to withdraw consent where
+processing is based on consent
+To exercise your rights, contact us at:
+--- PAGE BREAK ---
+Email: info@ravianmatrixsystems.de
+17. Right to Lodge a Complaint
+You have the right to lodge a complaint with a
+data protection supervisory authority if you
+believe that your personal data is being
+processed unlawfully.
+For private-sector businesses in Bavaria, the
+competent authority is generally:
+Bayerisches Landesamt für
+Datenschutzaufsicht (BayLDA)
+Promenade 18
+91522 Ansbach
+Germany
+Website: www.lda.bayern.de
+BayLDA is the Bavarian supervisory authority
+responsible for data protection supervision in
+--- PAGE BREAK ---
+the non-public/private sector in Bavaria.
+(BayLDA)
+18. Data Security
+We use appropriate technical and
+organizational measures to protect personal
+data against unauthorized access, loss,
+misuse, alteration, or disclosure.
+This includes reasonable security measures
+for website operation, communication, access
+control, and data handling.
+19. SSL / TLS Encryption
+This website should use SSL/TLS encryption.
+You can recognize an encrypted connection
+by “https://” in the browser address bar.
+--- PAGE BREAK ---
+Encryption helps protect data transmitted
+through the website, including contact form
+submissions.
+20. No Automated Decision-Making
+We do not use automated decision-making or
+profiling through this website.
+21. Changes to This Privacy Policy
+We may update this Privacy Policy when our
+website, services, technical systems,
+providers, or legal requirements change.
+The current version applies as published on
+this website.
+Last Updated
+May 2026
+--- PAGE BREAK ---
+For your footer, use:
+Impressum | Privacy Policy
+Do not add Cookie Settings yet because you
+are not using cookies at this stage.
