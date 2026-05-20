@@ -14,39 +14,51 @@ const config: Config = {
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
+  			foreground: '#F2F4F8',
+  			primary: '#F2F4F8',
   			gold: {
-  				DEFAULT: '#C9A24D',
-  				soft: '#E3C76D',
-  				ink: '#6E5618'
+  				DEFAULT: '#F5C56B',
+  				soft: '#F5C56B',
+  				ink: '#B8923A'
   			},
   			blue: {
-  				light: '#8FBEDC',
-  				muted: '#4E7F9E'
+  				light: '#708090',
+  				muted: '#9AA6B8'
   			},
   			status: {
   				green: '#4CD982'
   			},
   			brand: {
-  				black: '#080A0C',
-  				dark: '#050605',
-  				cream: '#F4EFE3'
+  				black: '#05080F',
+  				dark: '#0B1220',
+  				cream: '#F2F4F8'
   			},
-        bg: '#080A0C',
-        paper: '#050605',
+        bg: {
+          DEFAULT: '#05080F',
+          base: '#05080F',
+          surface: '#0B1220',
+          elevated: '#121C30'
+        },
+        paper: '#0B1220',
   			ink: {
-  				DEFAULT: '#080A0C',
-  				'2': '#2A2823'
+  				DEFAULT: '#F2F4F8',
+  				'2': '#9AA6B8'
   			},
   			line: {
-  				DEFAULT: 'rgba(244, 239, 227, 0.1)',
-  				soft: 'rgba(244, 239, 227, 0.05)'
+  				DEFAULT: '#1E2A40',
+  				soft: '#1E2A40'
   			},
-  			muted: '#6B655B'
-  		},
+  			muted: '#9AA6B8',
+        signal: '#5B8DEF',
+        accent: {
+          DEFAULT: '#F5C56B',
+          ink: '#B8923A'
+        }
+      },
   		fontFamily: {
-  			sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-  			mono: ['Geist Mono', 'ui-monospace', 'monospace']
+  			sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			display: ['var(--font-display)', 'Fraunces', 'Georgia', 'ui-serif', 'serif'],
+  			mono: ['var(--font-mono)', 'ui-monospace', 'monospace']
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -58,13 +70,8 @@ const config: Config = {
         'card-hover': '0 1px 0 rgba(14,14,12,0.04), 0 30px 60px -30px rgba(14,14,12,0.20)',
       },
       backgroundImage: {
-        'spatial-grid': 'linear-gradient(rgba(14,14,12,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(14,14,12,0.07) 1px, transparent 1px)',
-        'spatial-grid-dark': 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
       },
       backgroundSize: {
-        'grid-sm': '24px 24px',
-        'grid-md': '40px 40px',
-        'grid-lg': '64px 64px',
       }
   	}
   },

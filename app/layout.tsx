@@ -1,7 +1,28 @@
 import type { Metadata } from "next";
+import { Inter, IBM_Plex_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
+import PageTransition from "@/components/ui-custom/PageTransition";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Ravian Matrix Systems",
@@ -49,16 +70,79 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${ibmPlexMono.variable} scroll-smooth`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" as="style" />
-        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://ravianmatrixsystems.de/#organization",
+                  "name": "Ravian Matrix Systems",
+                  "url": "https://ravianmatrixsystems.de",
+                  "logo": "https://ravianmatrixsystems.de/logo.png",
+                  "sameAs": [
+                    "https://linkedin.com/company/ravian-matrix-systems"
+                  ]
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://ravianmatrixsystems.de/#localbusiness",
+                  "name": "Ravian Matrix Systems",
+                  "image": "https://ravianmatrixsystems.de/og-image.png",
+                  "url": "https://ravianmatrixsystems.de",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Munich",
+                    "addressCountry": "DE"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 48.1351,
+                    "longitude": 11.5820
+                  },
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://ravianmatrixsystems.de/#website",
+                  "url": "https://ravianmatrixsystems.de",
+                  "name": "Ravian Matrix Systems",
+                  "publisher": {
+                    "@id": "https://ravianmatrixsystems.de/#organization"
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body className={`font-sans antialiased bg-bg text-ink min-h-screen flex flex-col`}>
+        {/* Accessibility Skip-to-Content Link */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2.5 focus:bg-gold focus:text-brand-black focus:font-semibold focus:rounded-md focus:shadow-lg focus:outline-none"
+        >
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="flex-grow pt-[72px]">{children}</main>
+        <main id="main-content" className="flex-grow pt-[72px]">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>
