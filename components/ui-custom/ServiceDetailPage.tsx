@@ -271,7 +271,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-[1180px]:grid-cols-5 gap-5">
             {service.howWeWorkSteps.map((step, index) => (
               <Card key={step.number} className={`p-6 bg-bg-base border-line flex flex-col ${index === 0 ? "reveal" : "reveal reveal-delay-1"}`} hoverEffect={false}>
                 <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-4">
