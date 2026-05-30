@@ -6,7 +6,7 @@ export default function InsightsSignup() {
   const ref = useScrollReveal();
   
   return (
-    <section className="py-20 relative overflow-hidden bg-bg-base border-t border-line" ref={ref}>
+    <section className="py-12 sm:py-20 md:py-32 relative overflow-hidden bg-bg-base border-t border-line" ref={ref}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
         <div className="reveal border border-line bg-bg-surface rounded-2xl p-8 sm:p-12 md:p-16 text-center max-w-[900px] mx-auto shadow-[0_0_40px_rgba(0,0,0,0.6)] hover:shadow-[0_0_60px_rgba(0,0,0,0.8)] transition-shadow duration-500 gradient-border">
           <div className="reveal reveal-delay-1 inline-flex items-center justify-center w-12 h-12 rounded-full mb-6 bg-gold/10 text-gold">

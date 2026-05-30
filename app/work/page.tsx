@@ -114,12 +114,12 @@ export default function WorkPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-16">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mb-16">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-lg font-mono text-[11px] sm:text-xs tracking-wider uppercase border transition-all duration-300 ${
+                className={`h-11 px-5 flex items-center justify-center whitespace-nowrap rounded-lg font-mono text-[11px] sm:text-xs tracking-wider uppercase border transition-all duration-300 ${
                   activeCategory === cat
                     ? "bg-gold border-gold text-brand-black font-semibold shadow-[0_4px_12px_rgba(225,184,74,0.2)]"
                     : "bg-bg-base border-line text-muted hover:border-gold/50 hover:text-gold"

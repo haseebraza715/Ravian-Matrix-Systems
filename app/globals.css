@@ -17,7 +17,16 @@
     --brand-black: #05080F;
     --brand-dark: #0B1220;
     --brand-cream: #F2F4F8;
+
+    /* Tailwind / Shadcn UI CSS variables */
+    --radius: 0.5rem;
+    --border: 218 36% 18%; /* matches #1E2A40 */
+    --input: 218 36% 18%; /* matches #1E2A40 */
+    --ring: 40 85% 69%; /* matches #F5C56B */
+    --background: 220 50% 5%; /* matches #05080F */
+    --foreground: 210 40% 98%; /* matches #F2F4F8 */
   }
+
 
   body {
     @apply bg-brand-black text-brand-cream antialiased font-sans relative;
@@ -29,7 +38,7 @@
     @apply font-display tracking-tight text-primary;
     font-weight: 600;
     letter-spacing: -0.02em;
-    line-height: 1.05;
+    line-height: 1.2;
   }
 
   h3, h4, h5, h6 {
@@ -85,7 +94,7 @@
   }
 
   .terminal-label {
-    @apply font-mono text-[10px] sm:text-[11px] tracking-widest uppercase opacity-60;
+    @apply font-mono text-[11px] sm:text-xs tracking-widest uppercase opacity-60;
   }
 
   /* Conic gradient border for featured items */
@@ -108,7 +117,7 @@
 
 /* ─── Eyebrow ─── */
 .eyebrow {
-  @apply font-mono text-[11px] tracking-[0.14em] uppercase text-muted inline-flex items-center gap-[10px];
+  @apply font-mono text-xs tracking-[0.14em] uppercase text-muted inline-flex items-center gap-[10px];
 }
 .eyebrow::before {
   content: "";
@@ -135,6 +144,9 @@
 .btn-mustard {
   @apply btn-primary;
 }
+.btn-md { @apply px-5 py-3 text-sm; }
+.btn-lg { @apply px-6 py-3.5 text-base; }
+.btn-sm { @apply px-4 py-2 text-xs; }
 .btn .arrow {
   @apply transition-transform duration-300;
 }

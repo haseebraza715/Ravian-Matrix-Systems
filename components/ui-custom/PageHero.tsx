@@ -12,7 +12,7 @@ export default function PageHero({ eyebrow, title, description }: { eyebrow: str
       
       <div className="max-w-[1000px] mx-auto px-6 sm:px-8 relative z-10 text-center flex flex-col items-center">
         <div className="reveal eyebrow mb-6">{eyebrow}</div>
-        <h1 className="reveal reveal-delay-1 text-[clamp(36px,4.5vw,56px)] leading-[1.08] font-bold mb-6 text-balance text-primary">
+        <h1 className="reveal reveal-delay-1 text-[clamp(36px,4.5vw,56px)] leading-[1.2] font-bold mb-6 text-balance text-primary">
           {title}
         </h1>
         {description && (

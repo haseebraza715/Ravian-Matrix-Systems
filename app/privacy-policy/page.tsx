@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
         description="Datenschutzerklärung"
       />
       
-      <section className="py-20 bg-bg-surface border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] gap-12 lg:gap-20 items-start">
             

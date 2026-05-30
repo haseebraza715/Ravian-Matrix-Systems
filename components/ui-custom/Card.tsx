@@ -25,7 +25,7 @@ export function Card({
       className={cn(
         "rounded-2xl transition-all duration-300 bg-bg-surface text-primary relative overflow-hidden",
         border && "border border-line",
-        hoverEffect && "hover:bg-bg-elevated hover:-translate-y-[2px]",
+        hoverEffect && "hover:bg-bg-elevated hover:-translate-y-[2px] active:scale-[0.99] active:bg-bg-elevated/90",
         glow && "hover:shadow-[0_8px_30px_-8px_rgba(225,184,74,0.25)] hover:border-gold/20",
         goldTop && "card-gold-top",
         premiumBorder && "premium-border",
