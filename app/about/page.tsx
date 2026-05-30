@@ -7,7 +7,7 @@ import { Card } from "@/components/ui-custom/Card";
 
 export const metadata: Metadata = {
   title: "About Us | Ravian Matrix Systems",
-  description: "Building IT, web, and geospatial solutions from Munich.",
+  description: "Building IT, web, and geospatial solutions.",
 };
 
 const teamMembers = [
@@ -16,7 +16,7 @@ const teamMembers = [
     role: "Founder & Geospatial Engineer",
     initials: "AS",
     description:
-      "Arslan is the founder of Ravian Matrix Systems and is based in Munich. His background is in geospatial engineering, with a focus on GIS, remote sensing, spatial data, and technical project coordination.",
+      "Arslan is the founder of Ravian Matrix Systems. His background is in geospatial engineering, with a focus on GIS, remote sensing, spatial data, and technical project coordination.",
   },
   {
     name: "Manisha Kumari",
@@ -79,8 +79,8 @@ export default function AboutPage() {
     <div className="bg-bg-base min-h-screen text-primary">
       <PageHero
         eyebrow="About Ravian Matrix Systems"
-        title="Building IT, Web, and Geospatial Solutions from Munich"
-        description="Ravian Matrix Systems is a Munich-based technical services business focused on web solutions, software development, geospatial intelligence, and digital growth."
+        title="Building IT, Web, and Geospatial Solutions"
+        description="Ravian Matrix Systems is a technical services business focused on web solutions, software development, geospatial intelligence, and digital growth."
       />
 
       <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
@@ -92,7 +92,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <div className="flex flex-col gap-6 text-[15px] sm:text-[16px] leading-[1.65] text-muted">
-              <p className="font-semibold text-primary">
+              <p className="font-semibold text-gold">
                 A Technical Service Partner for Digital and Spatial Solutions
               </p>
               <p>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 Our work is built around clear requirements, practical delivery, and reliable communication. We help clients move from an idea, business need, or technical challenge to a working digital solution.
               </p>
               <p>
-                We are based in Munich, Germany, and support clients in English and German.
+                We support clients in English and German.
               </p>
             </div>
           </div>
@@ -177,13 +177,13 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-[22px] font-bold text-primary mb-4">Project Coordination</h3>
                 <p className="text-[14.5px] leading-relaxed text-muted">
-                  Ravian Matrix Systems remains the central point of contact for each project. We manage requirement review, communication, coordination, quality control, and delivery through our Munich-based business structure.
+                  Ravian Matrix Systems remains the central point of contact for each project. We manage requirement review, communication, coordination, quality control, and delivery through our business structure.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-[22px] font-bold text-primary mb-4">Why Work With Us</h3>
-                <p className="text-[14.5px] leading-relaxed text-primary font-semibold mb-2">
+                <p className="text-[14.5px] leading-relaxed text-gold font-semibold mb-2">
                   Practical, Flexible, and Requirement-Based
                 </p>
                 <p className="text-[14.5px] leading-relaxed text-muted">
@@ -198,7 +198,7 @@ export default function AboutPage() {
             <Card className="p-8 sm:p-10 bg-bg-surface border-line flex flex-col justify-between" glow>
               <div>
                 <h3 className="text-[22px] font-bold text-primary mb-4">Communication</h3>
-                <p className="text-[14.5px] leading-relaxed text-primary font-semibold mb-2">
+                <p className="text-[14.5px] leading-relaxed text-gold font-semibold mb-2">
                   English and German Support
                 </p>
                 <p className="text-[14.5px] leading-relaxed text-muted">
