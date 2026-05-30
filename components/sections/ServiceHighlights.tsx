@@ -1,7 +1,7 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Briefcase, Binary, Compass, Languages, Mail } from "lucide-react";
+import { Briefcase, Binary, Compass, Languages, Mail, PhoneCall } from "lucide-react";
 import { Card } from "@/components/ui-custom/Card";
 
 export default function ServiceHighlights() {
@@ -85,8 +85,12 @@ export default function ServiceHighlights() {
 
               <div className="mt-8 pt-6 border-t border-line flex flex-col gap-3">
                 <div className="flex items-center gap-3 text-[13.5px] text-muted hover:text-gold transition-colors">
-                  <Mail className="w-4 h-4 text-gold/80" />
+                  <Mail className="w-6 h-6 text-gold/80" />
                   <span>info@ravianmatrixsystems.de</span>
+                </div>
+                <div className="flex items-center gap-3 text-[13.5px] text-muted hover:text-gold transition-colors">
+                  <PhoneCall className="w-6 h-6 text-gold/80" />
+                  <span>Available by appointment</span>
                 </div>
               </div>
             </Card>
