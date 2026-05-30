@@ -62,7 +62,7 @@ export default function Hero() {
         </div>
 
         {/* Right Column - Image Showcase */}
-        <div className="lg:col-span-5 w-full flex justify-center lg:justify-end reveal reveal-delay-4 mt-8 lg:mt-0">
+        <div className="lg:col-span-5 w-full flex justify-center lg:justify-end mt-8 lg:mt-0">
           <div className="relative group max-w-[480px] w-full">
             {/* Golden/blue neon aura backdrop glow */}
             <div className="absolute -inset-2 bg-gradient-to-r from-gold/20 via-signal/15 to-gold/20 rounded-2xl blur-2xl opacity-60 group-hover:opacity-85 transition duration-1000 group-hover:duration-200 pointer-events-none" />
@@ -70,7 +70,7 @@ export default function Hero() {
             {/* Border frame */}
             <div className="relative rounded-2xl overflow-hidden border border-line bg-brand-dark/40 p-2.5 backdrop-blur-sm shadow-[0_20px_50px_rgba(5,8,15,0.8)]">
               <Image
-                src="/hero-geospatial.png"
+                src="/hero-geospatial.jpg"
                 alt="Geospatial Intelligence & IT Dashboard"
                 width={600}
                 height={600}
