@@ -42,7 +42,6 @@ export default function CoreServices() {
         {/* Custom Staggered Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 items-stretch">
           {coreServices.map((svc, index) => {
-            const isGeospatial = svc.id === "geospatial-intelligence";
             // Stagger Software Development slightly down
             const isStaggered = svc.id === "software-development";
 
@@ -53,14 +52,11 @@ export default function CoreServices() {
               >
                 <Link href={`/services/${svc.id}`} className="block w-full h-full group">
                   <Card
-                    premiumBorder={isGeospatial}
-                    className={`p-6 sm:p-8 min-h-[280px] flex flex-col justify-between h-full w-full transition-all duration-300 ${
-                      isGeospatial ? "bg-bg-surface border-transparent" : "bg-bg-surface"
-                    }`}
+                    className="p-6 sm:p-8 min-h-[280px] flex flex-col justify-between h-full w-full bg-bg-surface transition-all duration-300"
                   >
                     <div>
                       {/* Icon */}
-                      <div className="w-[42px] h-[42px] rounded-lg flex items-center justify-center mb-5 border border-line bg-bg-base text-gold group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(225,184,74,0.2)] group-hover:bg-gold/5 transition-all duration-300">
+                      <div className="w-[42px] h-[42px] rounded-lg flex items-center justify-center mb-5 border border-line bg-bg-base text-gold group-hover:border-gold group-hover:bg-gold/5 transition-all duration-300">
                         {iconMap[svc.title] || <Globe className="w-5 h-5" />}
                       </div>
 

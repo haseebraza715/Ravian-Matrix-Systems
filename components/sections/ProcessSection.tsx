@@ -35,23 +35,16 @@ export default function ProcessSection() {
 
           {processSteps.map((step, index) => {
             const Icon = stepIcons[index] || Lightbulb;
-            const isSolutionPlanning = step.title === "Solution Planning";
             return (
               <div 
                 key={index} 
-                className={`reveal reveal-delay-${Math.min(index + 1, 5)} group relative p-6 border hover:border-line hover:bg-bg-base/30 active:scale-[0.99] active:bg-bg-base/40 active:border-line rounded-2xl transition-all duration-300 ${
-                  isSolutionPlanning ? "border-gold/25 bg-bg-base/20 shadow-[0_0_24px_rgba(245,197,107,0.08)]" : "border-transparent"
-                }`}
+                className={`reveal reveal-delay-${Math.min(index + 1, 5)} group relative p-6 border border-transparent hover:border-line hover:bg-bg-base/30 active:scale-[0.99] active:bg-bg-base/40 active:border-line rounded-2xl transition-all duration-300`}
               >
                 {/* Step icon wrapper */}
-                <div className={`w-12 h-12 rounded-lg bg-bg-base border flex items-center justify-center mb-8 relative z-10 group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(225,184,74,0.15)] transition-all ${
-                  isSolutionPlanning ? "border-gold/70 shadow-[0_0_20px_rgba(245,197,107,0.18)]" : "border-line"
-                }`}>
+                <div className="w-12 h-12 rounded-lg bg-bg-base border border-line flex items-center justify-center mb-8 relative z-10 group-hover:border-gold transition-all">
                   <Icon className="w-5 h-5 text-gold/80 group-hover:text-gold transition-colors" />
                   {/* Active node glow */}
-                  <div className={`absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-status-green transition-opacity ${
-                    isSolutionPlanning ? "opacity-100 animate-pulse" : "opacity-0 group-hover:opacity-100"
-                  }`}></div>
+                  <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-status-green opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
                 
                 {/* Step index and label */}
