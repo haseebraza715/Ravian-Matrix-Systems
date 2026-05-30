@@ -7,7 +7,7 @@ export default function CTASection() {
   const ref = useScrollReveal();
 
   return (
-    <section className="py-20 relative overflow-hidden bg-bg-surface" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
+    <section className="py-12 sm:py-20 md:py-32 relative overflow-hidden bg-bg-surface" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       {/* Background gradients */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gold/[0.02] rounded-full blur-[130px] pointer-events-none"></div>
 
@@ -18,7 +18,7 @@ export default function CTASection() {
             Let&apos;s Build Your Solution
           </div>
           
-          <h2 className="reveal reveal-delay-1 text-[36px] sm:text-[56px] leading-[1.05] font-bold mb-6 text-balance text-primary max-w-[700px]">
+          <h2 className="reveal reveal-delay-1 text-[36px] sm:text-[56px] leading-[1.2] font-bold mb-6 text-balance text-primary max-w-[700px]">
             You name IT. <span className="text-gold">We make IT.</span>
           </h2>
           
@@ -27,8 +27,8 @@ export default function CTASection() {
           </p>
           
           <div className="reveal reveal-delay-3">
-            <Link href="/contact" className="btn btn-primary text-base px-8 py-4">
-              Request Non-Binding Quote <span className="arrow">→</span>
+            <Link href="/request-quote" className="btn btn-primary text-base px-8 py-4">
+              Request a Quote <span className="arrow">→</span>
             </Link>
           </div>
 

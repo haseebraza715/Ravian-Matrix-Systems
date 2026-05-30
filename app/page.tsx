@@ -11,8 +11,8 @@ import ProcessSection from "@/components/sections/ProcessSection";
 import CTASection from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
-  title: "Ravian Matrix Systems | IT, Web, Geospatial & Digital Solutions",
-  description: "Reliable digital solutions for businesses that need professional web systems, custom software, geospatial intelligence, and digital growth support.",
+  title: "Custom Software, GIS & Web Solutions in Munich | Ravian Matrix Systems",
+  description: "We build professional web systems, custom software, GIS solutions, and digital growth strategies for businesses worldwide.",
   alternates: { canonical: "/" },
 };
 

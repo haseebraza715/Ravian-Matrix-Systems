@@ -1,104 +1,33 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ChevronRight, CheckCircle2 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Card } from "@/components/ui-custom/Card";
 import type { ServiceData } from "@/data/services";
 
 function ServiceHeroVisual({ id }: { id: string }) {
-  if (id === "web-development") {
-    return (
-      <div className="w-full max-w-[420px] rounded-2xl border border-line bg-bg-surface p-6">
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-xl border border-line bg-bg-base p-4">
-            <div className="h-2 w-16 rounded-full bg-gold/60 mb-3" />
-            <div className="h-2 w-full rounded-full bg-white/10 mb-2" />
-            <div className="h-2 w-4/5 rounded-full bg-white/10" />
-          </div>
-          <div className="rounded-xl border border-line bg-bg-base p-4">
-            <div className="h-2 w-12 rounded-full bg-gold/60 mb-3" />
-            <div className="h-16 rounded-lg border border-line bg-bg-surface" />
-          </div>
-          <div className="col-span-2 rounded-xl border border-line bg-bg-base p-4">
-            <div className="h-2 w-24 rounded-full bg-gold/60 mb-3" />
-            <div className="grid grid-cols-3 gap-2">
-              <div className="h-16 rounded-lg border border-line bg-bg-surface" />
-              <div className="h-16 rounded-lg border border-line bg-bg-surface" />
-              <div className="h-16 rounded-lg border border-line bg-bg-surface" />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (id === "software-development") {
-    return (
-      <div className="w-full max-w-[420px] rounded-2xl border border-line bg-bg-surface p-6">
-        <div className="space-y-4">
-          <div className="rounded-xl border border-line bg-bg-base p-4">
-            <div className="flex items-center justify-between mb-3">
-              <div className="h-2 w-20 rounded-full bg-gold/60" />
-              <div className="h-2 w-8 rounded-full bg-status-green/60" />
-            </div>
-            <div className="grid grid-cols-4 gap-2">
-              <div className="h-10 rounded-lg border border-line bg-bg-surface" />
-              <div className="h-10 rounded-lg border border-line bg-bg-surface" />
-              <div className="h-10 rounded-lg border border-line bg-bg-surface" />
-              <div className="h-10 rounded-lg border border-line bg-bg-surface" />
-            </div>
-          </div>
-          <div className="rounded-xl border border-line bg-bg-base p-4">
-            <div className="h-2 w-24 rounded-full bg-gold/60 mb-3" />
-            <div className="space-y-2">
-              <div className="h-8 rounded-lg border border-line bg-bg-surface" />
-              <div className="h-8 rounded-lg border border-line bg-bg-surface" />
-              <div className="h-8 rounded-lg border border-line bg-bg-surface" />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (id === "geospatial-intelligence") {
-    return (
-      <div className="w-full max-w-[420px] rounded-2xl border border-line bg-bg-surface p-6">
-        <div className="rounded-xl border border-line bg-bg-base p-4">
-          <div className="h-2 w-28 rounded-full bg-gold/60 mb-4" />
-          <svg viewBox="0 0 360 220" className="w-full h-auto">
-            <rect x="0" y="0" width="360" height="220" rx="14" fill="rgba(3,16,38,0.75)" />
-            <path d="M40 160 L100 80 L170 120 L240 60 L320 110" fill="none" stroke="rgba(212,166,47,0.8)" strokeWidth="3" />
-            <path d="M55 55 L130 40 L180 90 L120 150 L60 125 Z" fill="rgba(212,166,47,0.12)" stroke="rgba(212,166,47,0.55)" />
-            <circle cx="100" cy="80" r="5" fill="rgba(225,184,74,0.95)" />
-            <circle cx="240" cy="60" r="5" fill="rgba(225,184,74,0.95)" />
-            <circle cx="170" cy="120" r="5" fill="rgba(94,111,130,0.95)" />
-          </svg>
-        </div>
-      </div>
-    );
-  }
+  const visualMap: Record<string, { src: string; alt: string }> = {
+    "web-development": { src: "/service-web.png", alt: "Web solutions interface preview" },
+    "software-development": { src: "/service-software.png", alt: "Software development workflow preview" },
+    "geospatial-intelligence": { src: "/service-geospatial.png", alt: "Geospatial intelligence map preview" },
+    "digital-growth": { src: "/service-growth.png", alt: "Digital growth dashboard preview" },
+  };
+  const visual = visualMap[id] || visualMap["web-development"];
 
   return (
-    <div className="w-full max-w-[420px] rounded-2xl border border-line bg-bg-surface p-6">
-      <div className="grid grid-cols-2 gap-4">
-        <div className="rounded-xl border border-line bg-bg-base p-4">
-          <div className="h-2 w-16 rounded-full bg-gold/60 mb-3" />
-          <div className="h-16 rounded-lg border border-line bg-bg-surface" />
-        </div>
-        <div className="rounded-xl border border-line bg-bg-base p-4">
-          <div className="h-2 w-20 rounded-full bg-gold/60 mb-3" />
-          <div className="h-16 rounded-lg border border-line bg-bg-surface" />
-        </div>
-        <div className="col-span-2 rounded-xl border border-line bg-bg-base p-4">
-          <div className="h-2 w-24 rounded-full bg-gold/60 mb-3" />
-          <div className="grid grid-cols-3 gap-2">
-            <div className="h-12 rounded-lg border border-line bg-bg-surface" />
-            <div className="h-12 rounded-lg border border-line bg-bg-surface" />
-            <div className="h-12 rounded-lg border border-line bg-bg-surface" />
-          </div>
-        </div>
+    <div className="relative w-full max-w-[460px]">
+      <div className="absolute -inset-3 rounded-2xl bg-gradient-to-r from-gold/15 via-signal/10 to-gold/15 blur-2xl" />
+      <div className="relative rounded-2xl border border-line bg-bg-surface p-2.5 shadow-[0_18px_45px_rgba(5,8,15,0.65)]">
+        <Image
+          src={visual.src}
+          alt={visual.alt}
+          width={960}
+          height={720}
+          className="w-full aspect-[4/3] object-cover rounded-xl border border-line/50"
+          priority
+        />
       </div>
     </div>
   );
@@ -127,7 +56,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
       />
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 pt-32 pb-4 relative z-20">
-        <nav className="flex items-center gap-2 font-mono text-[11px] sm:text-[12px] tracking-[0.06em] uppercase text-muted">
+        <nav className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs sm:text-sm tracking-[0.06em] uppercase text-muted">
           <Link href="/" className="hover:text-gold transition-colors">
             Home
           </Link>
@@ -147,7 +76,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center">
             <div className="flex flex-col items-start text-left">
               <div className="reveal eyebrow mb-6">{service.eyebrow}</div>
-              <h1 className="reveal reveal-delay-1 text-[clamp(32px,4vw,56px)] leading-[1.08] font-bold mb-6 text-balance text-primary">
+              <h1 className="reveal reveal-delay-1 text-[clamp(28px,4.5vw,56px)] leading-[1.2] font-bold mb-6 text-balance text-primary">
                 {service.subtitle}
               </h1>
               <p className="reveal reveal-delay-2 text-[16px] sm:text-[17px] leading-[1.65] max-w-[700px] text-muted mb-4">
@@ -156,12 +85,12 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
               <p className="reveal reveal-delay-3 text-[15px] sm:text-[16px] leading-[1.65] max-w-[700px] text-muted mb-10">
                 {service.introParagraphs[0]}
               </p>
-              <div className="reveal reveal-delay-4 flex flex-row gap-4 items-center">
-                <Link href="/contact" className="btn btn-primary group">
-                  Request Non-Binding Quote
+              <div className="reveal reveal-delay-4 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full sm:w-auto">
+                <Link href="/request-quote" className="btn btn-primary group w-full sm:w-auto">
+                  Request a Non-Binding Quote
                   <ArrowRight className="w-4 h-4 arrow" />
                 </Link>
-                <Link href="/contact" className="btn btn-ghost">
+                <Link href="/contact" className="btn btn-ghost w-full sm:w-auto">
                   Contact Us
                 </Link>
               </div>
@@ -174,7 +103,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
         </div>
       </section>
 
-      <section className="py-20 bg-bg-surface border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-8 md:gap-16 items-start">
             <div>
@@ -192,7 +121,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
         </div>
       </section>
 
-      <section className="py-20 bg-bg-base border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="mb-14">
             <div className="reveal eyebrow mb-4">What We Provide</div>
@@ -203,25 +132,29 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {service.providesItems.map((item, idx) => (
-              <Card key={item.title} className={`p-6 sm:p-8 bg-bg-surface border-line ${idx % 2 === 0 ? "reveal" : "reveal reveal-delay-1"}`} glow>
-                <h3 className="text-[20px] font-semibold text-primary mb-3">{item.title}</h3>
-                <p className="text-[14.5px] leading-relaxed text-muted mb-5">{item.description}</p>
-                <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-3">Includes</div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {item.includes.map((include) => (
-                    <li key={include} className="flex items-start gap-2 text-[14px] text-muted">
-                      <CheckCircle2 className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                      <span>{include}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
+              <div key={item.title} className="flex">
+                <Card className={`p-6 sm:p-8 bg-bg-surface border-line flex flex-col justify-between h-full w-full ${idx % 2 === 0 ? "reveal" : "reveal reveal-delay-1"}`} glow>
+                  <div>
+                    <h3 className="text-[20px] font-semibold text-primary mb-3">{item.title}</h3>
+                    <p className="text-[14.5px] leading-relaxed text-muted mb-5">{item.description}</p>
+                    <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-3">Includes</div>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {item.includes.map((include) => (
+                        <li key={include} className="flex items-start gap-2 text-[14px] text-muted">
+                          <CheckCircle2 className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                          <span>{include}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-bg-surface border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="mb-12">
             <div className="reveal eyebrow mb-4">Approach</div>
@@ -242,7 +175,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
         </div>
       </section>
 
-      <section className="py-20 bg-bg-base border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="mb-12">
             <div className="reveal eyebrow mb-4">Suitable For</div>
@@ -262,7 +195,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
         </div>
       </section>
 
-      <section className="py-20 bg-bg-surface border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="mb-12">
             <div className="reveal eyebrow mb-4">How We Work</div>
@@ -285,7 +218,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
         </div>
       </section>
 
-      <section className="py-20 bg-bg-base text-center relative overflow-hidden">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-base text-center relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gold/[0.01] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-[750px] mx-auto px-6 sm:px-8 relative z-10 flex flex-col items-center">
           <div className="reveal eyebrow mb-6">Request a Non-Binding Quote</div>
@@ -296,8 +229,8 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
             {service.ctaDescription}
           </p>
           <div className="reveal reveal-delay-3 flex flex-col items-center gap-4">
-            <Link href="/contact" className="btn btn-primary group">
-              Request Non-Binding Quote
+            <Link href="/request-quote" className="btn btn-primary group">
+              Request a Non-Binding Quote
               <ArrowRight className="w-4 h-4 arrow" />
             </Link>
             <div className="font-mono text-gold text-[10px] tracking-[0.2em] uppercase mt-2">

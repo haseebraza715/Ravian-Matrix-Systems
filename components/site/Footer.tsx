@@ -5,19 +5,27 @@ import { Linkedin, Facebook, Instagram } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-bg-surface text-muted pt-16 pb-8 border-t border-line relative overflow-hidden">
+      {/* Premium Top Gold Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold/40 to-transparent z-10" />
+
+      {/* Ambient Radial Gold Back-Glow */}
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-gold/5 rounded-full blur-[100px] pointer-events-none z-0" />
+
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
-          
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+
           {/* Logo and Slogan */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="inline-block">
-              <Image 
-                src="/logo.jpeg" 
-                alt="Ravian Matrix Systems" 
-                width={200} 
-                height={50} 
-                className="h-10 w-auto object-contain rounded-sm"
-              />
+            <Link href="/" className="inline-block group">
+              <div className="bg-white px-2.5 py-1.5 rounded-md flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-line max-w-max transition-all duration-300 group-hover:border-gold/30">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Ravian Matrix Systems"
+                  width={150}
+                  height={38}
+                  className="h-8 w-auto object-contain"
+                />
+              </div>
             </Link>
             <p className="font-semibold text-primary text-[15px] tracking-tight">
               You name IT, We make IT.
@@ -25,42 +33,43 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-muted max-w-[280px]">
               Delivering reliable IT, web, geospatial, and digital solutions for businesses in Germany, Europe, and worldwide.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex items-center gap-4 mt-2">
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-8 h-8 rounded-lg bg-bg-base flex items-center justify-center text-muted hover:text-gold hover:border-gold/30 border border-line transition-all duration-300"
+                className="w-11 h-11 rounded-lg bg-bg-base flex items-center justify-center text-muted hover:text-gold hover:border-gold/60 hover:shadow-[0_0_10px_rgba(245,197,107,0.15)] border border-line transition-all duration-300"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-5 h-5" />
               </a>
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-8 h-8 rounded-lg bg-bg-base flex items-center justify-center text-muted hover:text-gold hover:border-gold/30 border border-line transition-all duration-300"
+                className="w-11 h-11 rounded-lg bg-bg-base flex items-center justify-center text-muted hover:text-gold hover:border-gold/60 hover:shadow-[0_0_10px_rgba(245,197,107,0.15)] border border-line transition-all duration-300"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-5 h-5" />
               </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-8 h-8 rounded-lg bg-bg-base flex items-center justify-center text-muted hover:text-gold hover:border-gold/30 border border-line transition-all duration-300"
+                className="w-11 h-11 rounded-lg bg-bg-base flex items-center justify-center text-muted hover:text-gold hover:border-gold/60 hover:shadow-[0_0_10px_rgba(245,197,107,0.15)] border border-line transition-all duration-300"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h5 className="font-mono text-[11px] tracking-wider uppercase text-primary mb-6">
+            <h5 className="font-mono text-[11px] tracking-wider uppercase text-gold/90 mb-6 flex items-center gap-2 border-b border-gold/10 pb-2">
+              <span className="w-1.5 h-1.5 bg-gold transform rotate-45 inline-block shadow-[0_0_4px_rgba(245,197,107,0.6)]"></span>
               Quick Links
             </h5>
             <ul className="flex flex-col gap-3.5">
@@ -85,16 +94,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
+                <Link href="/request-quote" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
                   Request a Quote
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Services Links */}
+          {/* Our Services */}
           <div>
-            <h5 className="font-mono text-[11px] tracking-wider uppercase text-primary mb-6">
+            <h5 className="font-mono text-[11px] tracking-wider uppercase text-gold/90 mb-6 flex items-center gap-2 border-b border-gold/10 pb-2">
+              <span className="w-1.5 h-1.5 bg-gold transform rotate-45 inline-block shadow-[0_0_4px_rgba(245,197,107,0.6)]"></span>
               Our Services
             </h5>
             <ul className="flex flex-col gap-3.5">
@@ -123,7 +133,8 @@ export default function Footer() {
 
           {/* Get In Touch */}
           <div>
-            <h5 className="font-mono text-[11px] tracking-wider uppercase text-primary mb-6">
+            <h5 className="font-mono text-[11px] tracking-wider uppercase text-gold/90 mb-6 flex items-center gap-2 border-b border-gold/10 pb-2">
+              <span className="w-1.5 h-1.5 bg-gold transform rotate-45 inline-block shadow-[0_0_4px_rgba(245,197,107,0.6)]"></span>
               Get In Touch
             </h5>
             <ul className="flex flex-col gap-4 text-[13.5px] text-muted">
@@ -155,7 +166,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-line pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-mono text-muted/60">
+        <div className="border-t border-line pt-8 flex flex-col lg:flex-row justify-between items-center gap-4 text-[11px] font-mono text-muted/60">
           <div>
             © 2026 Ravian Matrix Systems. All rights reserved.
           </div>

@@ -31,7 +31,7 @@ export default function ImpressumPage() {
         description="Legal Notice"
       />
       
-      <section className="py-20 bg-bg-surface border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] gap-12 lg:gap-20 items-start">
             
@@ -104,7 +104,7 @@ export default function ImpressumPage() {
               <div id="vat-id" className="scroll-mt-28">
                 <h2 className="text-[20px] text-primary font-bold mb-3">VAT Identification Number</h2>
                 <p className="leading-relaxed mb-2 text-[15px]">VAT Identification Number pursuant to Section 27a of the German VAT Act:</p>
-                <p className="text-gold font-mono text-[13px]">Will be added once issued.</p>
+                <p className="text-gold font-mono text-[13px]">DE462413103</p>
               </div>
 
               <div id="responsible" className="scroll-mt-28">

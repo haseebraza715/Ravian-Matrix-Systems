@@ -3,7 +3,7 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { 
   Globe, Laptop, AppWindow, Layout, UserCheck, Briefcase, 
-  MapPin, Compass, BarChart3, Shield, FileText, Settings
+  MapPin, Map, BarChart3, Shield, FileText, Settings
 } from "lucide-react";
 import { Card } from "@/components/ui-custom/Card";
 
@@ -15,7 +15,7 @@ const buildItems = [
   { name: "Client Portals", icon: UserCheck },
   { name: "Job Portal Systems", icon: Briefcase },
   { name: "GIS Dashboards", icon: BarChart3 },
-  { name: "Interactive Maps", icon: Compass },
+  { name: "Interactive Maps", icon: Map },
   { name: "Spatial Analysis Outputs", icon: MapPin },
   { name: "Digital Business Profiles", icon: Shield },
   { name: "Marketing & Design Materials", icon: FileText },
@@ -26,18 +26,18 @@ export default function ValueDeliver() {
   const ref = useScrollReveal();
 
   return (
-    <section className="py-20 sm:py-32 bg-bg-base" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
+    <section className="py-12 sm:py-20 md:py-32 bg-bg-base" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-center">
           
           {/* Left Block */}
           <div>
-            <div className="reveal eyebrow mb-4">What We Can Build</div>
-            <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[46px] leading-[1.08] font-bold text-primary">
-              What We Can <span className="text-gold">Build</span>
+            <div className="reveal eyebrow mb-4">Our Project Capabilities</div>
+            <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[46px] leading-[1.2] font-bold text-primary">
+              Web, Software &amp; GIS Projects <span className="text-gold">We Deliver</span>
             </h2>
             <p className="reveal reveal-delay-2 text-muted text-[16px] leading-[1.6] mt-6 max-w-[420px]">
-              We support different types of digital and technical projects, including the categories listed in the home PDF.
+              From custom web platforms and enterprise software to geospatial dashboards and digital campaigns, we deliver everything with perfection.
             </p>
           </div>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import PageHero from "@/components/ui-custom/PageHero";
 import CTASection from "@/components/sections/CTASection";
 import { Card } from "@/components/ui-custom/Card";
@@ -13,38 +14,45 @@ const teamMembers = [
   {
     name: "Arslan Saleem",
     role: "Founder & Geospatial Engineer",
+    initials: "AS",
     description:
       "Arslan is the founder of Ravian Matrix Systems and is based in Munich. His background is in geospatial engineering, with a focus on GIS, remote sensing, spatial data, and technical project coordination.",
   },
   {
     name: "Manisha Kumari",
     role: "Client Relations & Business Development",
+    image: "/team-manisha.png",
+    initials: "MK",
     description:
       "Manisha leads client relations, business development, and sales communication. She holds an MBA in Sales and Marketing and focuses on client communication, requirement discussions, and business coordination.",
   },
   {
-    name: "Sidra Noor",
-    role: "Geospatial Intelligence Lead",
-    description:
-      "Sidra leads geospatial and remote sensing work, with specialization in GIS, spatial data processing, mapping, environmental analysis, and remote sensing interpretation.",
-  },
-  {
-    name: "Waqas Mubarik",
-    role: "Digital Growth Lead",
-    description:
-      "Waqas leads digital marketing, online visibility, SEO, content direction, and campaign support. His focus is on helping businesses improve their digital presence and brand communication.",
-  },
-  {
     name: "Haseeb Raza",
     role: "Web Development Lead",
+    initials: "HR",
     description:
       "Haseeb holds a Bachelor’s degree in Computer Science and leads web development work, with a focus on modern websites, web systems, responsive interfaces, and technical web implementation.",
   },
   {
     name: "Qamar Raza",
     role: "Application Development Lead",
+    initials: "QR",
     description:
       "Qamar leads application development, with a focus on custom applications, backend systems, frontend systems, API integration, and digital platform development.",
+  },
+  {
+    name: "Sidra Noor",
+    role: "Geospatial Intelligence Lead",
+    initials: "SN",
+    description:
+      "Sidra leads geospatial and remote sensing work, with specialization in GIS, spatial data processing, mapping, environmental analysis, and remote sensing interpretation.",
+  },
+  {
+    name: "Waqas Mubarik",
+    role: "Digital Growth Lead",
+    initials: "WM",
+    description:
+      "Waqas leads digital marketing, online visibility, SEO, content direction, and campaign support. His focus is on helping businesses improve their digital presence and brand communication.",
   },
 ];
 
@@ -75,7 +83,7 @@ export default function AboutPage() {
         description="Ravian Matrix Systems is a Munich-based technical services business focused on web solutions, software development, geospatial intelligence, and digital growth."
       />
 
-      <section className="py-20 bg-bg-surface border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-8 md:gap-16 items-start">
             <div>
@@ -101,7 +109,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-bg-base border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="max-w-[760px] mb-12">
             <h2 className="text-[32px] sm:text-[42px] font-bold tracking-tight">Our Foundation</h2>
@@ -112,16 +120,18 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {foundationCards.map((card) => (
-              <Card key={card.title} className="p-6 sm:p-8 bg-bg-surface border-line h-full" glow>
-                <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-4">{card.title}</div>
-                <p className="text-[14.5px] leading-relaxed text-muted">{card.body}</p>
-              </Card>
+              <div key={card.title} className="flex">
+                <Card className="p-6 sm:p-8 bg-bg-surface border-line flex flex-col h-full w-full" glow>
+                  <div className="font-mono text-xs tracking-[0.12em] uppercase text-gold mb-4">{card.title}</div>
+                  <p className="text-[14.5px] leading-relaxed text-muted">{card.body}</p>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-bg-surface border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="max-w-[820px] mb-12">
             <h2 className="text-[32px] sm:text-[42px] font-bold tracking-tight">Our Team</h2>
@@ -135,17 +145,32 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((member) => (
-              <Card key={member.name} className="p-6 sm:p-8 bg-bg-base border-line h-full" glow>
-                <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-4">{member.role}</div>
-                <h3 className="text-[20px] font-semibold text-primary mb-4">{member.name}</h3>
-                <p className="text-[14px] leading-relaxed text-muted">{member.description}</p>
-              </Card>
+              <div key={member.name} className="flex">
+                <Card className="p-6 sm:p-8 bg-bg-base border-line flex flex-col h-full w-full" glow>
+                  <div className="mb-6 h-28 w-28 rounded-full border border-line bg-bg-surface overflow-hidden flex items-center justify-center text-gold font-display text-[28px] font-semibold">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={160}
+                        height={160}
+                        className="h-full w-full object-cover object-top"
+                      />
+                    ) : (
+                      <span>{member.initials}</span>
+                    )}
+                  </div>
+                  <div className="font-mono text-xs tracking-[0.12em] uppercase text-gold mb-4">{member.role}</div>
+                  <h3 className="text-[20px] font-semibold text-primary mb-4">{member.name}</h3>
+                  <p className="text-[14px] leading-relaxed text-muted">{member.description}</p>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-bg-base border-b border-line">
+      <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
             <div className="space-y-10">
@@ -185,8 +210,8 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-line">
-                <Link href="/contact" className="btn btn-primary w-full justify-center">
-                  Request Non-Binding Quote <span className="arrow">→</span>
+                <Link href="/request-quote" className="btn btn-primary w-full justify-center">
+                  Request a Quote <span className="arrow">→</span>
                 </Link>
               </div>
             </Card>

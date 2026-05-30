@@ -7,12 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/contact",
+    "/request-quote",
     "/services",
     "/services/web-development",
     "/services/software-development",
     "/services/geospatial-intelligence",
     "/services/digital-growth",
-    "/work",
     "/privacy-policy",
     "/impressum",
   ];

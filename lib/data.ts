@@ -1,8 +1,7 @@
 export const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Case Studies", href: "/work" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -11,9 +10,8 @@ export const footerLinks = {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Case Studies", href: "/work" },
     { name: "Contact", href: "/contact" },
-    { name: "Request a Quote", href: "/contact" },
+    { name: "Request a Quote", href: "/request-quote" },
   ],
   services: [
     { name: "Web Development", href: "/services/web-development" },

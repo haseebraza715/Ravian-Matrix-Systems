@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Mono, Fraunces } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import PageTransition from "@/components/ui-custom/PageTransition";
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -18,19 +18,19 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Ravian Matrix Systems",
-  description: "Geospatial Intelligence & Digital Solutions for Global Enterprises. Reliable GIS, web platforms, and custom software — from mapping to automation.",
+  title: "Ravian Matrix Systems | Custom Software, GIS & Web Solutions in Munich",
+  description: "Professional web systems, custom software, GIS solutions, and digital growth strategies for businesses worldwide.",
   metadataBase: new URL('https://ravianmatrixsystems.de'),
   openGraph: {
-    title: 'Ravian Matrix Systems',
-    description: 'Geospatial Intelligence & Digital Solutions for Global Enterprises.',
+    title: 'Ravian Matrix Systems | Custom Software, GIS & Web Solutions in Munich',
+    description: 'Professional web systems, custom software, GIS solutions, and digital growth strategies for businesses worldwide.',
     url: 'https://ravianmatrixsystems.de',
     siteName: 'Ravian Matrix Systems',
     images: [
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ravian Matrix Systems',
-    description: 'Geospatial Intelligence & Digital Solutions for Global Enterprises.',
+    title: 'Ravian Matrix Systems | Custom Software, GIS & Web Solutions in Munich',
+    description: 'Professional web systems, custom software, GIS solutions, and digital growth strategies for businesses worldwide.',
   },
   robots: {
     index: true,
@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${ibmPlexMono.variable} scroll-smooth`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${outfit.variable} ${ibmPlexMono.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
@@ -83,7 +83,7 @@ export default function RootLayout({
                   "@id": "https://ravianmatrixsystems.de/#organization",
                   "name": "Ravian Matrix Systems",
                   "url": "https://ravianmatrixsystems.de",
-                  "logo": "https://ravianmatrixsystems.de/logo.png",
+                  "logo": "https://ravianmatrixsystems.de/r-logo.png",
                   "sameAs": [
                     "https://linkedin.com/company/ravian-matrix-systems"
                   ]
@@ -131,7 +131,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased bg-bg text-ink min-h-screen flex flex-col`}>
+      <body className="font-sans antialiased bg-bg text-ink">
         {/* Accessibility Skip-to-Content Link */}
         <a 
           href="#main-content" 
@@ -140,10 +140,12 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navbar />
-        <main id="main-content" className="flex-grow pt-[72px]">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
+        <div className="min-h-screen flex flex-col">
+          <main id="main-content" className="flex-grow pt-[72px]">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

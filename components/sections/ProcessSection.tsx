@@ -2,15 +2,15 @@
 
 import { processSteps } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Search, Compass, Code, TestTube, Rocket } from "lucide-react";
+import { Search, Lightbulb, Code, TestTube, Rocket } from "lucide-react";
 
-const stepIcons = [Search, Compass, Code, TestTube, Rocket];
+const stepIcons = [Search, Lightbulb, Code, TestTube, Rocket];
 
 export default function ProcessSection() {
   const ref = useScrollReveal();
 
   return (
-    <section className="py-20 sm:py-32 bg-bg-surface text-primary relative overflow-hidden" id="process" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
+    <section className="py-12 sm:py-20 md:py-32 bg-bg-surface text-primary relative overflow-hidden" id="process" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       {/* Ambient gradient */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gold/[0.01] rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -19,29 +19,39 @@ export default function ProcessSection() {
         {/* Section Title */}
         <div className="mb-16 sm:mb-20">
           <div className="reveal eyebrow mb-4">How We Work</div>
-          <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[46px] leading-[1.08] font-bold">
-            A <span className="text-gold">structured</span> process to deliver.
+          <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[46px] leading-[1.2] font-bold">
+            Our Proven Process to Deliver <span className="text-gold">IT &amp; GIS Projects</span>
           </h2>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-0 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-0 relative">
           
-          {/* Connecting dashed line (Desktop) */}
-          <div className="hidden lg:block absolute top-[52px] left-[40px] right-[40px] h-[1px] border-t border-dashed border-line pointer-events-none"></div>
+          {/* Connecting dashed line (Desktop & Tablet) */}
+          <div className="hidden md:block absolute top-[52px] left-[40px] right-[40px] h-[1px] border-t border-dashed border-line pointer-events-none"></div>
+
+          {/* Connecting dashed line (Mobile stacked) */}
+          <div className="block md:hidden absolute top-[48px] bottom-[48px] left-[48px] w-[1px] border-l border-dashed border-line pointer-events-none"></div>
 
           {processSteps.map((step, index) => {
-            const Icon = stepIcons[index] || Compass;
+            const Icon = stepIcons[index] || Lightbulb;
+            const isSolutionPlanning = step.title === "Solution Planning";
             return (
               <div 
                 key={index} 
-                className={`reveal reveal-delay-${Math.min(index + 1, 5)} group relative p-6 border border-transparent hover:border-line hover:bg-bg-base/30 rounded-2xl transition-all duration-300`}
+                className={`reveal reveal-delay-${Math.min(index + 1, 5)} group relative p-6 border hover:border-line hover:bg-bg-base/30 active:scale-[0.99] active:bg-bg-base/40 active:border-line rounded-2xl transition-all duration-300 ${
+                  isSolutionPlanning ? "border-gold/25 bg-bg-base/20 shadow-[0_0_24px_rgba(245,197,107,0.08)]" : "border-transparent"
+                }`}
               >
                 {/* Step icon wrapper */}
-                <div className="w-12 h-12 rounded-lg bg-bg-base border border-line flex items-center justify-center mb-8 relative z-10 group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(225,184,74,0.15)] transition-all">
+                <div className={`w-12 h-12 rounded-lg bg-bg-base border flex items-center justify-center mb-8 relative z-10 group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(225,184,74,0.15)] transition-all ${
+                  isSolutionPlanning ? "border-gold/70 shadow-[0_0_20px_rgba(245,197,107,0.18)]" : "border-line"
+                }`}>
                   <Icon className="w-5 h-5 text-gold/80 group-hover:text-gold transition-colors" />
                   {/* Active node glow */}
-                  <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-status-green opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className={`absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-status-green transition-opacity ${
+                    isSolutionPlanning ? "opacity-100 animate-pulse" : "opacity-0 group-hover:opacity-100"
+                  }`}></div>
                 </div>
                 
                 {/* Step index and label */}

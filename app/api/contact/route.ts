@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const data = await request.json();
     
     // Server-side validation
-    if (!data.firstName || !data.email || !data.projectDetails) {
+    if (!data.firstName || !data.email || (!data.projectDetails && !data.message)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 

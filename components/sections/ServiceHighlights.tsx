@@ -1,7 +1,7 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Briefcase, Binary, Compass, Languages, Mail, PhoneCall } from "lucide-react";
+import { Briefcase, Binary, Compass, Languages, Mail } from "lucide-react";
 import { Card } from "@/components/ui-custom/Card";
 
 export default function ServiceHighlights() {
@@ -26,7 +26,7 @@ export default function ServiceHighlights() {
   ];
 
   return (
-    <section className="py-20 bg-bg-surface text-primary relative overflow-hidden" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
+    <section className="py-12 sm:py-20 md:py-32 bg-bg-surface text-primary relative overflow-hidden" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       {/* Background patterns */}
       <div className="absolute top-0 right-1/4 w-[350px] h-[350px] bg-gold/[0.01] rounded-full blur-[100px] pointer-events-none"></div>
 
@@ -35,7 +35,7 @@ export default function ServiceHighlights() {
           
           {/* Left Column: Highlights Grid */}
           <div>
-            <h2 className="reveal text-[32px] sm:text-[46px] leading-[1.08] font-bold text-primary mb-10">
+            <h2 className="reveal text-[32px] sm:text-[46px] leading-[1.2] font-bold text-primary mb-10">
               Service Highlights
             </h2>
 
@@ -87,10 +87,6 @@ export default function ServiceHighlights() {
                 <div className="flex items-center gap-3 text-[13.5px] text-muted hover:text-gold transition-colors">
                   <Mail className="w-4 h-4 text-gold/80" />
                   <span>info@ravianmatrixsystems.de</span>
-                </div>
-                <div className="flex items-center gap-3 text-[13.5px] text-muted">
-                  <PhoneCall className="w-4 h-4 text-gold/80" />
-                  <span>virtual meeting / call by appt.</span>
                 </div>
               </div>
             </Card>

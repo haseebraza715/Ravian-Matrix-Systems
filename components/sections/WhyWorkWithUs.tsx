@@ -30,18 +30,18 @@ export default function WhyWorkWithUs() {
   const ref = useScrollReveal();
 
   return (
-    <section className="py-20 bg-bg-base text-primary relative overflow-hidden" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
+    <section className="py-12 sm:py-20 md:py-32 bg-bg-base text-primary relative overflow-hidden" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
         <div className="mb-16">
-          <h2 className="reveal text-[32px] sm:text-[46px] leading-[1.08] font-bold">
-            Why work with <span className="text-gold">us.</span>
+          <h2 className="reveal text-[32px] sm:text-[46px] leading-[1.2] font-bold">
+            Why Global Businesses Choose <span className="text-gold">Ravian Matrix Systems</span>
           </h2>
           <p className="reveal reveal-delay-1 text-muted text-[16px] leading-[1.6] max-w-[540px] mt-4">
-            The home PDF outlines five reasons clients choose Ravian Matrix Systems for structured digital and technical delivery.
+            Five reasons clients trust us for structured digital, software, and GIS project delivery.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
           {reasons.map((reason, idx) => (
             <div key={reason.title} className={`reveal reveal-delay-${Math.min(idx + 1, 5)} flex`}>
               <Card className="p-6 bg-bg-surface flex flex-col w-full h-full" glow>

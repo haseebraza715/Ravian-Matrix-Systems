@@ -24,23 +24,23 @@ export default function CoreServices() {
   };
 
   return (
-    <section className="py-20 bg-bg-base" id="services" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
+    <section className="py-12 sm:py-20 md:py-32 bg-bg-base" id="services" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-16 items-end mb-16 sm:mb-20">
           <div>
-            <h2 className="reveal text-[32px] sm:text-[48px] leading-[1.08] font-bold text-primary max-w-[600px]">
-              Our <span className="text-gold">Core Services</span>
+            <h2 className="reveal text-[32px] sm:text-[48px] leading-[1.2] font-bold text-primary max-w-[600px]">
+              Our Core <span className="text-gold">IT &amp; GIS Services</span>
             </h2>
           </div>
           <p className="reveal reveal-delay-2 text-muted text-[16px] leading-[1.6] max-w-[480px]">
-            Web solutions, software development, geospatial intelligence, and digital growth, each mapped to its own detailed service page.
+            Explore our core services, from custom web development and software engineering to GIS consulting and digital growth strategies. Each is built for businesses that need reliable, scalable technology solutions.
           </p>
         </div>
 
         {/* Custom Staggered Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 items-stretch">
           {coreServices.map((svc, index) => {
             const isGeospatial = svc.id === "geospatial-intelligence";
             // Stagger Software Development slightly down
@@ -49,12 +49,12 @@ export default function CoreServices() {
             return (
               <div
                 key={svc.id}
-                className={`reveal reveal-delay-${Math.min(index % 3 + 1, 5)} ${isStaggered ? "md:translate-y-6" : ""}`}
+                className={`reveal reveal-delay-${Math.min(index % 3 + 1, 5)} ${isStaggered ? "md:translate-y-6" : ""} flex`}
               >
-                <Link href={`/services/${svc.id}`} className="block h-full group">
+                <Link href={`/services/${svc.id}`} className="block w-full h-full group">
                   <Card
                     premiumBorder={isGeospatial}
-                    className={`p-6 sm:p-8 min-h-[280px] flex flex-col justify-between transition-all duration-300 ${
+                    className={`p-6 sm:p-8 min-h-[280px] flex flex-col justify-between h-full w-full transition-all duration-300 ${
                       isGeospatial ? "bg-bg-surface border-transparent" : "bg-bg-surface"
                     }`}
                   >
