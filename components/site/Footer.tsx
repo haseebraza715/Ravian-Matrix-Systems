@@ -27,7 +27,7 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="font-semibold text-primary text-[15px] tracking-tight">
+            <p className="font-semibold text-gold text-[15px] tracking-tight">
               You name IT, We make IT.
             </p>
             <p className="text-sm leading-relaxed text-muted max-w-[280px]">
@@ -150,7 +150,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="terminal-label !text-gold/90 mt-0.5">HRS:</span>
-                <span>Response within 24 hours on business days. Meetings by appointment only.</span>
+                <span>Monday to Friday, 9am-6pm (CET). Meetings by appointment only.</span>
               </li>
               <li className="flex items-start gap-2.5 border-t border-line pt-3 mt-1">
                 <span className="terminal-label !text-gold/90 mt-0.5">LNG:</span>
