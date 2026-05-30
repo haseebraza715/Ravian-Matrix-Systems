@@ -107,6 +107,7 @@ export default function ContactForm() {
             <select
               id="inquiryType"
               name="inquiryType"
+              required
               className="w-full border border-line rounded-lg px-4 py-3 text-base bg-bg-base text-primary focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all appearance-none cursor-pointer"
             >
               <option className="bg-bg-base text-primary">General Inquiry</option>

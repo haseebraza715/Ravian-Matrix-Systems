@@ -3,7 +3,7 @@ import PageHero from "@/components/ui-custom/PageHero";
 import ContactForm from "@/components/ui-custom/ContactForm";
 import { Card } from "@/components/ui-custom/Card";
 import Link from "next/link";
-import { Mail, Clock, MapPin, Send, PhoneCall } from "lucide-react";
+import { Mail, MapPin, Send, PhoneCall } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact | Ravian Matrix Systems",
@@ -69,15 +69,6 @@ export default function ContactPage() {
                   <a href="mailto:info@ravianmatrixsystems.de" className="text-[16px] font-semibold text-primary hover:text-gold transition-colors">
                     info@ravianmatrixsystems.de
                   </a>
-                </div>
-                
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <Clock className="w-4 h-4 text-gold" />
-                    <h4 className="font-mono text-[10px] tracking-widest uppercase text-muted">Business Hours</h4>
-                  </div>
-                  <p className="text-[16px] font-semibold text-primary">Mon–Fri, 9am–6pm (CET)</p>
-                  <p className="text-[14px] mt-0.5 text-muted">Meetings are available by appointment only.</p>
                 </div>
               </div>
             </div>
