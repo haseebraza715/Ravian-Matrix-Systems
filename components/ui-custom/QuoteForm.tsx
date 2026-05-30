@@ -13,13 +13,12 @@ export default function QuoteForm() {
     e.preventDefault();
     setStatus("loading");
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    formData.append("formType", "quote");
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, formType: "quote" }),
+        body: formData,
       });
 
       if (res.ok) {
@@ -58,8 +57,8 @@ export default function QuoteForm() {
               <input name="phone" type="tel" maxLength={60} className={fieldClass} />
             </label>
             <label className="flex flex-col gap-2 md:col-span-2">
-              <span className="font-mono text-xs tracking-widest uppercase text-gold">Company / Organization <span className="text-muted">(optional)</span></span>
-              <input name="company" type="text" maxLength={160} className={fieldClass} />
+              <span className="font-mono text-xs tracking-widest uppercase text-gold">Company / Organization</span>
+              <input name="company" type="text" maxLength={160} className={fieldClass} required />
             </label>
           </div>
         </div>
@@ -132,6 +131,12 @@ export default function QuoteForm() {
             </label>
             <label className="flex flex-col gap-2 md:col-span-2">
               <span className="font-mono text-xs tracking-widest uppercase text-gold">File Upload <span className="text-muted">(optional)</span></span>
+              <input
+                name="attachment"
+                type="file"
+                className={`${fieldClass} file:mr-4 file:rounded-md file:border-0 file:bg-gold file:px-4 file:py-2 file:text-sm file:font-semibold file:text-brand-black hover:file:bg-gold-soft`}
+                accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.png,.jpg,.jpeg,.zip"
+              />
               <input name="attachmentNote" type="text" maxLength={300} className={fieldClass} placeholder="Add a link or note about project briefs, screenshots, documents, maps, references, or technical materials if available." />
               <span className="text-[12px] leading-relaxed text-muted">
                 You may upload project briefs, screenshots, documents, maps, references, or technical materials if available.

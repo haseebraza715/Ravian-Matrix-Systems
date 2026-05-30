@@ -2,10 +2,27 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    const data = await request.json();
+    const contentType = request.headers.get('content-type') || '';
+    const data = contentType.includes('multipart/form-data')
+      ? Object.fromEntries((await request.formData()).entries())
+      : await request.json();
     
-    // Server-side validation
-    if (!data.firstName || !data.email || (!data.projectDetails && !data.message)) {
+    const isQuote = data.formType === 'quote';
+    const missingContactFields =
+      !data.firstName || !data.lastName || !data.email || !data.subject || !data.inquiryType || !data.message;
+    const missingQuoteFields =
+      !data.firstName ||
+      !data.lastName ||
+      !data.email ||
+      !data.company ||
+      !data.serviceRequired ||
+      !data.projectType ||
+      !data.projectDetails ||
+      !data.expectedTimeline ||
+      !data.estimatedBudget;
+
+    // Server-side validation. Phone and uploaded files remain optional.
+    if (isQuote ? missingQuoteFields : missingContactFields) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 

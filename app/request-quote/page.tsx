@@ -39,7 +39,7 @@ export default function RequestQuotePage() {
       <PageHero
         eyebrow="Request a Quote"
         title="Tell Us About Your Project"
-        description="Share your project requirements with Ravian Matrix Systems and we will review your request carefully. Whether you need a professional website, custom application, geospatial solution, digital marketing support, or a complete digital system, we will prepare a structured, non-binding quote based on your project scope, timeline, and technical requirements. You name IT, We make IT."
+        description="Share your project requirements with Ravian Matrix Systems and we will review your request carefully. Whether you need a professional website, custom application, geospatial solution, digital marketing support, or a complete digital system, we will prepare a structured, non-binding quote based on your project scope, timeline, and technical requirements."
       />
 
       <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
@@ -74,7 +74,7 @@ export default function RequestQuotePage() {
               const Icon = step.icon;
               return (
                 <div key={step.title} className="flex">
-                  <Card className="p-6 bg-bg-base border-line flex flex-col h-full w-full" glow>
+                  <Card className="p-6 bg-bg-base border-line flex flex-col h-full w-full">
                     <div className="w-10 h-10 rounded-lg bg-bg-surface border border-line flex items-center justify-center text-gold mb-6 flex-shrink-0">
                       <Icon className="w-5 h-5" />
                     </div>
