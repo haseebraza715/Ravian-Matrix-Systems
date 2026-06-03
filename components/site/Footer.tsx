@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Linkedin, Facebook, Instagram } from "lucide-react";
+import { BrandLogo } from "@/components/site/BrandLogo";
 
 export default function Footer() {
   return (
@@ -17,15 +17,10 @@ export default function Footer() {
           {/* Logo and Slogan */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="inline-block group">
-              <div className="bg-white px-2.5 py-1.5 rounded-md flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.3)] border border-line max-w-max transition-all duration-300 group-hover:border-gold/30">
-                <Image
-                  src="/logo.jpeg"
-                  alt="Ravian Matrix Systems"
-                  width={150}
-                  height={38}
-                  className="h-8 w-auto object-contain"
-                />
-              </div>
+              <BrandLogo
+                className="px-2 py-1.5 max-w-max group-hover:border-gold/30"
+                imageClassName="h-9 w-9 sm:h-10 sm:w-10"
+              />
             </Link>
             <p className="font-semibold text-gold text-[15px] tracking-tight">
               You name IT, We make IT.
@@ -139,8 +134,11 @@ export default function Footer() {
             </h5>
             <ul className="flex flex-col gap-4 text-[13.5px] text-muted">
               <li className="flex items-start gap-2.5">
-                <span className="terminal-label !text-gold/90 mt-0.5">LOC:</span>
-                <span className="text-primary font-medium">Munich, Germany</span>
+                <span className="terminal-label !text-gold/90 mt-0.5 shrink-0">LOC:</span>
+                <span className="text-primary font-medium leading-snug">
+                  Pfeilschifterstraße 27<br />
+                  80997 Munich, Germany
+                </span>
               </li>
               <li>
                 <a href="mailto:info@ravianmatrixsystems.de" className="hover:text-gold transition-colors flex items-start gap-2.5">
@@ -149,8 +147,10 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="terminal-label !text-gold/90 mt-0.5">HRS:</span>
-                <span>Monday to Friday, 9am-6pm (CET). Meetings by appointment only.</span>
+                <span className="terminal-label !text-gold/90 mt-0.5 shrink-0">HRS:</span>
+                <span className="leading-snug">
+                  Response within 24 hours on business days. Meetings by appointment only.
+                </span>
               </li>
               <li className="flex items-start gap-2.5 border-t border-line pt-3 mt-1">
                 <span className="terminal-label !text-gold/90 mt-0.5">LNG:</span>

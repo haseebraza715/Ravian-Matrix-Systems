@@ -141,7 +141,7 @@ export default function RootLayout({
         </a>
         <Navbar />
         <div className="min-h-screen flex flex-col">
-          <main id="main-content" className="flex-grow pt-[72px]">
+          <main id="main-content" className="flex-grow w-full min-w-0 pt-[72px]">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />

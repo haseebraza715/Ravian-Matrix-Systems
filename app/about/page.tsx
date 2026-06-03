@@ -1,19 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import PageHero from "@/components/ui-custom/PageHero";
 import CTASection from "@/components/sections/CTASection";
 import { Card } from "@/components/ui-custom/Card";
+import { TeamMemberCard } from "@/components/ui-custom/TeamMemberCard";
 
 export const metadata: Metadata = {
   title: "About Us | Ravian Matrix Systems",
   description: "Building IT, web, and geospatial solutions.",
 };
 
-const teamMembers = [
+type TeamMember = {
+  name: string;
+  role: string;
+  initials: string;
+  description: string;
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+};
+
+const teamMembers: TeamMember[] = [
   {
     name: "Arslan Saleem",
     role: "Founder & Geospatial Engineer",
+    image: "/team-arslan.png",
+    imageWidth: 1113,
+    imageHeight: 1379,
     initials: "AS",
     description:
       "Arslan is the founder of Ravian Matrix Systems. His background is in geospatial engineering, with a focus on GIS, remote sensing, spatial data, and technical project coordination.",
@@ -22,6 +35,8 @@ const teamMembers = [
     name: "Manisha Kumari",
     role: "Client Relations & Business Development",
     image: "/team-manisha.png",
+    imageWidth: 1200,
+    imageHeight: 1600,
     initials: "MK",
     description:
       "Manisha leads client relations, business development, and sales communication. She holds an MBA in Sales and Marketing and focuses on client communication, requirement discussions, and business coordination.",
@@ -29,6 +44,9 @@ const teamMembers = [
   {
     name: "Haseeb Raza",
     role: "Web Development Lead",
+    image: "/team-haseeb.png",
+    imageWidth: 1110,
+    imageHeight: 1197,
     initials: "HR",
     description:
       "Haseeb holds a Bachelor’s degree in Computer Science and leads web development work, with a focus on modern websites, web systems, responsive interfaces, and technical web implementation.",
@@ -76,7 +94,7 @@ const foundationCards = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-bg-base min-h-screen text-primary">
+    <div className="bg-bg-base min-h-screen w-full text-primary">
       <PageHero
         eyebrow="About Ravian Matrix Systems"
         title="Building IT, Web, and Geospatial Solutions"
@@ -131,7 +149,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
+      <section
+        id="team"
+        className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line scroll-mt-28"
+      >
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="max-w-[820px] mb-12">
             <h2 className="text-[32px] sm:text-[42px] font-bold tracking-tight">Our Team</h2>
@@ -143,27 +164,10 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {teamMembers.map((member) => (
-              <div key={member.name} className="flex">
-                <Card className="p-6 sm:p-8 bg-bg-base border-line flex flex-col h-full w-full" glow>
-                  <div className="mb-6 h-28 w-28 rounded-full border border-line bg-bg-surface overflow-hidden flex items-center justify-center text-gold font-display text-[28px] font-semibold">
-                    {member.image ? (
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={160}
-                        height={160}
-                        className="h-full w-full object-cover object-top"
-                      />
-                    ) : (
-                      <span>{member.initials}</span>
-                    )}
-                  </div>
-                  <div className="font-mono text-xs tracking-[0.12em] uppercase text-gold mb-4">{member.role}</div>
-                  <h3 className="text-[20px] font-semibold text-primary mb-4">{member.name}</h3>
-                  <p className="text-[14px] leading-relaxed text-muted">{member.description}</p>
-                </Card>
+              <div key={member.name} className="flex min-h-0 min-w-0">
+                <TeamMemberCard member={member} className="min-w-0" />
               </div>
             ))}
           </div>

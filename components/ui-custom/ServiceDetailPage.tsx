@@ -4,7 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronRight, CheckCircle2 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useRotatingHighlight } from "@/hooks/useRotatingHighlight";
+import {
+  rotatingStepCardClass,
+  rotatingStepTitleClass,
+} from "@/lib/rotatingHighlightStyles";
 import { Card } from "@/components/ui-custom/Card";
+import { cn } from "@/lib/utils";
 import type { ServiceData } from "@/data/services";
 
 function ServiceHeroVisual({ id }: { id: string }) {
@@ -35,6 +41,9 @@ function ServiceHeroVisual({ id }: { id: string }) {
 
 export default function ServiceDetailPage({ service }: { service: ServiceData }) {
   const ref = useScrollReveal();
+  const { isFeatured, setActiveIndex } = useRotatingHighlight(
+    service.howWeWorkSteps.length
+  );
 
   return (
     <div className="bg-bg-base min-h-screen text-primary" ref={ref}>
@@ -205,15 +214,36 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-[1180px]:grid-cols-5 gap-5">
-            {service.howWeWorkSteps.map((step, index) => (
-              <Card key={step.number} className={`p-6 bg-bg-base border-line flex flex-col ${index === 0 ? "reveal" : "reveal reveal-delay-1"}`} hoverEffect={false}>
-                <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-4">
-                  Step {step.number}
-                </div>
-                <h3 className="text-[18px] font-semibold text-primary mb-3">{step.title}</h3>
-                <p className="text-[14px] leading-relaxed text-muted">{step.description}</p>
-              </Card>
-            ))}
+            {service.howWeWorkSteps.map((step, index) => {
+              const featured = isFeatured(index);
+              return (
+                <button
+                  key={step.number}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-pressed={featured}
+                  aria-label={`${step.title}: ${step.description}`}
+                  className={cn(
+                    "process-step-card group flex h-full w-full cursor-pointer flex-col p-6 text-left",
+                    rotatingStepCardClass(featured),
+                    index === 0 ? "reveal" : "reveal reveal-delay-1"
+                  )}
+                >
+                  <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-4">
+                    Step {step.number}
+                  </div>
+                  <h3
+                    className={cn(
+                      "text-[18px] font-semibold mb-3 text-primary",
+                      rotatingStepTitleClass(featured)
+                    )}
+                  >
+                    {step.title}
+                  </h3>
+                  <p className="text-[14px] leading-relaxed text-muted">{step.description}</p>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>

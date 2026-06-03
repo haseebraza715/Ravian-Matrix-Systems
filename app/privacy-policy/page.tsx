@@ -114,8 +114,8 @@ export default function PrivacyPolicyPage() {
                   <strong>Storage period:</strong> Server log files are stored only as long as necessary for technical and security purposes, unless longer retention is legally required.
                 </p>
                 <div className="bg-gold/[0.02] border border-gold/10 p-5 rounded-xl text-gold font-mono text-[13px] space-y-1 shadow-sm">
-                  <div>Hosting provider: [Insert hosting provider name]</div>
-                  <div>Hosting location: [Insert country / EU if applicable]</div>
+                  <div>Hosting provider: IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Germany</div>
+                  <div>Hosting location: Germany</div>
                 </div>
               </div>
 
@@ -172,7 +172,9 @@ export default function PrivacyPolicyPage() {
                 <p className="mb-4">
                   <strong>Legal basis:</strong> Art. 6(1)(b) GDPR and Art. 6(1)(f) GDPR.
                 </p>
-                <p className="font-mono text-[13px] text-gold">Email provider: [Insert email provider name]</p>
+                <p className="font-mono text-[13px] text-gold">
+                  Email provider: IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Germany
+                </p>
               </div>
 
               <div id="sec-7" className="scroll-mt-28">

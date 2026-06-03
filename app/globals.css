@@ -28,10 +28,15 @@
   }
 
 
+  html {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-brand-black text-brand-cream antialiased font-sans relative;
     font-feature-settings: "ss01", "cv11";
     line-height: 1.55;
+    overflow-x: clip;
   }
 
   h1, h2 {
@@ -47,6 +52,26 @@
 
   section {
     scroll-margin-top: 72px;
+  }
+
+  /* Team cards on white — body text color must not inherit light cream */
+  .team-member-card {
+    color: #475569;
+  }
+  .team-member-card h3.team-member-name {
+    color: #05080f;
+  }
+  .team-member-card .team-member-bio {
+    color: #475569;
+  }
+  .team-member-card .team-member-role {
+    color: #b8923a;
+  }
+
+  /* Process steps stay visible (no scroll-reveal fade on interactive cards) */
+  .process-step-card.reveal {
+    opacity: 1;
+    transform: none;
   }
 
   body::before {

@@ -57,8 +57,11 @@ export default function ContactPage() {
                     <MapPin className="w-4 h-4 text-gold" />
                     <h4 className="font-mono text-[10px] tracking-widest uppercase text-muted">Location</h4>
                   </div>
-                  <p className="text-[16px] font-semibold text-primary">Munich, Germany</p>
-                  <p className="text-[14px] mt-0.5 text-muted">Serving clients in Germany, Europe, and worldwide.</p>
+                  <p className="text-[16px] font-semibold text-primary leading-snug">
+                    Pfeilschifterstraße 27<br />
+                    80997 Munich, Germany
+                  </p>
+                  <p className="text-[14px] mt-1.5 text-muted">Serving clients in Germany, Europe, and worldwide.</p>
                 </div>
                 
                 <div className="border-b border-line pb-4">

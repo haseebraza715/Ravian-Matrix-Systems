@@ -1,0 +1,109 @@
+name: Deploy to IONOS
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ionos-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy static site
+    runs-on: ubuntu-latest
+
+    env:
+      BUILD_DIR: out
+      IONOS_SFTP_HOST: ${{ secrets.IONOS_SFTP_HOST }}
+      IONOS_SFTP_USER: ${{ secrets.IONOS_SFTP_USER }}
+      IONOS_SFTP_PASSWORD: ${{ secrets.IONOS_SFTP_PASSWORD }}
+      IONOS_SFTP_PORT: ${{ secrets.IONOS_SFTP_PORT }}
+      IONOS_TARGET_DIR: ${{ secrets.IONOS_TARGET_DIR }}
+      IONOS_SSH_KNOWN_HOSTS: ${{ secrets.IONOS_SSH_KNOWN_HOSTS }}
+      IONOS_ALLOW_ROOT_TARGET: ${{ secrets.IONOS_ALLOW_ROOT_TARGET }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build
+
+      - name: Verify static build output
+        run: |
+          set -euo pipefail
+          test -d "$BUILD_DIR"
+          test -f "$BUILD_DIR/index.html"
+          test -f "$BUILD_DIR/api/contact.php"
+          test -z "$(find "$BUILD_DIR" -mindepth 1 -maxdepth 1 -print -quit)" && {
+            echo "Build output '$BUILD_DIR' is empty."
+            exit 1
+          }
+          echo "Verified PHP contact endpoint at $BUILD_DIR/api/contact.php"
+
+      - name: Install SSH deployment tools
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends sshpass
+
+      - name: Prepare SSH known hosts
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          if [ -n "$IONOS_SSH_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$IONOS_SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            ssh-keyscan -p "$IONOS_SFTP_PORT" -H "$IONOS_SFTP_HOST" > ~/.ssh/known_hosts
+          fi
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy to IONOS webspace
+        run: |
+          set -euo pipefail
+
+          for required in IONOS_SFTP_HOST IONOS_SFTP_USER IONOS_SFTP_PASSWORD IONOS_SFTP_PORT IONOS_TARGET_DIR; do
+            if [ -z "${!required}" ]; then
+              echo "Missing required secret: $required"
+              exit 1
+            fi
+          done
+
+          case "$IONOS_TARGET_DIR" in
+            ""|"."|".."|"/."|"/..")
+              echo "Refusing to deploy to unsafe IONOS_TARGET_DIR: '$IONOS_TARGET_DIR'"
+              exit 1
+              ;;
+          esac
+
+          if [ "$IONOS_TARGET_DIR" = "/" ] && [ "${IONOS_ALLOW_ROOT_TARGET:-}" != "true" ]; then
+            echo "IONOS_TARGET_DIR is '/'. Set IONOS_ALLOW_ROOT_TARGET=true only if '/' is the confirmed web root."
+            exit 1
+          fi
+
+          export SSHPASS="$IONOS_SFTP_PASSWORD"
+          SSH_BASE=(sshpass -e ssh -p "$IONOS_SFTP_PORT" "$IONOS_SFTP_USER@$IONOS_SFTP_HOST")
+          RELEASE_DIR="$IONOS_TARGET_DIR/.deploy/releases/${GITHUB_SHA}"
+          BACKUP_DIR="$IONOS_TARGET_DIR/.deploy/backups/previous-${GITHUB_RUN_ID}"
+
+          "${SSH_BASE[@]}" "rm -rf '$RELEASE_DIR' && mkdir -p '$RELEASE_DIR' '$BACKUP_DIR'"
+          tar -C "$BUILD_DIR" -cf - . | "${SSH_BASE[@]}" "tar -C '$RELEASE_DIR' -xf -"
+
+          "${SSH_BASE[@]}" "find '$BACKUP_DIR' -mindepth 1 -maxdepth 1 -exec rm -rf {} + || true"
+          "${SSH_BASE[@]}" "find '$IONOS_TARGET_DIR' -mindepth 1 -maxdepth 1 ! -name '.deploy' -exec cp -a {} '$BACKUP_DIR'/ \; || true"
+          "${SSH_BASE[@]}" "find '$IONOS_TARGET_DIR' -mindepth 1 -maxdepth 1 ! -name '.deploy' -exec rm -rf {} +"
+          "${SSH_BASE[@]}" "cp -a '$RELEASE_DIR'/. '$IONOS_TARGET_DIR'/"
+          "${SSH_BASE[@]}" "find '$IONOS_TARGET_DIR/.deploy/releases' -mindepth 1 -maxdepth 1 -type d -mtime +14 -exec rm -rf {} + || true"
+          "${SSH_BASE[@]}" "find '$IONOS_TARGET_DIR/.deploy/backups' -mindepth 1 -maxdepth 1 -type d -mtime +14 -exec rm -rf {} + || true"

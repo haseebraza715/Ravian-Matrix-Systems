@@ -4,39 +4,58 @@ import { useState } from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui-custom/Card";
 
+const CONTACT_ENDPOINT = "/api/contact.php";
 const fieldClass = "border border-line rounded-lg px-4 py-3 text-base bg-bg-base text-primary focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all";
 
 export default function QuoteForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    const formData = new FormData(e.currentTarget);
-    formData.append("formType", "quote");
+    setErrorMessage(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.set("formType", "quote");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
         body: formData,
       });
 
-      if (res.ok) {
+      const data = (await res.json().catch(() => null)) as
+        | { success?: boolean; message?: string; error?: string }
+        | null;
+
+      if (res.ok && data?.success) {
         setStatus("success");
-        e.currentTarget.reset();
+        form.reset();
       } else {
         setStatus("error");
+        setErrorMessage(data?.error ?? "Failed to submit. Please try again or email us directly.");
       }
     } catch {
       setStatus("error");
+      setErrorMessage("Failed to submit. Please check your connection and try again.");
     }
 
-    setTimeout(() => setStatus("idle"), 6000);
+    setTimeout(() => {
+      setStatus("idle");
+      setErrorMessage(null);
+    }, 6000);
   };
 
   return (
     <Card className="p-6 sm:p-8 max-w-[760px] w-full bg-bg-surface border-line" glow>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-8" encType="multipart/form-data">
+        <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
+          <label htmlFor="quote-website">Website</label>
+          <input id="quote-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
+
         <div>
           <div className="font-mono text-xs tracking-widest uppercase text-gold mb-4">Personal Information</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -96,6 +115,7 @@ export default function QuoteForm() {
               <textarea
                 name="projectDetails"
                 rows={6}
+                minLength={10}
                 maxLength={2000}
                 className={`${fieldClass} resize-y`}
                 placeholder="Tell us about your project, goals, required features, target users, data, technical needs, or any specific requirements."
@@ -135,18 +155,18 @@ export default function QuoteForm() {
                 name="attachment"
                 type="file"
                 className={`${fieldClass} file:mr-4 file:rounded-md file:border-0 file:bg-gold file:px-4 file:py-2 file:text-sm file:font-semibold file:text-brand-black hover:file:bg-gold-soft`}
-                accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.png,.jpg,.jpeg,.zip"
+                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
               />
               <input name="attachmentNote" type="text" maxLength={300} className={fieldClass} placeholder="Add a link or note about project briefs, screenshots, documents, maps, references, or technical materials if available." />
               <span className="text-[12px] leading-relaxed text-muted">
-                You may upload project briefs, screenshots, documents, maps, references, or technical materials if available.
+                PDF, DOC, DOCX, PNG, or JPG — max 10 MB. You may also describe materials in the note field above.
               </span>
             </label>
           </div>
         </div>
 
         <label className="flex items-start gap-3 text-[13px] leading-relaxed text-muted">
-          <input type="checkbox" name="consent" className="mt-1 h-4 w-4 accent-gold" required />
+          <input type="checkbox" name="consent" value="yes" className="mt-1 h-4 w-4 accent-gold" required />
           <span>
             I agree that my submitted data will be processed for the purpose of reviewing my request and preparing a non-binding quote. Further information can be found in the{" "}
             <Link href="/privacy-policy" className="text-gold hover:underline">Privacy Policy</Link>.
@@ -158,7 +178,11 @@ export default function QuoteForm() {
             {status === "loading" ? "Submitting..." : "Submit Quote Request"} <span className="arrow">→</span>
           </button>
           {status === "success" && <span className="text-status-green font-mono text-[11px] uppercase tracking-wider">{"// Quote request submitted"}</span>}
-          {status === "error" && <span className="text-red-400 font-mono text-[11px] uppercase tracking-wider">{"// Failed to submit. Please retry."}</span>}
+          {status === "error" && (
+            <span className="text-red-400 font-mono text-[11px] uppercase tracking-wider">
+              {"// "}{errorMessage ?? "Failed to submit. Please retry."}
+            </span>
+          )}
         </div>
         <p className="text-[12px] leading-relaxed text-muted">We usually respond within 24 hours on business days.</p>
       </form>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface Point3D {
   x: number;
@@ -15,7 +15,6 @@ interface Point3D {
 export default function InteractiveGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [coords, setCoords] = useState({ lat: "48.1351° N", lon: "11.5820° E" });
   const isInViewRef = useRef(true);
 
   useEffect(() => {
@@ -46,10 +45,14 @@ export default function InteractiveGlobe() {
     let width = (canvas.width = canvas.offsetWidth);
     let height = (canvas.height = canvas.offsetHeight);
 
+    let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
       if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      }, 150);
     };
 
     window.addEventListener("resize", handleResize);
@@ -58,17 +61,6 @@ export default function InteractiveGlobe() {
     const prefersReducedMotion = typeof window !== "undefined" 
       ? window.matchMedia("(prefers-reduced-motion: reduce)").matches 
       : false;
-
-    // Coordinate tracking animation
-    const coordInterval = setInterval(() => {
-      if (prefersReducedMotion) return;
-      const latOffset = (Math.random() - 0.5) * 0.005;
-      const lonOffset = (Math.random() - 0.5) * 0.005;
-      setCoords({
-        lat: `${(48.1351 + latOffset).toFixed(4)}° N`,
-        lon: `${(11.5820 + lonOffset).toFixed(4)}° E`,
-      });
-    }, 2500);
 
     // Spherical point distribution (Fibonacci Sphere)
     const points: Point3D[] = [];
@@ -295,11 +287,11 @@ export default function InteractiveGlobe() {
     render();
 
     return () => {
+      clearTimeout(resizeTimeout);
       window.removeEventListener("resize", handleResize);
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
-      clearInterval(coordInterval);
     };
   }, []);
 
@@ -309,16 +301,6 @@ export default function InteractiveGlobe() {
         ref={canvasRef}
         className="w-full h-full block pointer-events-auto opacity-[0.62]"
       />
-      {/* Dynamic tracking HUD coordinates */}
-      <div className="absolute bottom-6 left-6 font-mono text-[9px] sm:text-[10px] text-muted select-none pointer-events-none flex flex-col gap-1 tracking-wider bg-bg-base/40 backdrop-blur-sm p-3 rounded-lg border border-line">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-signal animate-pulse"></span>
-          <span className="text-white/60">SYS_TRACKER: ACTIVE</span>
-        </div>
-        <div className="text-white/80">LAT: {coords.lat}</div>
-        <div className="text-white/80">LON: {coords.lon}</div>
-        <div className="text-[8px] text-gold/60 mt-0.5 uppercase">EPSG:4326 // WGS84</div>
-      </div>
     </div>
   );
 }
