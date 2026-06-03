@@ -86,7 +86,7 @@ export default function ServiceHighlights() {
               <div className="mt-8 pt-6 border-t border-line flex flex-col gap-3">
                 <div className="flex items-center gap-3 text-[13.5px] text-muted hover:text-gold transition-colors">
                   <Mail className="w-6 h-6 text-gold/80" />
-                  <span>info@ravianmatrixsystems.de</span>
+                  <span>info@ravian-matrix.de</span>
                 </div>
                 <div className="flex items-center gap-3 text-[13.5px] text-muted hover:text-gold transition-colors">
                   <PhoneCall className="w-6 h-6 text-gold/80" />

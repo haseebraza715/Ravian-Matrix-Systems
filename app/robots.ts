@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://ravianmatrixsystems.de/sitemap.xml",
+    sitemap: "https://ravian-matrix.de/sitemap.xml",
   };
 }

@@ -27,11 +27,11 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Ravian Matrix Systems | Custom Software, GIS & Web Solutions in Munich",
   description: "Professional web systems, custom software, GIS solutions, and digital growth strategies for businesses worldwide.",
-  metadataBase: new URL('https://ravianmatrixsystems.de'),
+  metadataBase: new URL('https://ravian-matrix.de'),
   openGraph: {
     title: 'Ravian Matrix Systems | Custom Software, GIS & Web Solutions in Munich',
     description: 'Professional web systems, custom software, GIS solutions, and digital growth strategies for businesses worldwide.',
-    url: 'https://ravianmatrixsystems.de',
+    url: 'https://ravian-matrix.de',
     siteName: 'Ravian Matrix Systems',
     images: [
       {
@@ -80,20 +80,20 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Organization",
-                  "@id": "https://ravianmatrixsystems.de/#organization",
+                  "@id": "https://ravian-matrix.de/#organization",
                   "name": "Ravian Matrix Systems",
-                  "url": "https://ravianmatrixsystems.de",
-                  "logo": "https://ravianmatrixsystems.de/r-logo.png",
+                  "url": "https://ravian-matrix.de",
+                  "logo": "https://ravian-matrix.de/r-logo.png",
                   "sameAs": [
                     "https://linkedin.com/company/ravian-matrix-systems"
                   ]
                 },
                 {
                   "@type": "LocalBusiness",
-                  "@id": "https://ravianmatrixsystems.de/#localbusiness",
+                  "@id": "https://ravian-matrix.de/#localbusiness",
                   "name": "Ravian Matrix Systems",
-                  "image": "https://ravianmatrixsystems.de/og-image.png",
-                  "url": "https://ravianmatrixsystems.de",
+                  "image": "https://ravian-matrix.de/og-image.png",
+                  "url": "https://ravian-matrix.de",
                   "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Munich",
@@ -119,11 +119,11 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://ravianmatrixsystems.de/#website",
-                  "url": "https://ravianmatrixsystems.de",
+                  "@id": "https://ravian-matrix.de/#website",
+                  "url": "https://ravian-matrix.de",
                   "name": "Ravian Matrix Systems",
                   "publisher": {
-                    "@id": "https://ravianmatrixsystems.de/#organization"
+                    "@id": "https://ravian-matrix.de/#organization"
                   }
                 }
               ]

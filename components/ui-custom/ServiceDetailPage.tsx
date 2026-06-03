@@ -58,7 +58,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
             provider: {
               "@type": "Organization",
               name: "Ravian Matrix Systems",
-              url: "https://ravianmatrixsystems.de",
+              url: "https://ravian-matrix.de",
             },
           }),
         }}

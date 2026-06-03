@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ravianmatrixsystems.de"; // Ravian Matrix Systems production domain
+  const baseUrl = "https://ravian-matrix.de"; // Ravian Matrix Systems production domain
 
   const routes = [
     "",

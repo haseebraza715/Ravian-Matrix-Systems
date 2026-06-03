@@ -54,18 +54,18 @@
     scroll-margin-top: 72px;
   }
 
-  /* Team cards on white — body text color must not inherit light cream */
+  /* Team cards on dark — keep copy readable and accent labels warm */
   .team-member-card {
-    color: #475569;
+    color: #9aa6b8;
   }
   .team-member-card h3.team-member-name {
-    color: #05080f;
+    color: #f2f4f8;
   }
   .team-member-card .team-member-bio {
-    color: #475569;
+    color: #9aa6b8;
   }
   .team-member-card .team-member-role {
-    color: #b8923a;
+    color: #f5c56b;
   }
 
   /* Process steps stay visible (no scroll-reveal fade on interactive cards) */
@@ -85,7 +85,7 @@
 
   ::selection {
     background: rgba(225, 184, 74, 0.25);
-    color: #F2F4F8;
+    color: #05080F;
   }
 
   /* Accessibility focus states */

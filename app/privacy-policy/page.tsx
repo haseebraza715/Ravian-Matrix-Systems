@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
                   c/o Amjad<br />
                   80997 Munich<br />
                   Germany<br />
-                  Email: info@ravianmatrixsystems.de
+                  Email: info@ravian-matrix.de
                 </div>
               </div>
 
@@ -313,7 +313,7 @@ export default function PrivacyPolicyPage() {
                   <li>Right to withdraw consent where processing is based on consent</li>
                 </ul>
                 <p>
-                  To exercise your rights, contact us at: <strong>info@ravianmatrixsystems.de</strong>
+                  To exercise your rights, contact us at: <strong>info@ravian-matrix.de</strong>
                 </p>
               </div>
 

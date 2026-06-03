@@ -20,7 +20,7 @@ export function TeamMemberCard({ member, className }: TeamMemberCardProps) {
   return (
     <article
       className={cn(
-        "team-member-card flex h-full w-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 text-slate-600 shadow-[0_4px_24px_-8px_rgba(11,18,32,0.1)] transition-all duration-300 hover:border-gold/35 hover:shadow-[0_12px_32px_-10px_rgba(11,18,32,0.16)]",
+        "team-member-card flex h-full w-full flex-col rounded-2xl border border-line bg-bg-base p-6 sm:p-8 text-muted shadow-[0_16px_36px_-22px_rgba(3,8,18,0.7)] transition-all duration-300 hover:border-gold/35 hover:shadow-[0_22px_48px_-24px_rgba(3,8,18,0.82)]",
         className
       )}
     >

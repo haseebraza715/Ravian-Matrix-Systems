@@ -69,8 +69,8 @@ export default function ContactPage() {
                     <Mail className="w-4 h-4 text-gold" />
                     <h4 className="font-mono text-[10px] tracking-widest uppercase text-muted">Contact</h4>
                   </div>
-                  <a href="mailto:info@ravianmatrixsystems.de" className="text-[16px] font-semibold text-primary hover:text-gold transition-colors">
-                    info@ravianmatrixsystems.de
+                  <a href="mailto:info@ravian-matrix.de" className="text-[16px] font-semibold text-primary hover:text-gold transition-colors">
+                    info@ravian-matrix.de
                   </a>
                 </div>
               </div>
