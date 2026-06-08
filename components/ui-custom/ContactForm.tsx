@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "@/lib/i18n/Link";
 import { Card } from "@/components/ui-custom/Card";
 import { useTranslation } from "@/lib/i18n/useTranslation";
 
@@ -208,6 +209,15 @@ export default function ContactForm() {
           />
           <span className="text-[12px] leading-relaxed text-muted">{fTrans.attachmentLimit}</span>
         </div>
+
+        <label className="flex items-start gap-3 text-[13px] leading-relaxed text-muted">
+          <input type="checkbox" name="consent" value="yes" className="mt-1 h-4 w-4 accent-gold" required />
+          <span>
+            {fTrans.consentPrefix}
+            <Link href="/privacy-policy" className="text-gold hover:underline">{fTrans.consentLink}</Link>
+            {fTrans.consentSuffix}
+          </span>
+        </label>
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
           <button
