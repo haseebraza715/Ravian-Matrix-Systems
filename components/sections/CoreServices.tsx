@@ -1,27 +1,27 @@
 "use client";
 
-import Link from "next/link";
-import { coreServices } from "@/lib/data";
+import { Link } from "@/lib/i18n/Link";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { MapPin, Globe, Code, TrendingUp } from "lucide-react";
 import { Card } from "@/components/ui-custom/Card";
+import { useTranslation } from "@/lib/i18n/useTranslation";
+import { en } from "@/lib/i18n/translations/en";
+import { de } from "@/lib/i18n/translations/de";
 
 const iconMap: Record<string, React.ReactNode> = {
-  "Web Solutions": <Globe className="w-5 h-5" />,
-  "Software Development": <Code className="w-5 h-5" />,
-  "Geospatial Intelligence": <MapPin className="w-5 h-5" />,
-  "Digital Growth": <TrendingUp className="w-5 h-5" />,
+  "web-development": <Globe className="w-5 h-5" />,
+  "software-development": <Code className="w-5 h-5" />,
+  "geospatial-intelligence": <MapPin className="w-5 h-5" />,
+  "digital-growth": <TrendingUp className="w-5 h-5" />,
 };
 
 export default function CoreServices() {
   const ref = useScrollReveal();
+  const { t, locale } = useTranslation();
 
-  const buttonMap: Record<string, string> = {
-    "Web Solutions": "View Web Solutions",
-    "Software Development": "View Software Development",
-    "Geospatial Intelligence": "View Geospatial Intelligence",
-    "Digital Growth": "View Digital Growth",
-  };
+  const isDe = locale === "de";
+  const translations = isDe ? de : en;
+  const services = translations.coreServices.services;
 
   return (
     <section className="py-12 sm:py-20 md:py-32 bg-bg-base" id="services" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
@@ -30,19 +30,19 @@ export default function CoreServices() {
         {/* Section Header */}
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-16 items-end mb-16 sm:mb-20">
           <div>
-            <h2 className="reveal text-[32px] sm:text-[48px] leading-[1.2] font-bold text-primary max-w-[600px]">
-              Our Core <span className="text-gold">IT &amp; GIS Services</span>
-            </h2>
+            <h2 
+              className="reveal text-[32px] sm:text-[48px] leading-[1.2] font-bold text-primary max-w-[600px]"
+              dangerouslySetInnerHTML={{ __html: t("coreServices.titleHtml") }}
+            />
           </div>
           <p className="reveal reveal-delay-2 text-muted text-[16px] leading-[1.6] max-w-[480px]">
-            Explore our core services, from custom web development and software engineering to GIS consulting and digital growth strategies. Each is built for businesses that need reliable, scalable technology solutions.
+            {t("coreServices.desc")}
           </p>
         </div>
 
         {/* Custom Staggered Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 items-stretch">
-          {coreServices.map((svc, index) => {
-            // Stagger Software Development slightly down
+          {services.map((svc, index) => {
             const isStaggered = svc.id === "software-development";
 
             return (
@@ -57,7 +57,7 @@ export default function CoreServices() {
                     <div>
                       {/* Icon */}
                       <div className="w-[42px] h-[42px] rounded-lg flex items-center justify-center mb-5 border border-line bg-bg-base text-gold group-hover:border-gold group-hover:bg-gold/5 transition-all duration-300">
-                        {iconMap[svc.title] || <Globe className="w-5 h-5" />}
+                        {iconMap[svc.id] || <Globe className="w-5 h-5" />}
                       </div>
 
                       {/* Card index label */}
@@ -75,7 +75,7 @@ export default function CoreServices() {
 
                       {/* Action link */}
                       <div className="font-mono text-[11px] tracking-[0.05em] uppercase text-gold group-hover:text-gold-soft flex items-center gap-1.5 transition-colors duration-300">
-                        <span>{buttonMap[svc.title] || "Learn More"}</span>
+                        <span>{t("coreServices.exploreService")}</span>
                         <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
                       </div>
                     </div>

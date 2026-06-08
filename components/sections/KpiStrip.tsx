@@ -1,14 +1,16 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 export default function KpiStrip() {
   const ref = useScrollReveal();
+  const { t } = useTranslation();
 
   const kpis = [
-    { value: "4", label: "Core Services", detail: "Web, Software, Geospatial, Digital Growth" },
-    { value: "2", label: "Languages", detail: "English and German support" },
-    { value: "24h", label: "Response Time", detail: "Business day initial reply" }
+    { value: "4", label: t("kpi.coreServices.label"), detail: t("kpi.coreServices.detail") },
+    { value: "2", label: t("kpi.languages.label"), detail: t("kpi.languages.detail") },
+    { value: "24h", label: t("kpi.responseTime.label"), detail: t("kpi.responseTime.detail") }
   ];
 
   return (

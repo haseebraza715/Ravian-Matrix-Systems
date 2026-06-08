@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { navLinks } from "@/lib/data";
+import { Link } from "@/lib/i18n/Link";
 import { BrandLogo } from "@/components/site/BrandLogo";
+import { useTranslation } from "@/lib/i18n/useTranslation";
+import LanguageSwitcher from "@/components/site/LanguageSwitcher";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t, locale } = useTranslation();
+
+  const localizedNavLinks = [
+    { name: t("common.home"), href: "/" },
+    { name: t("common.aboutUs"), href: "/about" },
+    { name: t("common.services"), href: "/services" },
+    { name: t("common.contact"), href: "/contact" },
+  ];
 
   return (
     <nav className="fixed w-full top-0 left-0 right-0 z-50 bg-bg-surface lg:bg-bg-surface/90 lg:backdrop-blur-xl border-b border-line shadow-sm">
@@ -29,7 +38,7 @@ export default function Navbar() {
           {/* Desktop Nav — centered so links are not clipped by the logo */}
           <div className="hidden lg:flex flex-1 items-center justify-center min-w-0 px-1 sm:px-2">
             <div className="flex items-center gap-1 sm:gap-2 xl:gap-5 max-w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              {navLinks.map((link) => (
+              {localizedNavLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
@@ -43,17 +52,24 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto lg:ml-0">
+            {/* Desktop Language Switcher */}
+            <div className="hidden lg:flex items-center mr-1">
+              <LanguageSwitcher />
+            </div>
+
             <Link
               href="/request-quote"
               className="btn max-lg:!hidden lg:inline-flex text-[12px] xl:text-[13px] bg-gold text-brand-black hover:bg-gold-soft hover:shadow-[0_0_20px_rgba(212,166,47,0.3)] transition-all focus:outline-none focus:ring-2 focus:ring-gold/50 focus:ring-offset-2 focus:ring-offset-brand-black whitespace-nowrap"
             >
-              Request a Quote <span className="arrow">→</span>
+              {t("common.requestQuote")} <span className="arrow">→</span>
             </Link>
 
             <button
               className="lg:hidden flex flex-col gap-1.5 items-center justify-center w-11 h-11 focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+              aria-label={t("common.toggleMenu")}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               <div className="flex flex-col gap-1.5 items-end">
                 <span className={`w-6 h-[1.5px] bg-white transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-[4.5px]' : ''}`}></span>
@@ -66,9 +82,13 @@ export default function Navbar() {
       </div>
 
       {/* Mobile drawer */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-500 border-t border-line bg-bg-surface ${mobileOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div
+        id="mobile-menu"
+        aria-hidden={!mobileOpen}
+        className={`lg:hidden overflow-hidden transition-all duration-500 border-t border-line bg-bg-surface ${mobileOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'}`}
+      >
         <div className="px-6 sm:px-8 py-6 flex flex-col gap-4">
-          {navLinks.map((link) => (
+          {localizedNavLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
@@ -76,7 +96,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             >
               {link.name}
-              <span className="terminal-label !opacity-40">0x0{navLinks.indexOf(link)}</span>
+              <span className="terminal-label !opacity-40">0x0{localizedNavLinks.indexOf(link)}</span>
             </Link>
           ))}
           <Link
@@ -84,10 +104,19 @@ export default function Navbar() {
             className="btn bg-gold text-brand-black hover:bg-gold-soft mt-4 w-full justify-center transition-all"
             onClick={() => setMobileOpen(false)}
           >
-            Request a Quote <span className="arrow">→</span>
+            {t("common.requestQuote")} <span className="arrow">→</span>
           </Link>
+
+          {/* Mobile Language Switcher inside Drawer */}
+          <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/5">
+            <span className="text-xs font-mono uppercase text-muted tracking-wider">
+              {locale === "de" ? "Sprache" : "Language"}
+            </span>
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </nav>
   );
 }
+

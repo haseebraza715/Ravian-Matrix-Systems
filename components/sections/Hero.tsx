@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/lib/i18n/Link";
 import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import dynamic from "next/dynamic";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 const InteractiveGlobe = dynamic(() => import("@/components/ui-custom/InteractiveGlobe"), {
   ssr: false,
@@ -12,6 +13,7 @@ const InteractiveGlobe = dynamic(() => import("@/components/ui-custom/Interactiv
 
 export default function Hero() {
   const ref = useScrollReveal();
+  const { t } = useTranslation();
 
   return (
     <section className="relative overflow-hidden bg-bg-base min-h-[80vh] lg:min-h-[92vh] flex items-center justify-center pt-24 pb-16 sm:pb-20" ref={ref}>
@@ -40,23 +42,24 @@ export default function Hero() {
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-center lg:text-left">
         {/* Left Column - Content */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start max-w-[860px] mx-auto lg:mx-0">
-          <div className="reveal eyebrow mb-6">Ravian Matrix Systems</div>
+          <div className="reveal eyebrow mb-6">{t("hero.eyebrow")}</div>
 
           {/* Punch headline — sized to feel confident but not eat the page */}
-          <h1 className="reveal reveal-delay-1 font-display font-semibold text-balance text-primary tracking-[-0.03em] leading-[1.18] mb-7 text-[clamp(40px,5.5vw,72px)]">
-            Custom Software, GIS &amp; Web Solutions in <span className="text-gold">Munich</span>
-          </h1>
+          <h1 
+            className="reveal reveal-delay-1 font-display font-semibold text-balance text-primary tracking-[-0.03em] leading-[1.18] mb-7 text-[clamp(40px,5.5vw,72px)]"
+            dangerouslySetInnerHTML={{ __html: t("hero.titleHtml") }}
+          />
 
           <p className="reveal reveal-delay-2 text-[15px] sm:text-[16px] leading-[1.65] max-w-[650px] mb-8 text-muted">
-            We build professional web systems, custom software, GIS solutions, and digital growth strategies for businesses worldwide. From web applications and automation to geospatial analysis and branding, we turn your requirements into scalable, results-driven digital solutions.
+            {t("hero.description")}
           </p>
 
           <div className="reveal reveal-delay-3 flex flex-row items-center justify-center lg:justify-start gap-6 flex-wrap">
             <Link href="/request-quote" className="btn btn-primary">
-               Request a Quote <span className="arrow">→</span>
+               {t("common.requestQuote")} <span className="arrow">→</span>
             </Link>
             <Link href="/services" className="group text-[14px] font-semibold text-muted hover:text-primary transition-colors flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm">
-              Explore Services <span className="transition-transform group-hover:translate-x-1">→</span>
+              {t("common.exploreServices")} <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>
         </div>
@@ -84,7 +87,7 @@ export default function Hero() {
 
       {/* Scroll cue — separated from content stack so positioning is clean */}
       <div className="flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 pointer-events-none select-none animate-bounce z-10">
-        <span className="font-mono text-[9px] tracking-[0.2em] text-muted/60 uppercase">Scroll</span>
+        <span className="font-mono text-[9px] tracking-[0.2em] text-muted/60 uppercase">{t("common.scroll")}</span>
         <svg className="w-4 h-4 text-gold/60" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>

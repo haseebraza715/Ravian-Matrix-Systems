@@ -1,8 +1,36 @@
-import Link from "next/link";
+import { Link } from "@/lib/i18n/Link";
 import { Linkedin, Facebook, Instagram } from "lucide-react";
 import { BrandLogo } from "@/components/site/BrandLogo";
+import { en } from "@/lib/i18n/translations/en";
+import { de } from "@/lib/i18n/translations/de";
 
-export default function Footer() {
+// Server component: translations are resolved from the `locale` prop (passed by the
+// layout) instead of the client-side useTranslation() hook, so the footer ships no
+// client JS. The local `t()` resolver keeps the existing t("a.b.c") call sites intact.
+export default function Footer({ locale }: { locale: string }) {
+  const translations = locale === "de" ? de : en;
+  const t = (key: string): string => {
+    const value = key
+      .split(".")
+      .reduce<unknown>((acc, k) => (acc == null ? acc : (acc as Record<string, unknown>)[k]), translations);
+    return typeof value === "string" ? value : key;
+  };
+
+  const localizedQuickLinks = [
+    { name: t("common.home"), href: "/" },
+    { name: t("common.aboutUs"), href: "/about" },
+    { name: t("common.services"), href: "/services" },
+    { name: t("common.contact"), href: "/contact" },
+    { name: t("common.requestQuote"), href: "/request-quote" },
+  ];
+
+  const localizedServiceLinks = [
+    { name: translations.coreServices.services[0].title, href: "/services/web-development" },
+    { name: translations.coreServices.services[1].title, href: "/services/software-development" },
+    { name: translations.coreServices.services[2].title, href: "/services/geospatial-intelligence" },
+    { name: translations.coreServices.services[3].title, href: "/services/digital-growth" },
+  ];
+
   return (
     <footer className="bg-bg-surface text-muted pt-16 pb-8 border-t border-line relative overflow-hidden">
       {/* Premium Top Gold Accent Line */}
@@ -23,10 +51,10 @@ export default function Footer() {
               />
             </Link>
             <p className="font-semibold text-gold text-[15px] tracking-tight">
-              You name IT, We make IT.
+              {t("footer.slogan")}
             </p>
             <p className="text-sm leading-relaxed text-muted max-w-[280px]">
-              Delivering reliable IT, web, geospatial, and digital solutions for businesses in Germany, Europe, and worldwide.
+              {t("footer.description")}
             </p>
 
             {/* Social Links */}
@@ -65,34 +93,16 @@ export default function Footer() {
           <div>
             <h5 className="font-mono text-[11px] tracking-wider uppercase text-gold/90 mb-6 flex items-center gap-2 border-b border-gold/10 pb-2">
               <span className="w-1.5 h-1.5 bg-gold transform rotate-45 inline-block shadow-[0_0_4px_rgba(245,197,107,0.6)]"></span>
-              Quick Links
+              {t("footer.quickLinks")}
             </h5>
             <ul className="flex flex-col gap-3.5">
-              <li>
-                <Link href="/" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/request-quote" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Request a Quote
-                </Link>
-              </li>
+              {localizedQuickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -100,29 +110,16 @@ export default function Footer() {
           <div>
             <h5 className="font-mono text-[11px] tracking-wider uppercase text-gold/90 mb-6 flex items-center gap-2 border-b border-gold/10 pb-2">
               <span className="w-1.5 h-1.5 bg-gold transform rotate-45 inline-block shadow-[0_0_4px_rgba(245,197,107,0.6)]"></span>
-              Our Services
+              {t("footer.ourServices")}
             </h5>
             <ul className="flex flex-col gap-3.5">
-              <li>
-                <Link href="/services/web-development" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Web Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/software-development" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Software Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/geospatial-intelligence" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Geospatial Intelligence
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/digital-growth" className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
-                  Digital Growth
-                </Link>
-              </li>
+              {localizedServiceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-[14px] text-muted hover:text-gold transition-colors font-medium">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -130,35 +127,35 @@ export default function Footer() {
           <div>
             <h5 className="font-mono text-[11px] tracking-wider uppercase text-gold/90 mb-6 flex items-center gap-2 border-b border-gold/10 pb-2">
               <span className="w-1.5 h-1.5 bg-gold transform rotate-45 inline-block shadow-[0_0_4px_rgba(245,197,107,0.6)]"></span>
-              Get In Touch
+              {t("footer.getInTouch")}
             </h5>
             <ul className="flex flex-col gap-4 text-[13.5px] text-muted">
               <li className="flex items-start gap-2.5">
-                <span className="terminal-label !text-gold/90 mt-0.5 shrink-0">LOC:</span>
+                <span className="terminal-label !text-gold/90 mt-0.5 shrink-0">{t("footer.locationLabel")}</span>
                 <span className="text-primary font-medium leading-snug">
                   Pfeilschifterstraße 27<br />
                   80997 Munich, Germany
                 </span>
               </li>
               <li>
-                <a href="mailto:info@ravian-matrix.de" className="hover:text-gold transition-colors flex items-start gap-2.5">
-                  <span className="terminal-label !text-gold/90 mt-0.5">EML:</span>
-                  <span className="text-primary font-medium hover:underline">info@ravian-matrix.de</span>
+                <a href="mailto:info@ravianmatrixsystems.de" className="hover:text-gold transition-colors flex items-start gap-2.5">
+                  <span className="terminal-label !text-gold/90 mt-0.5">{t("footer.emailLabel")}</span>
+                  <span className="text-primary font-medium hover:underline">info@ravianmatrixsystems.de</span>
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="terminal-label !text-gold/90 mt-0.5 shrink-0">HRS:</span>
+                <span className="terminal-label !text-gold/90 mt-0.5 shrink-0">{t("footer.hoursLabel")}</span>
                 <span className="leading-snug">
-                  Response within 24 hours on business days. Meetings by appointment only.
+                  {t("footer.hoursDesc")}
                 </span>
               </li>
               <li className="flex items-start gap-2.5 border-t border-line pt-3 mt-1">
-                <span className="terminal-label !text-gold/90 mt-0.5">LNG:</span>
-                <span>English &amp; German</span>
+                <span className="terminal-label !text-gold/90 mt-0.5">{t("footer.languageLabel")}</span>
+                <span>{t("footer.languagesSupported")}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="terminal-label !text-gold/90 mt-0.5">QTE:</span>
-                <span className="text-primary font-semibold">Non-binding and free of charge</span>
+                <span className="terminal-label !text-gold/90 mt-0.5">{t("footer.quoteLabel")}</span>
+                <span className="text-primary font-semibold">{t("footer.quoteDesc")}</span>
               </li>
             </ul>
           </div>
@@ -168,14 +165,14 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-line pt-8 flex flex-col lg:flex-row justify-between items-center gap-4 text-[11px] font-mono text-muted/60">
           <div>
-            © 2026 Ravian Matrix Systems. All rights reserved.
+            © 2026 Ravian Matrix Systems. {t("common.allRightsReserved")}
           </div>
           <div className="flex gap-6">
             <Link href="/impressum" className="hover:text-gold transition-colors">
-              Impressum
+              {t("common.impressum")}
             </Link>
             <Link href="/privacy-policy" className="hover:text-gold transition-colors">
-              Privacy Policy
+              {t("common.privacyPolicy")}
             </Link>
           </div>
         </div>

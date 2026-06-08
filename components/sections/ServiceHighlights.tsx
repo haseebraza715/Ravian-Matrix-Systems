@@ -3,27 +3,16 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Briefcase, Binary, Compass, Languages, Mail, PhoneCall } from "lucide-react";
 import { Card } from "@/components/ui-custom/Card";
+import { useTranslation } from "@/lib/i18n/useTranslation";
+
+const highlightIcons = [Briefcase, Binary, Compass];
 
 export default function ServiceHighlights() {
   const ref = useScrollReveal();
-
-  const highlights = [
-    {
-      title: "For Businesses",
-      description: "We help companies build professional digital systems that improve presentation, communication, and operations.",
-      icon: Briefcase
-    },
-    {
-      title: "For Technical Projects",
-      description: "We support projects requiring structured development, data handling, geospatial analysis, and system integration.",
-      icon: Binary
-    },
-    {
-      title: "For Digital Presence",
-      description: "We help businesses improve how they appear online through websites, branding, content structure, and visual communication.",
-      icon: Compass
-    }
-  ];
+  const { translations } = useTranslation();
+  const { 
+    title, items, languagesTitle, languagesLead, languagesBody1, languagesBody2, appointmentLabel 
+  } = translations.serviceHighlights;
 
   return (
     <section className="py-12 sm:py-20 md:py-32 bg-bg-surface text-primary relative overflow-hidden" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
@@ -36,12 +25,12 @@ export default function ServiceHighlights() {
           {/* Left Column: Highlights Grid */}
           <div>
             <h2 className="reveal text-[32px] sm:text-[46px] leading-[1.2] font-bold text-primary mb-10">
-              Service Highlights
+              {title}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {highlights.map((hl, index) => {
-                const Icon = hl.icon;
+              {highlightIcons.map((Icon, index) => {
+                const hl = items[index] || { title: "", description: "" };
                 return (
                   <div key={index} className="reveal reveal-delay-1 flex">
                     <Card 
@@ -68,29 +57,29 @@ export default function ServiceHighlights() {
               
               <h3 className="text-[20px] font-semibold text-primary tracking-tight mb-4 flex items-center gap-2.5">
                 <Languages className="w-5 h-5 text-gold" />
-                Languages &amp; Communication
+                {languagesTitle}
               </h3>
               
               <div className="text-[14px] text-muted leading-relaxed space-y-4">
                 <p className="font-semibold text-primary">
-                  We communicate with clients in English and German.
+                  {languagesLead}
                 </p>
                 <p>
-                  You can contact us through email or the quote form. After reviewing your inquiry, we can arrange a call, virtual meeting, or in-person discussion if required.
+                  {languagesBody1}
                 </p>
                 <p>
-                  We respond within 24 hours with a non-binding quote.
+                  {languagesBody2}
                 </p>
               </div>
 
               <div className="mt-8 pt-6 border-t border-line flex flex-col gap-3">
                 <div className="flex items-center gap-3 text-[13.5px] text-muted hover:text-gold transition-colors">
                   <Mail className="w-6 h-6 text-gold/80" />
-                  <span>info@ravian-matrix.de</span>
+                  <span>info@ravianmatrixsystems.de</span>
                 </div>
                 <div className="flex items-center gap-3 text-[13.5px] text-muted hover:text-gold transition-colors">
                   <PhoneCall className="w-6 h-6 text-gold/80" />
-                  <span>Available by appointment</span>
+                  <span>{appointmentLabel}</span>
                 </div>
               </div>
             </Card>

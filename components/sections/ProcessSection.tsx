@@ -1,6 +1,5 @@
 "use client";
 
-import { processSteps } from "@/lib/data";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useRotatingHighlight } from "@/hooks/useRotatingHighlight";
 import {
@@ -9,12 +8,15 @@ import {
 } from "@/lib/rotatingHighlightStyles";
 import { Search, Lightbulb, Code, TestTube, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 const stepIcons = [Search, Lightbulb, Code, TestTube, Rocket];
 
 export default function ProcessSection() {
   const ref = useScrollReveal();
-  const { isFeatured, setActiveIndex } = useRotatingHighlight(processSteps.length);
+  const { translations } = useTranslation();
+  const { eyebrow, title, steps } = translations.processSection;
+  const { isFeatured, setActiveIndex } = useRotatingHighlight(steps.length);
 
   return (
     <section
@@ -27,9 +29,9 @@ export default function ProcessSection() {
 
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
         <div className="mb-16 sm:mb-20">
-          <div className="reveal eyebrow mb-4">How We Work</div>
+          <div className="reveal eyebrow mb-4">{eyebrow}</div>
           <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[46px] leading-[1.2] font-bold">
-            Our Proven Process to Deliver <span className="text-gold">IT &amp; GIS Projects</span>
+            {title}
           </h2>
         </div>
 
@@ -37,7 +39,7 @@ export default function ProcessSection() {
           <div className="hidden md:block absolute top-[52px] left-[24px] right-[24px] h-[1px] border-t border-dashed border-line pointer-events-none" />
           <div className="block md:hidden absolute top-[48px] bottom-[48px] left-[48px] w-[1px] border-l border-dashed border-line pointer-events-none" />
 
-          {processSteps.map((step, index) => {
+          {steps.map((step, index) => {
             const Icon = stepIcons[index] || Lightbulb;
             const featured = isFeatured(index);
             return (
@@ -99,7 +101,7 @@ export default function ProcessSection() {
                   <div className="terminal-label text-[8px] mt-1">STATUS: STABLE</div>
                 </div>
 
-                {index !== processSteps.length - 1 && (
+                {index !== steps.length - 1 && (
                   <div className="hidden lg:block absolute top-[48px] -right-[2px] z-20 pointer-events-none">
                     <div
                       className={cn(

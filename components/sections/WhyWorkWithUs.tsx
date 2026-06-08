@@ -2,48 +2,34 @@
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Card } from "@/components/ui-custom/Card";
-
-const reasons = [
-  {
-    title: "Requirement-Based Approach",
-    desc: "We do not force one fixed solution or technology. We first understand your business needs, project goals, users, and expected outcomes.",
-  },
-  {
-    title: "Practical Delivery",
-    desc: "Our focus is on solutions that can be used in real business environments, not just visually attractive designs or incomplete concepts.",
-  },
-  {
-    title: "Integrated Expertise",
-    desc: "We combine IT, web development, geospatial analysis, data systems, automation, and digital communication under one structured service model.",
-  },
-  {
-    title: "Clear Communication",
-    desc: "We keep the process transparent from the first inquiry to final delivery, with clear scope, timeline, and deliverables.",
-  },
-  {
-    title: "Scalable Solutions",
-    desc: "Our solutions are designed so they can grow later with new features, integrations, modules, pages, or business functions.",
-  },
-];
+import { useTranslation } from "@/lib/i18n/useTranslation";
+import { en } from "@/lib/i18n/translations/en";
+import { de } from "@/lib/i18n/translations/de";
 
 export default function WhyWorkWithUs() {
   const ref = useScrollReveal();
+  const { t, locale } = useTranslation();
+
+  const isDe = locale === "de";
+  const translations = isDe ? de : en;
+  const reasons = translations.whyWorkWithUs.reasons;
 
   return (
     <section className="py-12 sm:py-20 md:py-32 bg-bg-base text-primary relative overflow-hidden" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 relative z-10">
         <div className="mb-16">
-          <h2 className="reveal text-[32px] sm:text-[46px] leading-[1.2] font-bold">
-            Why Global Businesses Choose <span className="text-gold">Ravian Matrix Systems</span>
-          </h2>
+          <h2 
+            className="reveal text-[32px] sm:text-[46px] leading-[1.2] font-bold"
+            dangerouslySetInnerHTML={{ __html: t("whyWorkWithUs.titleHtml") }}
+          />
           <p className="reveal reveal-delay-1 text-muted text-[16px] leading-[1.6] max-w-[540px] mt-4">
-            Five reasons clients trust us for structured digital, software, and GIS project delivery.
+            {t("whyWorkWithUs.desc")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
           {reasons.map((reason, idx) => (
-            <div key={reason.title} className={`reveal reveal-delay-${Math.min(idx + 1, 5)} flex`}>
+            <div key={idx} className={`reveal reveal-delay-${Math.min(idx + 1, 5)} flex`}>
               <Card className="p-6 bg-bg-surface flex flex-col w-full h-full" glow>
                 <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-4">0{idx + 1}</div>
                 <h3 className="text-[18px] font-semibold tracking-tight text-primary mb-3">{reason.title}</h3>

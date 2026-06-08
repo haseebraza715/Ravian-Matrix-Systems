@@ -2,39 +2,49 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui-custom/PageHero";
 import ContactForm from "@/components/ui-custom/ContactForm";
 import { Card } from "@/components/ui-custom/Card";
-import Link from "next/link";
+import { Link } from "@/lib/i18n/Link";
 import { Mail, MapPin, Send, PhoneCall } from "lucide-react";
+import { locales } from "@/lib/i18n/locales";
+import { en } from "@/lib/i18n/translations/en";
+import { de } from "@/lib/i18n/translations/de";
 
-export const metadata: Metadata = {
-  title: "Contact | Ravian Matrix Systems",
-  description: "Contact Ravian Matrix Systems for general inquiries, business communication, partnerships, and service questions.",
-};
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
-const nextSteps = [
-  {
-    icon: Send,
-    title: "1. Message Review",
-    desc: "We review your inquiry and understand the purpose of your message."
-  },
-  {
-    icon: Mail,
-    title: "2. Initial Response",
-    desc: "You receive a reply within 24 hours on business days with the relevant information or next step."
-  },
-  {
-    icon: PhoneCall,
-    title: "3. Follow-Up",
-    desc: "If required, we arrange a call, virtual meeting, or further discussion by appointment."
-  }
-];
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const isDe = locale === "de";
+  const translations = isDe ? de : en;
+  return {
+    title: translations.seo.contact.title,
+    description: translations.seo.contact.description,
+    alternates: {
+      canonical: `https://ravian-matrix.de/${locale}/contact`,
+      languages: {
+        en: "https://ravian-matrix.de/en/contact",
+        de: "https://ravian-matrix.de/de/contact",
+        "x-default": "https://ravian-matrix.de/en/contact",
+      }
+    }
+  };
+}
 
-export default function ContactPage() {
+export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+  const isDe = locale === "de";
+  const t = isDe ? de : en;
+
+  const nextStepIcons = [Send, Mail, PhoneCall];
+  const nextSteps = t.contact.processSteps.map((step, idx) => ({
+    ...step,
+    icon: nextStepIcons[idx],
+  }));
+
   return (
     <div className="bg-bg-base min-h-screen text-primary">
       <PageHero 
-        eyebrow="Contact Us"
-        title="Let’s Start the Conversation"
-        description="Have a question, business inquiry, partnership idea, or general message? Get in touch with Ravian Matrix Systems and our team will respond as soon as possible. For detailed project requirements and pricing, please use the Request a Quote page."
+        eyebrow={t.contact.eyebrow}
+        title={t.contact.title}
+        description={t.contact.description}
       />
       
       <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
@@ -43,34 +53,36 @@ export default function ContactPage() {
             
             {/* Left Block: Contact Details */}
             <div>
-              <div className="eyebrow mb-6">Get in touch</div>
+              <div className="eyebrow mb-6">{t.contact.infoTitle}</div>
               <h2 className="text-[32px] font-bold tracking-tight mb-6 leading-tight">
-                Contact Information
+                {t.contact.infoTitle}
               </h2>
               <p className="mb-12 leading-relaxed text-muted">
-                Use this page for general inquiries, business communication, partnership discussions, or questions about our services.
+                {t.contact.infoDesc}
               </p>
 
               <div className="flex flex-col gap-6">
                 <div className="border-b border-line pb-4">
                   <div className="flex items-center gap-2 mb-1.5">
                     <MapPin className="w-4 h-4 text-gold" />
-                    <h4 className="font-mono text-[10px] tracking-widest uppercase text-muted">Location</h4>
+                    <h4 className="font-mono text-[10px] tracking-widest uppercase text-muted">{t.common.location}</h4>
                   </div>
                   <p className="text-[16px] font-semibold text-primary leading-snug">
                     Pfeilschifterstraße 27<br />
                     80997 Munich, Germany
                   </p>
-                  <p className="text-[14px] mt-1.5 text-muted">Serving clients in Germany, Europe, and worldwide.</p>
+                  <p className="text-[14px] mt-1.5 text-muted">
+                    {isDe ? "Betreuung von Kunden in Deutschland, Europa und weltweit." : "Serving clients in Germany, Europe, and worldwide."}
+                  </p>
                 </div>
                 
                 <div className="border-b border-line pb-4">
                   <div className="flex items-center gap-2 mb-1.5">
                     <Mail className="w-4 h-4 text-gold" />
-                    <h4 className="font-mono text-[10px] tracking-widest uppercase text-muted">Contact</h4>
+                    <h4 className="font-mono text-[10px] tracking-widest uppercase text-muted">{t.common.contact}</h4>
                   </div>
-                  <a href="mailto:info@ravian-matrix.de" className="text-[16px] font-semibold text-primary hover:text-gold transition-colors">
-                    info@ravian-matrix.de
+                  <a href="mailto:info@ravianmatrixsystems.de" className="text-[16px] font-semibold text-primary hover:text-gold transition-colors">
+                    info@ravianmatrixsystems.de
                   </a>
                 </div>
               </div>
@@ -80,9 +92,9 @@ export default function ContactPage() {
             <div className="flex justify-center lg:justify-end w-full">
               <div className="w-full">
                 <div className="mb-6">
-                  <div className="eyebrow mb-4">Send Us a Message</div>
+                  <div className="eyebrow mb-4">{t.contact.formEyebrow}</div>
                   <p className="text-muted text-[15px] leading-relaxed max-w-[600px]">
-                    Use this form for general inquiries, business communication, partnership discussions, or questions about our services.
+                    {t.contact.formDesc}
                   </p>
                 </div>
                 <ContactForm />
@@ -97,10 +109,8 @@ export default function ContactPage() {
       <section className="py-12 sm:py-20 md:py-32 bg-bg-surface">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="mb-16 text-center">
-            <div className="eyebrow mx-auto mb-4">Process</div>
-            <h2 className="text-[32px] sm:text-[42px] font-bold tracking-tight">
-              What happens <span className="text-gold">next?</span>
-            </h2>
+            <div className="eyebrow mx-auto mb-4">{t.contact.processEyebrow}</div>
+            <h2 className="text-[32px] sm:text-[42px] font-bold tracking-tight" dangerouslySetInnerHTML={{ __html: t.contact.processTitle }} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -124,12 +134,12 @@ export default function ContactPage() {
 
       <section className="py-12 sm:py-20 bg-bg-base border-b border-line">
         <div className="max-w-[900px] mx-auto px-6 sm:px-8 text-center">
-          <div className="eyebrow mb-4">Need a Project Estimate?</div>
+          <div className="eyebrow mb-4">{t.contact.estimateEyebrow}</div>
           <h2 className="text-[30px] sm:text-[40px] font-bold tracking-tight mb-4">
-            For project scope, pricing, and timelines, please use our Request a Quote page.
+            {t.contact.estimateTitle}
           </h2>
           <Link href="/request-quote" className="btn btn-primary mt-4">
-            Request a Quote <span className="arrow">→</span>
+            {t.common.requestQuote} <span className="arrow">→</span>
           </Link>
         </div>
       </section>

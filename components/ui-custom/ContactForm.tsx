@@ -2,12 +2,43 @@
 
 import { useState } from "react";
 import { Card } from "@/components/ui-custom/Card";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 const CONTACT_ENDPOINT = "/api/contact.php";
 const fieldClass =
   "border border-line rounded-lg px-4 py-3 text-base bg-bg-base text-primary focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all";
 
+function localizeError(msg: string | null, locale: string): string | null {
+  if (!msg) return null;
+  if (locale !== "de") return msg;
+  
+  const lower = msg.toLowerCase();
+  if (lower.includes("fill") || lower.includes("required")) {
+    return "Bitte füllen Sie alle Pflichtfelder aus.";
+  }
+  if (lower.includes("email")) {
+    return "Ungültige E-Mail-Adresse.";
+  }
+  if (lower.includes("file") && lower.includes("large")) {
+    return "Die Datei ist zu groß (maximal 10 MB).";
+  }
+  if (lower.includes("file") && lower.includes("type")) {
+    return "Ungültiges Dateiformat. Bitte verwenden Sie PDF, DOC, DOCX, PNG oder JPG.";
+  }
+  if (lower.includes("connection") || lower.includes("network") || lower.includes("fetch")) {
+    return "Verbindung fehlgeschlagen. Bitte überprüfen Sie Ihre Internetverbindung.";
+  }
+  if (lower.includes("send")) {
+    return "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.";
+  }
+  
+  return "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.";
+}
+
 export default function ContactForm() {
+  const { translations, locale } = useTranslation();
+  const { common, form: fTrans } = translations;
+
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -35,11 +66,12 @@ export default function ContactForm() {
         form.reset();
       } else {
         setStatus("error");
-        setErrorMessage(data?.error ?? "Failed to send. Please try again or email us directly.");
+        const rawErr = data?.error ?? "Failed to send. Please try again or email us directly.";
+        setErrorMessage(localizeError(rawErr, locale));
       }
     } catch {
       setStatus("error");
-      setErrorMessage("Failed to send. Please check your connection and try again.");
+      setErrorMessage(localizeError("Failed to send. Please check your connection and try again.", locale));
     }
 
     setTimeout(() => {
@@ -47,6 +79,15 @@ export default function ContactForm() {
       setErrorMessage(null);
     }, 6000);
   };
+
+  const inquiryTypes = [
+    { value: "General Inquiry", label: fTrans.inquiryTypeList[0] || "General Inquiry" },
+    { value: "Service Information", label: fTrans.inquiryTypeList[1] || "Service Information" },
+    { value: "Business Partnership", label: fTrans.inquiryTypeList[2] || "Business Partnership" },
+    { value: "Existing Project", label: fTrans.inquiryTypeList[3] || "Existing Project" },
+    { value: "Support Request", label: fTrans.inquiryTypeList[4] || "Support Request" },
+    { value: "Other", label: fTrans.inquiryTypeList[5] || "Other" }
+  ];
 
   return (
     <Card
@@ -61,7 +102,7 @@ export default function ContactForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
-            <label htmlFor="firstName" className="font-mono text-xs tracking-widest uppercase text-gold">First Name</label>
+            <label htmlFor="firstName" className="font-mono text-xs tracking-widest uppercase text-gold">{fTrans.firstName}</label>
             <input
               id="firstName"
               name="firstName"
@@ -72,7 +113,7 @@ export default function ContactForm() {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="lastName" className="font-mono text-xs tracking-widest uppercase text-gold">Last Name</label>
+            <label htmlFor="lastName" className="font-mono text-xs tracking-widest uppercase text-gold">{fTrans.lastName}</label>
             <input
               id="lastName"
               name="lastName"
@@ -85,7 +126,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="font-mono text-xs tracking-widest uppercase text-gold">Email Address</label>
+          <label htmlFor="email" className="font-mono text-xs tracking-widest uppercase text-gold">{fTrans.email}</label>
           <input
             id="email"
             name="email"
@@ -97,7 +138,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="phone" className="font-mono text-xs tracking-widest uppercase text-gold">Phone Number <span className="text-muted">(optional)</span></label>
+          <label htmlFor="phone" className="font-mono text-xs tracking-widest uppercase text-gold">{fTrans.phoneOptional}</label>
           <input
             id="phone"
             name="phone"
@@ -108,7 +149,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="subject" className="font-mono text-xs tracking-widest uppercase text-gold">Subject</label>
+          <label htmlFor="subject" className="font-mono text-xs tracking-widest uppercase text-gold">{fTrans.subject}</label>
           <input
             id="subject"
             name="subject"
@@ -120,7 +161,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="inquiryType" className="font-mono text-xs tracking-widest uppercase text-gold">Inquiry Type</label>
+          <label htmlFor="inquiryType" className="font-mono text-xs tracking-widest uppercase text-gold">{fTrans.inquiryType}</label>
           <div className="relative">
             <select
               id="inquiryType"
@@ -128,12 +169,11 @@ export default function ContactForm() {
               required
               className={`${fieldClass} w-full appearance-none cursor-pointer`}
             >
-              <option className="bg-bg-base text-primary">General Inquiry</option>
-              <option className="bg-bg-base text-primary">Service Information</option>
-              <option className="bg-bg-base text-primary">Business Partnership</option>
-              <option className="bg-bg-base text-primary">Existing Project</option>
-              <option className="bg-bg-base text-primary">Support Request</option>
-              <option className="bg-bg-base text-primary">Other</option>
+              {inquiryTypes.map((t) => (
+                <option key={t.value} value={t.value} className="bg-bg-base text-primary">
+                  {t.label}
+                </option>
+              ))}
             </select>
             <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gold/60">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
@@ -142,7 +182,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="message" className="font-mono text-xs tracking-widest uppercase text-gold">Message</label>
+          <label htmlFor="message" className="font-mono text-xs tracking-widest uppercase text-gold">{fTrans.message}</label>
           <textarea
             id="message"
             name="message"
@@ -150,14 +190,14 @@ export default function ContactForm() {
             minLength={10}
             maxLength={1000}
             className={`${fieldClass} resize-y`}
-            placeholder="Tell us how we can help you..."
+            placeholder={fTrans.messagePlaceholder}
             required
           ></textarea>
         </div>
 
         <div className="flex flex-col gap-2">
           <label htmlFor="attachment" className="font-mono text-xs tracking-widest uppercase text-gold">
-            Attachment <span className="text-muted">(optional)</span>
+            {fTrans.attachmentOptional}
           </label>
           <input
             id="attachment"
@@ -166,7 +206,7 @@ export default function ContactForm() {
             className={`${fieldClass} file:mr-4 file:rounded-md file:border-0 file:bg-gold file:px-4 file:py-2 file:text-sm file:font-semibold file:text-brand-black hover:file:bg-gold-soft`}
             accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
           />
-          <span className="text-[12px] leading-relaxed text-muted">PDF, DOC, DOCX, PNG, or JPG — max 10 MB.</span>
+          <span className="text-[12px] leading-relaxed text-muted">{fTrans.attachmentLimit}</span>
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-2">
@@ -175,20 +215,20 @@ export default function ContactForm() {
             disabled={status === "loading"}
             className="btn btn-primary w-full sm:w-auto py-3 px-8 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {status === "loading" ? "Sending..." : "Send Message"} <span className="arrow">→</span>
+            {status === "loading" ? common.sending : common.sendMessage} <span className="arrow">→</span>
           </button>
 
           {status === "success" && (
-            <span className="text-status-green font-mono text-[11px] uppercase tracking-wider">{"// Message sent successfully!"}</span>
+            <span className="text-status-green font-mono text-[11px] uppercase tracking-wider">{"// "}{fTrans.successContact}</span>
           )}
           {status === "error" && (
             <span className="text-red-400 font-mono text-[11px] uppercase tracking-wider">
-              {"// "}{errorMessage ?? "Failed to send. Please retry."}
+              {"// "}{errorMessage ?? (locale === "de" ? "Fehler beim Senden. Bitte versuchen Sie es erneut." : "Failed to send. Please retry.")}
             </span>
           )}
         </div>
         <p className="text-[12px] leading-relaxed text-muted">
-          We usually respond within 24 hours on business days.
+          {common.responseNote}
         </p>
       </form>
     </Card>

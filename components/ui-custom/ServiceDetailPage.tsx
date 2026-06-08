@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/i18n/Link";
 import Image from "next/image";
 import { ArrowRight, ChevronRight, CheckCircle2 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -12,6 +12,7 @@ import {
 import { Card } from "@/components/ui-custom/Card";
 import { cn } from "@/lib/utils";
 import type { ServiceData } from "@/data/services";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 function ServiceHeroVisual({ id }: { id: string }) {
   const visualMap: Record<string, { src: string; alt: string }> = {
@@ -41,6 +42,9 @@ function ServiceHeroVisual({ id }: { id: string }) {
 
 export default function ServiceDetailPage({ service }: { service: ServiceData }) {
   const ref = useScrollReveal();
+  const { translations, locale } = useTranslation();
+  const { common, serviceDetail: sDetail } = translations;
+  
   const { isFeatured, setActiveIndex } = useRotatingHighlight(
     service.howWeWorkSteps.length
   );
@@ -67,11 +71,11 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 pt-32 pb-4 relative z-20">
         <nav className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs sm:text-sm tracking-[0.06em] uppercase text-muted">
           <Link href="/" className="hover:text-gold transition-colors">
-            Home
+            {common.home}
           </Link>
           <ChevronRight className="w-3 h-3 opacity-50" />
           <Link href="/services" className="hover:text-gold transition-colors">
-            Services
+            {common.services}
           </Link>
           <ChevronRight className="w-3 h-3 opacity-50" />
           <span className="text-gold font-semibold">{service.title}</span>
@@ -96,11 +100,11 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
               </p>
               <div className="reveal reveal-delay-4 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full sm:w-auto">
                 <Link href="/request-quote" className="btn btn-primary group w-full sm:w-auto">
-                  Request a Non-Binding Quote
+                  {common.requestNonBindingQuote}
                   <ArrowRight className="w-4 h-4 arrow" />
                 </Link>
                 <Link href="/contact" className="btn btn-ghost w-full sm:w-auto">
-                  Contact Us
+                  {common.contactUs}
                 </Link>
               </div>
             </div>
@@ -116,7 +120,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-8 md:gap-16 items-start">
             <div>
-              <div className="reveal eyebrow text-gold/80 before:bg-gold">Built Around Your Requirements</div>
+              <div className="reveal eyebrow text-gold/80 before:bg-gold">{sDetail.builtAroundRequirements}</div>
               <h2 className="reveal reveal-delay-1 text-[28px] sm:text-[34px] tracking-tight font-bold leading-tight mt-4">
                 {service.introTitle}
               </h2>
@@ -133,7 +137,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
       <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="mb-14">
-            <div className="reveal eyebrow mb-4">What We Provide</div>
+            <div className="reveal eyebrow mb-4">{sDetail.whatWeProvide}</div>
             <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[42px] font-bold tracking-tight">
               {service.providesTitle}
             </h2>
@@ -146,7 +150,9 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
                   <div>
                     <h3 className="text-[20px] font-semibold text-primary mb-3">{item.title}</h3>
                     <p className="text-[14.5px] leading-relaxed text-muted mb-5">{item.description}</p>
-                    <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-3">Includes</div>
+                    <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-3">
+                      {locale === "de" ? "Beinhaltet" : "Includes"}
+                    </div>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {item.includes.map((include) => (
                         <li key={include} className="flex items-start gap-2 text-[14px] text-muted">
@@ -166,7 +172,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
       <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="mb-12">
-            <div className="reveal eyebrow mb-4">Approach</div>
+            <div className="reveal eyebrow mb-4">{sDetail.approach}</div>
             <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[42px] font-bold tracking-tight">
               {service.approachTitle}
             </h2>
@@ -187,7 +193,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
       <section className="py-12 sm:py-20 md:py-32 bg-bg-base border-b border-line">
         <div className="max-w-[1000px] mx-auto px-6 sm:px-8">
           <div className="mb-12">
-            <div className="reveal eyebrow mb-4">Suitable For</div>
+            <div className="reveal eyebrow mb-4">{sDetail.suitableFor}</div>
             <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[42px] font-bold tracking-tight">
               {service.suitableTitle}
             </h2>
@@ -207,7 +213,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
       <section className="py-12 sm:py-20 md:py-32 bg-bg-surface border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <div className="mb-12">
-            <div className="reveal eyebrow mb-4">How We Work</div>
+            <div className="reveal eyebrow mb-4">{sDetail.howWeWork}</div>
             <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[42px] font-bold tracking-tight">
               {service.howWeWorkTitle}
             </h2>
@@ -230,7 +236,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
                   )}
                 >
                   <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-gold mb-4">
-                    Step {step.number}
+                    {sDetail.stepLabel} {step.number}
                   </div>
                   <h3
                     className={cn(
@@ -251,7 +257,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
       <section className="py-12 sm:py-20 md:py-32 bg-bg-base text-center relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gold/[0.01] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-[750px] mx-auto px-6 sm:px-8 relative z-10 flex flex-col items-center">
-          <div className="reveal eyebrow mb-6">Request a Non-Binding Quote</div>
+          <div className="reveal eyebrow mb-6">{sDetail.requestQuote}</div>
           <h2 className="reveal reveal-delay-1 text-[32px] sm:text-[44px] tracking-tight font-bold mb-6 leading-tight">
             {service.ctaTitle}
           </h2>
@@ -260,7 +266,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceData })
           </p>
           <div className="reveal reveal-delay-3 flex flex-col items-center gap-4">
             <Link href="/request-quote" className="btn btn-primary group">
-              Request a Non-Binding Quote
+              {common.requestNonBindingQuote}
               <ArrowRight className="w-4 h-4 arrow" />
             </Link>
             <div className="font-mono text-gold text-[10px] tracking-[0.2em] uppercase mt-2">

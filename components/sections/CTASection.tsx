@@ -1,10 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/lib/i18n/Link";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 export default function CTASection() {
   const ref = useScrollReveal();
+  const { translations } = useTranslation();
+  const { eyebrow, title, desc, button } = translations.cta;
 
   return (
     <section className="py-12 sm:py-20 md:py-32 relative overflow-hidden bg-bg-surface" ref={ref} style={{ borderBottom: '1px solid var(--line-soft)' }}>
@@ -15,20 +18,20 @@ export default function CTASection() {
         <div className="flex flex-col items-center text-center">
           
           <div className="reveal eyebrow mb-6">
-            Let&apos;s Build Your Solution
+            {eyebrow}
           </div>
           
           <h2 className="reveal reveal-delay-1 text-[36px] sm:text-[56px] leading-[1.2] font-bold mb-6 text-balance text-primary max-w-[700px]">
-            You name IT. <span className="text-gold">We make IT.</span>
+            {title}
           </h2>
           
           <p className="reveal reveal-delay-2 text-[17px] sm:text-[18px] text-muted leading-relaxed mb-10 max-w-[520px]">
-            Tell us what you need, and we will help define the right approach. We respond within 24 hours with a non-binding quote.
+            {desc}
           </p>
           
           <div className="reveal reveal-delay-3">
             <Link href="/request-quote" className="btn btn-primary text-base px-8 py-4">
-              Request a Quote <span className="arrow">→</span>
+              {button} <span className="arrow">→</span>
             </Link>
           </div>
 
