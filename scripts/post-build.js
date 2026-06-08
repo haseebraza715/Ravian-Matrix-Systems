@@ -64,6 +64,23 @@ const redirects = [
   { source: "/privacy-policy", target: "/en/privacy-policy" }
 ];
 
+const localizedSubpaths = [
+  "",
+  "/about",
+  "/services",
+  "/services/web-development",
+  "/services/software-development",
+  "/services/geospatial-intelligence",
+  "/services/digital-growth",
+  "/work",
+  "/contact",
+  "/request-quote",
+  "/impressum",
+  "/privacy-policy",
+];
+
+const locales = ["en", "de"];
+
 function getRedirectHtml(targetUrl) {
   return `<!DOCTYPE html>
 <html>
@@ -90,6 +107,35 @@ function getRedirectHtml(targetUrl) {
 </html>`;
 }
 
+// 2. Generate directory index files for localized routes.
+//
+// IONOS/Apache sees paths like `/en` and `/en/services` as real directories
+// because the static export also contains nested localized pages. Apache then
+// canonicalizes them to `/en/` or `/en/services/` before our `.html` rewrite can
+// run. Providing matching `index.html` files prevents a directory listing 403.
+locales.forEach((locale) => {
+  localizedSubpaths.forEach((subpath) => {
+    const route = `/${locale}${subpath}`;
+    const sourceFile = path.join(outDir, `${route.slice(1)}.html`);
+    const indexDir = path.join(outDir, route.slice(1));
+    const indexFile = path.join(indexDir, "index.html");
+
+    try {
+      if (!fs.existsSync(sourceFile)) {
+        throw new Error(`Missing source HTML: ${sourceFile}`);
+      }
+
+      fs.mkdirSync(indexDir, { recursive: true });
+      fs.copyFileSync(sourceFile, indexFile);
+      console.log(`RMS // Generated localized index: ${indexFile}`);
+    } catch (err) {
+      console.error(`RMS // Error generating localized index for ${route}:`, err);
+      process.exit(1);
+    }
+  });
+});
+
+// 3. Generate bridge files for old URLs
 redirects.forEach(({ source, target }) => {
   // Flat HTML file, e.g. out/about.html
   // Normalize source name: strip leading slash for file names

@@ -82,6 +82,11 @@ function htmlFileForRoute(route) {
   return path.join(OUT, `${rel}.html`);
 }
 
+function indexFileForRoute(route) {
+  const rel = route.replace(/^\//, "");
+  return path.join(OUT, rel, "index.html");
+}
+
 // Case-insensitive presence check (React renders `hrefLang`, the sitemap uses `hreflang`).
 function hasHreflang(html, lang) {
   return new RegExp(`hreflang=["']${lang}["']`, "i").test(html);
@@ -106,6 +111,10 @@ for (const locale of LOCALES) {
     if (!exists(file)) {
       fail(`Missing localized page: ${route} (expected ${path.relative(ROOT, file)})`);
       continue;
+    }
+    const indexFile = indexFileForRoute(route);
+    if (!exists(indexFile)) {
+      fail(`Missing localized directory index: ${route}/ (expected ${path.relative(ROOT, indexFile)})`);
     }
     const html = read(file);
 
