@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/post-build.js && node scripts/verify-i18n-output.js",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "verify:i18n": "node scripts/verify-i18n-output.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

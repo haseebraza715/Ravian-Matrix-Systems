@@ -1,6 +1,12 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
+# Canonicalise trailing slashes: redirect /en/about/ -> /en/about so the rule below
+# can resolve it to /en/about.html. Only fires when the path is NOT a real directory,
+# so genuine bridge directories (e.g. /about/ -> /about/index.html) are left intact.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
 # Ensure that request is not a physical directory
 RewriteCond %{REQUEST_FILENAME} !-d
 # Check if the requested file with .html extension exists
