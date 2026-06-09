@@ -5,8 +5,8 @@ declare(strict_types=1);
  * Contact & quote form handler for IONOS shared hosting (static Next.js export).
  */
 
-const CONTACT_TO_EMAIL = 'info@ravianmatrixsystems.de';
-const CONTACT_FROM_EMAIL = 'noreply@ravianmatrixsystems.de';
+const CONTACT_TO_EMAIL = 'haseeb.javed715@gmail.com';
+const CONTACT_FROM_EMAIL = 'noreply@ravian-matrix.de';
 const CONTACT_FROM_NAME = 'Ravian Matrix Systems Website';
 const CONTACT_SUBJECT = 'New Website Inquiry - Ravian Matrix Systems';
 const MAX_FILE_BYTES = 10 * 1024 * 1024;
