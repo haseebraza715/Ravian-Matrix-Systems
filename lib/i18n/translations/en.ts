@@ -31,7 +31,9 @@ export const en: Translations = {
     toggleMenu: "Toggle menu",
     changeLanguage: "Change language",
     switchToEnglish: "Switch to English",
-    switchToGerman: "Switch to German"
+    switchToGerman: "Switch to German",
+    readMore: "Read more",
+    showLess: "Show less"
   },
   hero: {
     eyebrow: "Ravian Matrix Systems",

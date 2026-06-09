@@ -29,6 +29,8 @@ export interface CommonTranslations {
   changeLanguage: string;
   switchToEnglish: string;
   switchToGerman: string;
+  readMore: string;
+  showLess: string;
 }
 
 export interface HeroTranslations {

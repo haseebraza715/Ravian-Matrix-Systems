@@ -23,16 +23,13 @@ export default function Navbar() {
         <div className="flex items-center h-[72px] gap-2 sm:gap-3 min-w-0">
           <Link
             href="/"
-            className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0 max-w-[42%] sm:max-w-none"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0 max-w-[44%] sm:max-w-none"
           >
             <BrandLogo
               priority
               className="px-1.5 py-1 group-hover:shadow-[0_4px_12px_rgba(245,197,107,0.15)] group-hover:border-gold/30"
               imageClassName="h-8 w-8 sm:h-9 sm:w-9"
             />
-            <span className="hidden min-[1400px]:inline terminal-label !opacity-80 text-gold/80 group-hover:text-gold transition-colors whitespace-nowrap">
-              RAVIAN_SYSTEMS_v2.1
-            </span>
           </Link>
 
           {/* Desktop Nav — centered so links are not clipped by the logo */}
@@ -52,6 +49,10 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto lg:ml-0">
+            <div className="lg:hidden flex items-center">
+              <LanguageSwitcher compact className="shadow-[0_8px_22px_-18px_rgba(245,197,107,0.45)]" />
+            </div>
+
             {/* Desktop Language Switcher */}
             <div className="hidden lg:flex items-center mr-1">
               <LanguageSwitcher />
@@ -107,16 +108,8 @@ export default function Navbar() {
             {t("common.requestQuote")} <span className="arrow">→</span>
           </Link>
 
-          {/* Mobile Language Switcher inside Drawer */}
-          <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/5">
-            <span className="text-xs font-mono uppercase text-muted tracking-wider">
-              {locale === "de" ? "Sprache" : "Language"}
-            </span>
-            <LanguageSwitcher />
-          </div>
         </div>
       </div>
     </nav>
   );
 }
-

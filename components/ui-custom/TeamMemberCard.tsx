@@ -1,4 +1,8 @@
+"use client";
+
+import { useId, useMemo, useState } from "react";
 import { TeamMemberPortrait } from "@/components/ui-custom/TeamMemberPortrait";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 import { cn } from "@/lib/utils";
 
 export type TeamMemberCardData = {
@@ -17,6 +21,23 @@ type TeamMemberCardProps = {
 };
 
 export function TeamMemberCard({ member, className }: TeamMemberCardProps) {
+  const { t } = useTranslation();
+  const [expanded, setExpanded] = useState(false);
+  const bioId = useId();
+  const previewText = useMemo(() => {
+    const limit = 210;
+
+    if (member.description.length <= limit) {
+      return member.description;
+    }
+
+    const truncated = member.description.slice(0, limit);
+    const lastSpace = truncated.lastIndexOf(" ");
+
+    return `${truncated.slice(0, lastSpace > 0 ? lastSpace : limit).trimEnd()}...`;
+  }, [member.description]);
+  const isExpandable = previewText !== member.description;
+
   return (
     <article
       className={cn(
@@ -49,9 +70,29 @@ export function TeamMemberCard({ member, className }: TeamMemberCardProps) {
       <h3 className="team-member-name mb-3 shrink-0 text-[20px] font-semibold leading-snug text-brand-black">
         {member.name}
       </h3>
-      <p className="team-member-bio flex-1 text-[14px] leading-relaxed text-slate-600">
-        {member.description}
-      </p>
+      <div className="flex flex-1 flex-col">
+        <p
+          id={bioId}
+          className="team-member-bio text-[14px] leading-relaxed text-slate-600"
+        >
+          {expanded ? member.description : previewText}
+        </p>
+
+        {isExpandable ? (
+          <button
+            type="button"
+            onClick={() => setExpanded((value) => !value)}
+            aria-controls={bioId}
+            aria-expanded={expanded}
+            className="mt-4 inline-flex w-fit items-center gap-2 rounded-md border border-gold/20 bg-gold/5 px-3 py-2 text-[11px] font-mono uppercase tracking-[0.12em] text-gold transition-all duration-300 hover:border-gold/45 hover:bg-gold/10"
+          >
+            {expanded ? t("common.showLess") : t("common.readMore")}
+            <span className={`text-sm leading-none transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}>
+              ↓
+            </span>
+          </button>
+        ) : null}
+      </div>
     </article>
   );
 }
