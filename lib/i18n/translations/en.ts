@@ -246,21 +246,21 @@ export const en: Translations = {
     teamMembers: [
       {
         name: "Arslan Saleem",
-        role: "Founder & Geospatial Engineer",
+        role: "Founder & Technical Lead",
         initials: "AS",
-        description: "Arslan is the founder of Ravian Matrix Systems. His background is in geospatial engineering, with a focus on GIS, remote sensing, spatial data, and technical project coordination."
+        description: "Arslan is the founder of Ravian Matrix Systems and leads the company’s technical direction across IT, web, software, and geospatial projects. He holds a Master’s degree in Land Management and Geospatial Science from the Technical University of Munich. His professional experience includes aviation-related GIS work, aeronautical data handling, spatial data processing, database-supported workflows, and research support for 3D statistical model implementation. At Ravian Matrix Systems, he focuses on solution planning, technical coordination, client requirements, and the delivery of practical digital and geospatial solutions."
       },
       {
         name: "Manisha Kumari",
         role: "Client Relations & Business Development",
         initials: "MK",
-        description: "Manisha leads client relations, business development, and sales communication. She holds an MBA in Sales and Marketing and focuses on client communication, requirement discussions, and business coordination."
+        description: "Manisha supports client relations and business development at Ravian Matrix Systems, focusing on professional communication, client coordination, and project requirement handling. She holds a Master of Business Administration from EU Business School Munich and brings experience in customer-facing operations, service management, team coordination, and client communication across retail, hospitality, and healthcare environments. Her additional academic background in Psychology and Nursing strengthens her people-focused approach to communication and problem solving. At Ravian Matrix Systems, she supports client inquiries, requirement discussions, appointment coordination, and smooth communication between clients and the project team."
       },
       {
         name: "Haseeb Raza",
-        role: "Web Development Lead",
+        role: "Web & AI Systems Lead",
         initials: "HR",
-        description: "Haseeb holds a Bachelor’s degree in Computer Science and leads web development work, with a focus on modern websites, web systems, responsive interfaces, and technical web implementation."
+        description: "Haseeb builds web platforms and AI systems at Ravian Matrix Systems, shipping intelligent applications and scalable digital products from concept to deployment. His work spans full-stack development, applied machine learning, and LLM integration, turning messy business requirements into clean, working software. He is comfortable across the stack: responsive interfaces, agentic workflows, and the backend infrastructure that holds it together. At Ravian Matrix Systems, he owns the technical layer between product vision and production, designing systems that are built to scale, easy to maintain, and actually solve the problem."
       },
       {
         name: "Qamar Raza",

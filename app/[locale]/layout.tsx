@@ -115,7 +115,9 @@ export default function RootLayout({
                   "url": `https://ravian-matrix.de/${locale}`,
                   "logo": "https://ravian-matrix.de/r-logo.png",
                   "sameAs": [
-                    "https://linkedin.com/company/ravian-matrix-systems"
+                    "https://www.linkedin.com/company/ravian-matrix-systems/",
+                    "https://www.facebook.com/share/18q8yiq2Jn/",
+                    "https://www.instagram.com/ravian_matrix?igsh=MTJobjFhdzZldmI1OA=="
                   ]
                 },
                 {

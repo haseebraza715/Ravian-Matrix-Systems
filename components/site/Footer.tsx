@@ -60,7 +60,7 @@ export default function Footer({ locale }: { locale: string }) {
             {/* Social Links */}
             <div className="flex items-center gap-4 mt-2">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/ravian-matrix-systems/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -69,7 +69,7 @@ export default function Footer({ locale }: { locale: string }) {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/18q8yiq2Jn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -78,7 +78,7 @@ export default function Footer({ locale }: { locale: string }) {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/ravian_matrix?igsh=MTJobjFhdzZldmI1OA=="
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
