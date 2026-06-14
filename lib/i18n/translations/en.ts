@@ -250,19 +250,19 @@ export const en: Translations = {
         name: "Arslan Saleem",
         role: "Founder & Technical Lead",
         initials: "AS",
-        description: "Arslan is the founder of Ravian Matrix Systems and leads the company’s technical direction across IT, web, software, and geospatial projects. He holds a Master’s degree in Land Management and Geospatial Science from the Technical University of Munich. His professional experience includes aviation-related GIS work, aeronautical data handling, spatial data processing, database-supported workflows, and research support for 3D statistical model implementation. At Ravian Matrix Systems, he focuses on solution planning, technical coordination, client requirements, and the delivery of practical digital and geospatial solutions."
+        description: "With a Master’s degree in Land Management and Geospatial Science from the Technical University of Munich, he brings over 2.5 years of experience across aviation, GIS, software development, research, and data-driven systems. His work with Lufthansa Systems and the Max Planck Institute of Psychiatry has shaped a strong analytical approach to technical problem-solving, digital solutions, and project coordination."
       },
       {
         name: "Manisha Kumari",
         role: "Client Relations & Business Development",
         initials: "MK",
-        description: "Manisha supports client relations and business development at Ravian Matrix Systems, focusing on professional communication, client coordination, and project requirement handling. She holds a Master of Business Administration from EU Business School Munich and brings experience in customer-facing operations, service management, team coordination, and client communication across retail, hospitality, and healthcare environments. Her additional academic background in Psychology and Nursing strengthens her people-focused approach to communication and problem solving. At Ravian Matrix Systems, she supports client inquiries, requirement discussions, appointment coordination, and smooth communication between clients and the project team."
+        description: "Bringing 10 years of experience across retail, hospitality, healthcare, and customer-facing operations, she combines strong communication skills with a people-focused approach to client relations and business development. She holds a Master of Business Administration from EU Business School Munich, supported by an academic background in Psychology and Nursing."
       },
       {
         name: "Haseeb Raza",
         role: "Web & AI Systems Lead",
         initials: "HR",
-        description: "Haseeb builds web platforms and AI systems at Ravian Matrix Systems, shipping intelligent applications and scalable digital products from concept to deployment. His work spans full-stack development, applied machine learning, and LLM integration, turning messy business requirements into clean, working software. He is comfortable across the stack: responsive interfaces, agentic workflows, and the backend infrastructure that holds it together. At Ravian Matrix Systems, he owns the technical layer between product vision and production, designing systems that are built to scale, easy to maintain, and actually solve the problem."
+        description: "He develops modern web platforms and AI-driven systems with a focus on performance, usability, and long-term maintainability. His work covers full-stack development, machine learning applications, and LLM-based solutions, translating complex ideas into software that is practical, scalable, and ready for real-world use."
       },
       {
         name: "Qamar Raza",

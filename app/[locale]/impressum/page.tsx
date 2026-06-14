@@ -114,7 +114,7 @@ export default function ImpressumPage({ params: { locale } }: { params: { locale
               <div id="contact" className="scroll-mt-28">
                 <h2 className="text-[20px] text-primary font-bold mb-4">{isDe ? "Kontakt" : "Contact"}</h2>
                 <div className="space-y-1.5 font-mono text-[13px] text-primary">
-                  <div>Email: <a href="mailto:info@ravianmatrixsystems.de" className="text-gold hover:underline">info@ravianmatrixsystems.de</a></div>
+                  <div>Email: <a href="mailto:info@ravian-matrix.de" className="text-gold hover:underline">info@ravian-matrix.de</a></div>
                   <div>{isDe ? "Telefon" : "Phone"}: +49 1522 3834292</div>
                 </div>
               </div>

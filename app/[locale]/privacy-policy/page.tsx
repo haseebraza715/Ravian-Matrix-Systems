@@ -139,7 +139,7 @@ export default function PrivacyPolicyPage({ params: { locale } }: { params: { lo
                       c/o Amjad<br />
                       80997 München<br />
                       Deutschland<br />
-                      E-Mail: info@ravianmatrixsystems.de
+                      E-Mail: info@ravian-matrix.de
                     </div>
                   </div>
 
@@ -318,7 +318,7 @@ export default function PrivacyPolicyPage({ params: { locale } }: { params: { lo
                       <li>Widerruf einer erteilten Einwilligung</li>
                     </ul>
                     <p>
-                      Bitte richten Sie Ihre Anfrage an: <strong>info@ravianmatrixsystems.de</strong>
+                      Bitte richten Sie Ihre Anfrage an: <strong>info@ravian-matrix.de</strong>
                     </p>
                   </div>
 
@@ -397,7 +397,7 @@ export default function PrivacyPolicyPage({ params: { locale } }: { params: { lo
                       c/o Amjad<br />
                       80997 Munich<br />
                       Germany<br />
-                      Email: info@ravianmatrixsystems.de
+                      Email: info@ravian-matrix.de
                     </div>
                   </div>
 
@@ -563,7 +563,7 @@ export default function PrivacyPolicyPage({ params: { locale } }: { params: { lo
                       Under the GDPR, you have rights regarding your personal data. These may include access, rectification, erasure, restriction, portability, or objection.
                     </p>
                     <p>
-                      To exercise your rights, contact us at: <strong>info@ravianmatrixsystems.de</strong>
+                      To exercise your rights, contact us at: <strong>info@ravian-matrix.de</strong>
                     </p>
                   </div>
 

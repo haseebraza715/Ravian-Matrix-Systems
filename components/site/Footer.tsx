@@ -138,9 +138,9 @@ export default function Footer({ locale }: { locale: string }) {
                 </span>
               </li>
               <li>
-                <a href="mailto:info@ravianmatrixsystems.de" className="hover:text-gold transition-colors flex items-start gap-2.5">
+                <a href="mailto:info@ravian-matrix.de" className="hover:text-gold transition-colors flex items-start gap-2.5">
                   <span className="terminal-label !text-gold/90 mt-0.5">{t("footer.emailLabel")}</span>
-                  <span className="text-primary font-medium hover:underline">info@ravianmatrixsystems.de</span>
+                  <span className="text-primary font-medium hover:underline">info@ravian-matrix.de</span>
                 </a>
               </li>
               <li className="flex items-start gap-2.5">

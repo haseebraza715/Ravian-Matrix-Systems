@@ -250,19 +250,19 @@ export const de: Translations = {
         name: "Arslan Saleem",
         role: "Gründer & Technischer Leiter",
         initials: "AS",
-        description: "Arslan ist der Gründer von Ravian Matrix Systems und verantwortet die technische Ausrichtung des Unternehmens in den Bereichen IT, Web, Software und Geodatenprojekte. Er verfügt über einen Masterabschluss in Land Management und Geospatial Science von der Technischen Universität München. Seine berufliche Erfahrung umfasst GIS-Arbeiten im Luftfahrtumfeld, aeronautische Datenverarbeitung, räumliche Datenprozesse, datenbankgestützte Workflows sowie Forschungsunterstützung bei der Umsetzung von 3D-statistischen Modellen. Bei Ravian Matrix Systems konzentriert er sich auf Lösungsplanung, technische Koordination, Kundenanforderungen und die Umsetzung praxisnaher digitaler und geospatialer Lösungen."
+        description: "Mit einem Masterabschluss in Land Management and Geospatial Science von der Technischen Universität München bringt er mehr als 2,5 Jahre Erfahrung in den Bereichen Luftfahrt, GIS, Softwareentwicklung, Forschung und datengetriebene Systeme mit. Seine Arbeit bei Lufthansa Systems und dem Max-Planck-Institut für Psychiatrie hat einen stark analytischen Ansatz für technische Problemlösung, digitale Lösungen und Projektkoordination geprägt."
       },
       {
         name: "Manisha Kumari",
         role: "Kundenbeziehungen & Geschäftsentwicklung",
         initials: "MK",
-        description: "Manisha unterstützt bei Ravian Matrix Systems die Kundenbeziehungen und Geschäftsentwicklung mit Schwerpunkt auf professioneller Kommunikation, Kundenkoordination und der Bearbeitung von Projektanforderungen. Sie verfügt über einen Master of Business Administration der EU Business School München und bringt Erfahrung in kundenorientierten Abläufen, Service Management, Teamkoordination und Kundenkommunikation aus den Bereichen Einzelhandel, Hotellerie und Gesundheitswesen mit. Ihr zusätzlicher akademischer Hintergrund in Psychologie und Pflege stärkt ihren menschenorientierten Ansatz in Kommunikation und Problemlösung. Bei Ravian Matrix Systems unterstützt sie Kundenanfragen, Anforderungsabstimmungen, Terminorganisation und die reibungslose Kommunikation zwischen Kunden und Projektteam."
+        description: "Mit 10 Jahren Erfahrung in Einzelhandel, Hotellerie, Gesundheitswesen und kundenorientierten Tätigkeiten verbindet sie starke Kommunikationsfähigkeiten mit einem menschenorientierten Ansatz in Kundenbeziehungen und Geschäftsentwicklung. Sie verfügt über einen Master of Business Administration der EU Business School München, ergänzt durch einen akademischen Hintergrund in Psychologie und Pflege."
       },
       {
         name: "Haseeb Raza",
         role: "Leitung Web- & KI-Systeme",
         initials: "HR",
-        description: "Haseeb entwickelt Web-Plattformen und KI-Systeme bei Ravian Matrix Systems und liefert intelligente Anwendungen sowie skalierbare digitale Produkte von der Konzeption bis zum Deployment. Seine Arbeit umfasst Full-Stack-Entwicklung, angewandtes Machine Learning und die Integration von LLMs, wodurch komplexe Geschäftsanforderungen in saubere, funktionierende Software übersetzt werden. Er ist über den gesamten Stack hinweg sicher, von responsiven Oberflächen über agentische Workflows bis hin zur Backend-Infrastruktur, die alles zusammenhält. Bei Ravian Matrix Systems verantwortet er die technische Ebene zwischen Produktvision und Produktion und gestaltet Systeme, die skalierbar, wartbar und praktisch wirksam sind."
+        description: "Er entwickelt moderne Web-Plattformen und KI-gestützte Systeme mit Fokus auf Performance, Benutzerfreundlichkeit und langfristige Wartbarkeit. Seine Arbeit umfasst Full-Stack-Entwicklung, Machine-Learning-Anwendungen und LLM-basierte Lösungen und übersetzt komplexe Ideen in Software, die praktisch, skalierbar und für den realen Einsatz bereit ist."
       },
       {
         name: "Qamar Raza",

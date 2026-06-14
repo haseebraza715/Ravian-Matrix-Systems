@@ -14,7 +14,7 @@
  *     hreflang alternates (en / de / x-default)
  *   - work pages carry metadata (title + canonical)
  *   - bridge pages carry `noindex, follow`, canonical, meta-refresh, JS redirect, fallback link
- *   - the old email `info@ravian-matrix.de` appears nowhere in the output
+ *   - the old email `info@ravianmatrixsystems.de` appears nowhere in the output
  *   - sitemap.xml lists every localized URL plus hreflang alternates (incl. x-default)
  */
 
@@ -24,7 +24,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, "out");
 const DOMAIN = "https://ravian-matrix.de";
-const OLD_EMAIL = "info@ravian-matrix.de";
+const OLD_EMAIL = "info@ravianmatrixsystems.de";
 
 const LOCALES = ["en", "de"];
 
